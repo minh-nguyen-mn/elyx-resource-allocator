@@ -1,0 +1,1590 @@
+[
+  {
+    "resource_id": "EQ-TREADMILL",
+    "resource_name": "Treadmill",
+    "weekly_availability": [
+      {
+        "day_of_week": 0,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 1,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 2,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 3,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 4,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 5,
+        "start_time": "07:00",
+        "end_time": "20:00"
+      },
+      {
+        "day_of_week": 6,
+        "start_time": "08:00",
+        "end_time": "18:00"
+      }
+    ],
+    "overrides": [
+      {
+        "date": "2026-06-18",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-20",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-16",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-13",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-02",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-28",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-01",
+        "available_slots": [
+          {
+            "start": "08:00",
+            "end": "10:00"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00"
+          }
+        ],
+        "is_blocked": false
+      }
+    ],
+    "resource_type": "equipment",
+    "location": "Cardio Zone"
+  },
+  {
+    "resource_id": "EQ-BIKE",
+    "resource_name": "Road Bike",
+    "weekly_availability": [
+      {
+        "day_of_week": 0,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 1,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 2,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 3,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 4,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 5,
+        "start_time": "07:00",
+        "end_time": "20:00"
+      },
+      {
+        "day_of_week": 6,
+        "start_time": "08:00",
+        "end_time": "18:00"
+      }
+    ],
+    "overrides": [
+      {
+        "date": "2026-09-10",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-08",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-30",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-23",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-03",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-02",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-13",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-18",
+        "available_slots": [
+          {
+            "start": "08:00",
+            "end": "10:00"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00"
+          }
+        ],
+        "is_blocked": false
+      },
+      {
+        "date": "2026-07-13",
+        "available_slots": [
+          {
+            "start": "08:00",
+            "end": "10:00"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00"
+          }
+        ],
+        "is_blocked": false
+      },
+      {
+        "date": "2026-07-15",
+        "available_slots": [
+          {
+            "start": "08:00",
+            "end": "10:00"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00"
+          }
+        ],
+        "is_blocked": false
+      }
+    ],
+    "resource_type": "equipment",
+    "location": "Bike Storage"
+  },
+  {
+    "resource_id": "EQ-ROWER",
+    "resource_name": "Rowing Machine",
+    "weekly_availability": [
+      {
+        "day_of_week": 0,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 1,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 2,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 3,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 4,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 5,
+        "start_time": "07:00",
+        "end_time": "20:00"
+      },
+      {
+        "day_of_week": 6,
+        "start_time": "08:00",
+        "end_time": "18:00"
+      }
+    ],
+    "overrides": [
+      {
+        "date": "2026-06-22",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-05",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-28",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-28",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-16",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-09",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-10",
+        "available_slots": [
+          {
+            "start": "08:00",
+            "end": "10:00"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00"
+          }
+        ],
+        "is_blocked": false
+      }
+    ],
+    "resource_type": "equipment",
+    "location": "Cardio Zone"
+  },
+  {
+    "resource_id": "EQ-DUMBBELL",
+    "resource_name": "Dumbbell Set (5-50lbs)",
+    "weekly_availability": [
+      {
+        "day_of_week": 0,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 1,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 2,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 3,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 4,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 5,
+        "start_time": "07:00",
+        "end_time": "20:00"
+      },
+      {
+        "day_of_week": 6,
+        "start_time": "08:00",
+        "end_time": "18:00"
+      }
+    ],
+    "overrides": [
+      {
+        "date": "2026-07-18",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-29",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-28",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-24",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-04",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-19",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-21",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-26",
+        "available_slots": [
+          {
+            "start": "08:00",
+            "end": "10:00"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00"
+          }
+        ],
+        "is_blocked": false
+      },
+      {
+        "date": "2026-07-06",
+        "available_slots": [
+          {
+            "start": "08:00",
+            "end": "10:00"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00"
+          }
+        ],
+        "is_blocked": false
+      }
+    ],
+    "resource_type": "equipment",
+    "location": "Free Weights Area"
+  },
+  {
+    "resource_id": "EQ-BARBELL",
+    "resource_name": "Olympic Barbell Set",
+    "weekly_availability": [
+      {
+        "day_of_week": 0,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 1,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 2,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 3,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 4,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 5,
+        "start_time": "07:00",
+        "end_time": "20:00"
+      },
+      {
+        "day_of_week": 6,
+        "start_time": "08:00",
+        "end_time": "18:00"
+      }
+    ],
+    "overrides": [
+      {
+        "date": "2026-08-27",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-09",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-17",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-20",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-13",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-09",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-15",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-20",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-22",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-10",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-08",
+        "available_slots": [],
+        "is_blocked": true
+      }
+    ],
+    "resource_type": "equipment",
+    "location": "Free Weights Area"
+  },
+  {
+    "resource_id": "EQ-YOGA_MAT",
+    "resource_name": "Yoga Mat",
+    "weekly_availability": [
+      {
+        "day_of_week": 0,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 1,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 2,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 3,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 4,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 5,
+        "start_time": "07:00",
+        "end_time": "20:00"
+      },
+      {
+        "day_of_week": 6,
+        "start_time": "08:00",
+        "end_time": "18:00"
+      }
+    ],
+    "overrides": [
+      {
+        "date": "2026-08-20",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-16",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-03",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-15",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-20",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-10",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-24",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-14",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-21",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-02",
+        "available_slots": [
+          {
+            "start": "08:00",
+            "end": "10:00"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00"
+          }
+        ],
+        "is_blocked": false
+      }
+    ],
+    "resource_type": "equipment",
+    "location": "Studio A"
+  },
+  {
+    "resource_id": "EQ-FOAM_ROLLER",
+    "resource_name": "Foam Roller",
+    "weekly_availability": [
+      {
+        "day_of_week": 0,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 1,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 2,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 3,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 4,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 5,
+        "start_time": "07:00",
+        "end_time": "20:00"
+      },
+      {
+        "day_of_week": 6,
+        "start_time": "08:00",
+        "end_time": "18:00"
+      }
+    ],
+    "overrides": [
+      {
+        "date": "2026-08-04",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-14",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-10",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-24",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-29",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-11",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-03",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-16",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-28",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-12",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-23",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-03",
+        "available_slots": [
+          {
+            "start": "08:00",
+            "end": "10:00"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00"
+          }
+        ],
+        "is_blocked": false
+      }
+    ],
+    "resource_type": "equipment",
+    "location": "Recovery Area"
+  },
+  {
+    "resource_id": "EQ-BANDS",
+    "resource_name": "Resistance Band Set",
+    "weekly_availability": [
+      {
+        "day_of_week": 0,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 1,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 2,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 3,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 4,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 5,
+        "start_time": "07:00",
+        "end_time": "20:00"
+      },
+      {
+        "day_of_week": 6,
+        "start_time": "08:00",
+        "end_time": "18:00"
+      }
+    ],
+    "overrides": [
+      {
+        "date": "2026-07-31",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-07",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-23",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-16",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-13",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-22",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-01",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-20",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-23",
+        "available_slots": [
+          {
+            "start": "08:00",
+            "end": "10:00"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00"
+          }
+        ],
+        "is_blocked": false
+      }
+    ],
+    "resource_type": "equipment",
+    "location": "Studio A"
+  },
+  {
+    "resource_id": "EQ-KETTLEBELL",
+    "resource_name": "Kettlebell Set (8-32kg)",
+    "weekly_availability": [
+      {
+        "day_of_week": 0,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 1,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 2,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 3,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 4,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 5,
+        "start_time": "07:00",
+        "end_time": "20:00"
+      },
+      {
+        "day_of_week": 6,
+        "start_time": "08:00",
+        "end_time": "18:00"
+      }
+    ],
+    "overrides": [
+      {
+        "date": "2026-09-09",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-19",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-27",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-20",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-07",
+        "available_slots": [],
+        "is_blocked": true
+      }
+    ],
+    "resource_type": "equipment",
+    "location": "Free Weights Area"
+  },
+  {
+    "resource_id": "EQ-JUMP_ROPE",
+    "resource_name": "Speed Jump Rope",
+    "weekly_availability": [
+      {
+        "day_of_week": 0,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 1,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 2,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 3,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 4,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 5,
+        "start_time": "07:00",
+        "end_time": "20:00"
+      },
+      {
+        "day_of_week": 6,
+        "start_time": "08:00",
+        "end_time": "18:00"
+      }
+    ],
+    "overrides": [
+      {
+        "date": "2026-07-25",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-14",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-13",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-02",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-03",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-27",
+        "available_slots": [
+          {
+            "start": "08:00",
+            "end": "10:00"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00"
+          }
+        ],
+        "is_blocked": false
+      },
+      {
+        "date": "2026-09-10",
+        "available_slots": [
+          {
+            "start": "08:00",
+            "end": "10:00"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00"
+          }
+        ],
+        "is_blocked": false
+      }
+    ],
+    "resource_type": "equipment",
+    "location": "Cardio Zone"
+  },
+  {
+    "resource_id": "EQ-SAUSA",
+    "resource_name": "Finnish Sauna",
+    "weekly_availability": [
+      {
+        "day_of_week": 0,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 1,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 2,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 3,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 4,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 5,
+        "start_time": "07:00",
+        "end_time": "20:00"
+      },
+      {
+        "day_of_week": 6,
+        "start_time": "08:00",
+        "end_time": "18:00"
+      }
+    ],
+    "overrides": [
+      {
+        "date": "2026-07-21",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-14",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-31",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-30",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-13",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-04",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-09",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-02",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-17",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-09",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-07",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-10",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-25",
+        "available_slots": [
+          {
+            "start": "08:00",
+            "end": "10:00"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00"
+          }
+        ],
+        "is_blocked": false
+      }
+    ],
+    "resource_type": "equipment",
+    "location": "Spa Area"
+  },
+  {
+    "resource_id": "EQ-RED_LIGHT",
+    "resource_name": "Red Light Therapy Panel",
+    "weekly_availability": [
+      {
+        "day_of_week": 0,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 1,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 2,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 3,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 4,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 5,
+        "start_time": "07:00",
+        "end_time": "20:00"
+      },
+      {
+        "day_of_week": 6,
+        "start_time": "08:00",
+        "end_time": "18:00"
+      }
+    ],
+    "overrides": [
+      {
+        "date": "2026-08-23",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-05",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-30",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-22",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-04",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-20",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-09",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-30",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-12",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-26",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-04",
+        "available_slots": [
+          {
+            "start": "08:00",
+            "end": "10:00"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00"
+          }
+        ],
+        "is_blocked": false
+      },
+      {
+        "date": "2026-07-13",
+        "available_slots": [
+          {
+            "start": "08:00",
+            "end": "10:00"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00"
+          }
+        ],
+        "is_blocked": false
+      }
+    ],
+    "resource_type": "equipment",
+    "location": "Recovery Area"
+  },
+  {
+    "resource_id": "EQ-COMPRESSION",
+    "resource_name": "Compression Recovery Boots",
+    "weekly_availability": [
+      {
+        "day_of_week": 0,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 1,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 2,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 3,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 4,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 5,
+        "start_time": "07:00",
+        "end_time": "20:00"
+      },
+      {
+        "day_of_week": 6,
+        "start_time": "08:00",
+        "end_time": "18:00"
+      }
+    ],
+    "overrides": [
+      {
+        "date": "2026-06-26",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-09",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-27",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-01",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-01",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-25",
+        "available_slots": [],
+        "is_blocked": true
+      }
+    ],
+    "resource_type": "equipment",
+    "location": "Recovery Area"
+  },
+  {
+    "resource_id": "EQ-ELLIPTICAL",
+    "resource_name": "Elliptical Trainer",
+    "weekly_availability": [
+      {
+        "day_of_week": 0,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 1,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 2,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 3,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 4,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 5,
+        "start_time": "07:00",
+        "end_time": "20:00"
+      },
+      {
+        "day_of_week": 6,
+        "start_time": "08:00",
+        "end_time": "18:00"
+      }
+    ],
+    "overrides": [
+      {
+        "date": "2026-08-09",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-17",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-12",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-24",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-25",
+        "available_slots": [],
+        "is_blocked": true
+      }
+    ],
+    "resource_type": "equipment",
+    "location": "Cardio Zone"
+  },
+  {
+    "resource_id": "EQ-BLENDER",
+    "resource_name": "High-Performance Blender",
+    "weekly_availability": [
+      {
+        "day_of_week": 0,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 1,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 2,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 3,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 4,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 5,
+        "start_time": "07:00",
+        "end_time": "20:00"
+      },
+      {
+        "day_of_week": 6,
+        "start_time": "08:00",
+        "end_time": "18:00"
+      }
+    ],
+    "overrides": [
+      {
+        "date": "2026-07-28",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-09",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-30",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-21",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-03",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-09-05",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-27",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-23",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-27",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-25",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-03",
+        "available_slots": [],
+        "is_blocked": true
+      }
+    ],
+    "resource_type": "equipment",
+    "location": "Kitchen"
+  },
+  {
+    "resource_id": "EQ-JUICER",
+    "resource_name": "Cold Press Juicer",
+    "weekly_availability": [
+      {
+        "day_of_week": 0,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 1,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 2,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 3,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 4,
+        "start_time": "06:00",
+        "end_time": "21:00"
+      },
+      {
+        "day_of_week": 5,
+        "start_time": "07:00",
+        "end_time": "20:00"
+      },
+      {
+        "day_of_week": 6,
+        "start_time": "08:00",
+        "end_time": "18:00"
+      }
+    ],
+    "overrides": [
+      {
+        "date": "2026-07-19",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-11",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-19",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-03",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-08-09",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-06-26",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-13",
+        "available_slots": [],
+        "is_blocked": true
+      },
+      {
+        "date": "2026-07-09",
+        "available_slots": [
+          {
+            "start": "08:00",
+            "end": "10:00"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00"
+          }
+        ],
+        "is_blocked": false
+      },
+      {
+        "date": "2026-07-31",
+        "available_slots": [
+          {
+            "start": "08:00",
+            "end": "10:00"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00"
+          }
+        ],
+        "is_blocked": false
+      }
+    ],
+    "resource_type": "equipment",
+    "location": "Kitchen"
+  }
+]

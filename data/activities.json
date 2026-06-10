@@ -1,0 +1,3090 @@
+[
+  {
+    "id": "ACT-001",
+    "name": "Morning Jog",
+    "type": "fitness",
+    "priority": 5,
+    "frequency_times": 3,
+    "frequency_period": "week",
+    "duration_minutes": 45,
+    "details": "Maintain HR between 130-145 bpm. Route through Riverside Park.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Riverside Park",
+    "remote_possible": true,
+    "prep": [
+      "Lay out running clothes",
+      "Fill water bottle",
+      "Check weather"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Replace with 30min brisk walk",
+    "metrics": [
+      "Heart Rate",
+      "Distance (km)",
+      "Pace (min/km)",
+      "Calories"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-002",
+    "name": "Strength Training - Upper Body",
+    "type": "fitness",
+    "priority": 8,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 50,
+    "details": "Push/Pull split: bench press 4x8, rows 4x8, overhead press 3x10, pull-ups 3xAMRAP",
+    "facilitator": "Personal Trainer (bi-weekly)",
+    "facilitator_type": null,
+    "location": "Elite Fitness Gym",
+    "remote_possible": false,
+    "prep": [
+      "Pack gym bag",
+      "Prepare pre-workout shake"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Substitute with resistance band workout at home",
+    "metrics": [
+      "Weight (kg)",
+      "Reps",
+      "Sets",
+      "Rest time"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [
+      "EQ-DUMBBELL",
+      "EQ-BARBELL"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-003",
+    "name": "Strength Training - Lower Body",
+    "type": "fitness",
+    "priority": 8,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 50,
+    "details": "Squat 4x8, Deadlift 4x6, Leg press 3x12, Calf raises 3x15",
+    "facilitator": "Personal Trainer (bi-weekly)",
+    "facilitator_type": null,
+    "location": "Elite Fitness Gym",
+    "remote_possible": false,
+    "prep": [
+      "Pack gym bag",
+      "Prepare pre-workout shake"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Substitute with bodyweight squats and lunges",
+    "metrics": [
+      "Weight (kg)",
+      "Reps",
+      "Sets"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [
+      "EQ-BARBELL",
+      "EQ-DUMBBELL"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-004",
+    "name": "Yoga Flow",
+    "type": "fitness",
+    "priority": 12,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 45,
+    "details": "Vinyasa flow focusing on hip mobility and spinal health",
+    "facilitator": "Self (video)",
+    "facilitator_type": null,
+    "location": "Home Studio",
+    "remote_possible": true,
+    "prep": [
+      "Roll out yoga mat",
+      "Prepare water",
+      "Dim lights"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "15-min stretching routine",
+    "metrics": [
+      "Session duration",
+      "Heart rate variability"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [
+      "EQ-YOGA_MAT"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-005",
+    "name": "Swimming Laps",
+    "type": "fitness",
+    "priority": 18,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 45,
+    "details": "20 laps freestyle, 10 laps backstroke, cool-down. Maintain steady pace.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Community Aquatic Center",
+    "remote_possible": false,
+    "prep": [
+      "Pack swim gear",
+      "Towel",
+      "Goggles",
+      "Swim cap"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Replace with 30-min stationary bike",
+    "metrics": [
+      "Laps",
+      "Time",
+      "Stroke count"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-006",
+    "name": "Outdoor Cycling",
+    "type": "fitness",
+    "priority": 15,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 60,
+    "details": "30km route through countryside. Maintain cadence 80-90 RPM.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Countryside Bike Trail",
+    "remote_possible": false,
+    "prep": [
+      "Check tire pressure",
+      "Fill water bottles",
+      "Charge bike computer"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Replace with 45-min stationary bike",
+    "metrics": [
+      "Distance",
+      "Average speed",
+      "Elevation gain",
+      "Heart rate"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [
+      "EQ-BIKE"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-007",
+    "name": "HIIT Circuit",
+    "type": "fitness",
+    "priority": 14,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 30,
+    "details": "45s work / 15s rest. 8 rounds: burpees, mountain climbers, jump squats, push-ups",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Elite Fitness Gym",
+    "remote_possible": false,
+    "prep": [
+      "Fill water bottle",
+      "Set up circuit stations"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Replace with 20-min jump rope session",
+    "metrics": [
+      "Heart rate max",
+      "Recovery HR (1min)",
+      "Rounds completed"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [
+      "EQ-JUMP_ROPE"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-008",
+    "name": "Pilates Reformer",
+    "type": "fitness",
+    "priority": 20,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 50,
+    "details": "Full body reformer session focusing on core strength and posture",
+    "facilitator": "Maria Garcia",
+    "facilitator_type": null,
+    "location": "Pilates Body Studio",
+    "remote_possible": false,
+    "prep": [
+      "Wear grip socks",
+      "Arrive 10min early"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Replace with mat Pilates at home",
+    "metrics": [
+      "Form quality",
+      "Core engagement"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-009",
+    "name": "Tai Chi Practice",
+    "type": "fitness",
+    "priority": 22,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 40,
+    "details": "Chen style 24-form. Focus on slow, controlled movements and breath work.",
+    "facilitator": "Self (guided video)",
+    "facilitator_type": null,
+    "location": "Botanical Gardens",
+    "remote_possible": true,
+    "prep": [
+      "Wear comfortable clothing",
+      "Choose quiet spot in garden"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "10-min mindful movement routine",
+    "metrics": [
+      "Form completion",
+      "Session calmness (1-10)"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-010",
+    "name": "Eye Exercise Routine",
+    "type": "fitness",
+    "priority": 3,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 10,
+    "details": "20-20-20 rule practice: every 20min look 20ft away for 20s. Plus palming and eye rolls.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Anywhere",
+    "remote_possible": true,
+    "prep": [
+      "Set phone timer reminders"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "None needed - can be done anytime",
+    "metrics": [
+      "Compliance (times completed)",
+      "Eye strain level (1-10)"
+    ],
+    "preferred_time_of_day": "any",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-011",
+    "name": "Morning Stretch Routine",
+    "type": "fitness",
+    "priority": 2,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 15,
+    "details": "Full body morning stretch: cat-cow, downward dog, hip circles, shoulder rolls",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "None needed"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "5-min quick stretch version",
+    "metrics": [
+      "Flexibility rating (1-10)",
+      "Consistency streak"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-012",
+    "name": "Dance Cardio",
+    "type": "fitness",
+    "priority": 24,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 45,
+    "details": "Zumba-inspired dance routine. Moderate to high intensity.",
+    "facilitator": "Instructor - Lisa Wong",
+    "facilitator_type": null,
+    "location": "Dance Fusion Studio",
+    "remote_possible": false,
+    "prep": [
+      "Dance shoes",
+      "Water bottle",
+      "Towel"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Replace with 30-min home dance session",
+    "metrics": [
+      "Calories burned",
+      "Heart rate zones"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-013",
+    "name": "Weekend Trail Hike",
+    "type": "fitness",
+    "priority": 16,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 90,
+    "details": "8-10km trail with 300m elevation gain. Vary trails weekly.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Regional Nature Reserve",
+    "remote_possible": false,
+    "prep": [
+      "Pack hiking boots",
+      "Trail snacks",
+      "Water 2L",
+      "Navigation app"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Replace with 60-min power walk",
+    "metrics": [
+      "Distance",
+      "Elevation gain",
+      "Time",
+      "Heart rate"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-014",
+    "name": "Rowing Machine Intervals",
+    "type": "fitness",
+    "priority": 19,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 30,
+    "details": "500m sprint / 2min easy row. 6 rounds. Maintain 28-32 SPM on sprints.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Elite Fitness Gym",
+    "remote_possible": false,
+    "prep": [
+      "Fill water bottle",
+      "Set rower damper to 5"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Replace with 20-min battle ropes",
+    "metrics": [
+      "Split time (500m)",
+      "SPM",
+      "Heart rate",
+      "Distance"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [
+      "EQ-ROWER"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-015",
+    "name": "Posture Correction Exercises",
+    "type": "fitness",
+    "priority": 6,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 15,
+    "details": "Chin tucks, wall angels, doorway stretches, thoracic extensions. 3 sets of 10.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Find a wall",
+      "Set timer"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "5-min mini session on busy days",
+    "metrics": [
+      "Posture score (1-10)",
+      "Pain level (1-10)"
+    ],
+    "preferred_time_of_day": "any",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-016",
+    "name": "Balance Training",
+    "type": "fitness",
+    "priority": 21,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 20,
+    "details": "Single leg stands, bosu ball exercises, stability trainer work, heel-to-toe walk",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Clear open space",
+      "Have chair nearby for support"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "5-min balance mini session",
+    "metrics": [
+      "Balance hold time",
+      "Stability rating (1-10)"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [
+      "EQ-YOGA_MAT"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-017",
+    "name": "Resistance Band Full Body",
+    "type": "fitness",
+    "priority": 17,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 30,
+    "details": "Band squats, band rows, band press, band pulls, band rotations. 3x15 each.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Set up bands with appropriate resistance"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Replace with bodyweight circuit",
+    "metrics": [
+      "Sets completed",
+      "Perceived exertion (1-10)"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [
+      "EQ-BANDS"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-018",
+    "name": "Kettlebell Complex",
+    "type": "fitness",
+    "priority": 20,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 30,
+    "details": "KB swings 3x20, goblet squats 3x12, clean-and-press 3x8, Turkish get-ups 3x3",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Elite Fitness Gym",
+    "remote_possible": false,
+    "prep": [
+      "Select appropriate kettlebell weights"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Replace with dumbbell circuit",
+    "metrics": [
+      "Weight used",
+      "Reps completed",
+      "Form quality"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [
+      "EQ-KETTLEBELL"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-019",
+    "name": "Bodyweight Circuit",
+    "type": "fitness",
+    "priority": 23,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 25,
+    "details": "Push-ups, squats, lunges, planks, burpees, glute bridges. 45/15 intervals.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Exercise mat",
+      "Timer app"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "10-min express circuit",
+    "metrics": [
+      "Rounds completed",
+      "Heart rate"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [
+      "EQ-YOGA_MAT"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-020",
+    "name": "Sprint Interval Training",
+    "type": "fitness",
+    "priority": 25,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 20,
+    "details": "100m sprints x 8 with 90s walking recovery. Full effort on sprints.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "High School Track",
+    "remote_possible": false,
+    "prep": [
+      "Sprint shoes",
+      "Dynamic warm-up 10min",
+      "Water"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Replace with stair sprints",
+    "metrics": [
+      "Sprint times",
+      "Heart rate recovery",
+      "Number of sprints"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-021",
+    "name": "Recovery Walk",
+    "type": "fitness",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 20,
+    "details": "Easy pace walk. Focus on deep breathing and posture. No headphones.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Neighborhood",
+    "remote_possible": true,
+    "prep": [
+      "Comfortable walking shoes"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Can be shortened to 10min if time constrained",
+    "metrics": [
+      "Steps",
+      "Duration",
+      "Mindfulness rating (1-10)"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-022",
+    "name": "Foam Rolling Recovery",
+    "type": "fitness",
+    "priority": 4,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 15,
+    "details": "Full body myofascial release: calves, quads, hamstrings, glutes, back, lats",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Foam roller",
+      "Massage ball"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "5-min targeted rolling on tight areas",
+    "metrics": [
+      "Tightness score (1-10) before/after",
+      "Areas rolled"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [
+      "EQ-FOAM_ROLLER"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-023",
+    "name": "Tennis Practice",
+    "type": "fitness",
+    "priority": 26,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 60,
+    "details": "Rally practice + serve practice. Focus on consistency and footwork.",
+    "facilitator": "Coach - David Kim",
+    "facilitator_type": null,
+    "location": "City Tennis Club",
+    "remote_possible": false,
+    "prep": [
+      "Tennis racket",
+      "Tennis balls",
+      "Proper shoes",
+      "Water"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Cancel or replace with wall practice",
+    "metrics": [
+      "Rally length",
+      "First serve percentage",
+      "Movement rating"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-024",
+    "name": "Golf Practice",
+    "type": "fitness",
+    "priority": 30,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 90,
+    "details": "30min driving range, 30min short game, 30min putting",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Green Valley Golf Club",
+    "remote_possible": false,
+    "prep": [
+      "Golf clubs",
+      "Golf balls",
+      "Glove",
+      "Sunscreen"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Replace with 30-min putting practice",
+    "metrics": [
+      "Fairway hits",
+      "Putts per round",
+      "GIR"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-025",
+    "name": "Boxing Training",
+    "type": "fitness",
+    "priority": 28,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 45,
+    "details": "Shadow boxing 3rds, heavy bag 3rds, pad work 3rds, conditioning 3rds",
+    "facilitator": "Coach James Johnson",
+    "facilitator_type": null,
+    "location": "Titan Boxing Gym",
+    "remote_possible": false,
+    "prep": [
+      "Hand wraps",
+      "Boxing gloves",
+      "Mouth guard",
+      "Jump rope"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Shadow boxing session at home",
+    "metrics": [
+      "Punch count",
+      "Heart rate zones",
+      "Technique rating"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-026",
+    "name": "Elliptical Cardio",
+    "type": "fitness",
+    "priority": 24,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 40,
+    "details": "Interval program: 5min warmup, 30min intervals, 5min cooldown",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Elite Fitness Gym",
+    "remote_possible": false,
+    "prep": [
+      "Water bottle",
+      "Podcast or audiobook"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Replace with 30-min outdoor walk",
+    "metrics": [
+      "Distance",
+      "Calories",
+      "Heart rate",
+      "Resistance level"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [
+      "EQ-ELLIPTICAL"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-027",
+    "name": "Jump Rope Cardio",
+    "type": "fitness",
+    "priority": 27,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 15,
+    "details": "3min rounds / 30s rest. 4 rounds. Double unders practice. Various footwork patterns.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home Gym",
+    "remote_possible": true,
+    "prep": [
+      "Adjust jump rope length",
+      "Floor mat"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Replace with 10-min high knees",
+    "metrics": [
+      "Skips",
+      "Double unders",
+      "Heart rate"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [
+      "EQ-JUMP_ROPE",
+      "EQ-YOGA_MAT"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-028",
+    "name": "Rock Climbing Session",
+    "type": "fitness",
+    "priority": 31,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 60,
+    "details": "Bouldering focus: V3-V5 routes. Work on technique and problem-solving.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "The Climbing Wall",
+    "remote_possible": false,
+    "prep": [
+      "Climbing shoes",
+      "Chalk bag",
+      "Arrive early for warmup"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Replace with 30-min hangboard at home",
+    "metrics": [
+      "Routes completed",
+      "Grade achieved",
+      "Attempts per route"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-029",
+    "name": "Aqua Aerobics",
+    "type": "fitness",
+    "priority": 32,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 45,
+    "details": "Low impact water workout. Great for recovery and joint mobility.",
+    "facilitator": "Instructor - Karen Mills",
+    "facilitator_type": null,
+    "location": "Community Aquatic Center",
+    "remote_possible": false,
+    "prep": [
+      "Swimsuit",
+      "Water shoes",
+      "Towel"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Replace with 30-min pool walk",
+    "metrics": [
+      "Heart rate",
+      "Perceived exertion"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-030",
+    "name": "Nordic Walking",
+    "type": "fitness",
+    "priority": 28,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 50,
+    "details": "Full body walking with poles. 5km route with varied terrain.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Forest Preserve Trails",
+    "remote_possible": false,
+    "prep": [
+      "Nordic walking poles",
+      "Hiking shoes",
+      "Water"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Regular walking without poles",
+    "metrics": [
+      "Distance",
+      "Pace",
+      "Heart rate",
+      "Arm drive quality"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-031",
+    "name": "Core Strengthening",
+    "type": "fitness",
+    "priority": 19,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 20,
+    "details": "Planks 3x60s, side planks 3x45s, dead bugs 3x12, bird dogs 3x12, hollow holds 3x30s",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Exercise mat"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "8-min ab express workout",
+    "metrics": [
+      "Hold times",
+      "Form quality",
+      "Core engagement"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [
+      "EQ-YOGA_MAT"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-032",
+    "name": "Hip Mobility Routine",
+    "type": "fitness",
+    "priority": 7,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 10,
+    "details": "Hip circles, frog pose, lizard pose, pigeon pose, 90-90 stretches",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Yoga mat or carpeted area"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "5-min hip opener on busy days",
+    "metrics": [
+      "Hip flexibility (1-10)",
+      "Pain/discomfort level"
+    ],
+    "preferred_time_of_day": "any",
+    "requires_equipment": [
+      "EQ-YOGA_MAT"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-033",
+    "name": "Shoulder Mobility Exercises",
+    "type": "fitness",
+    "priority": 8,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 10,
+    "details": "Band pull-aparts, dislocates, wall slides, external rotations, Y-T-W-L raises",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Resistance band",
+      "Clear wall space"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "5-min shoulder circuit",
+    "metrics": [
+      "Shoulder mobility (1-10)",
+      "Pain level (1-10)"
+    ],
+    "preferred_time_of_day": "any",
+    "requires_equipment": [
+      "EQ-BANDS"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-034",
+    "name": "Neck Stretches",
+    "type": "fitness",
+    "priority": 9,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 5,
+    "details": "Neck tilts, chin tucks, neck rotations, shoulder shrugs, levator scapulae stretch",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Anywhere",
+    "remote_possible": true,
+    "prep": [
+      "None needed"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "2-min mini session",
+    "metrics": [
+      "Neck tension (1-10)",
+      "Range of motion"
+    ],
+    "preferred_time_of_day": "any",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-035",
+    "name": "Breakfast Preparation",
+    "type": "food",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 20,
+    "details": "Prepare balanced breakfast with protein, complex carbs, and healthy fats",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home Kitchen",
+    "remote_possible": false,
+    "prep": [
+      "Grocery shopping completed",
+      "Meal prep containers ready"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Quick smoothie if running late",
+    "metrics": [
+      "Meal quality (1-10)",
+      "Time spent",
+      "Macro balance"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [
+      "EQ-BLENDER"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-036",
+    "name": "Lunch Preparation",
+    "type": "food",
+    "priority": 2,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 15,
+    "details": "Prepare or assemble healthy lunch. Focus on vegetables and lean protein.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home Kitchen",
+    "remote_possible": false,
+    "prep": [
+      "Meal prep vegetables on Sunday"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Pre-prepped salad from fridge",
+    "metrics": [
+      "Vegetable servings",
+      "Protein quality"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-037",
+    "name": "Dinner Preparation",
+    "type": "food",
+    "priority": 3,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 30,
+    "details": "Cook dinner from scratch. Include 3+ vegetable varieties. Mindful cooking practice.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home Kitchen",
+    "remote_possible": false,
+    "prep": [
+      "Review recipe",
+      "Prep ingredients",
+      "Clean as you go"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Prep meal from freezer",
+    "metrics": [
+      "Cooking quality (1-10)",
+      "Nutritional balance",
+      "Prep efficiency"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [
+      "EQ-BLENDER"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-038",
+    "name": "Morning Smoothie Prep",
+    "type": "food",
+    "priority": 4,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 10,
+    "details": "Green smoothie: spinach, banana, protein powder, almond milk, flax seeds, berries",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home Kitchen",
+    "remote_possible": false,
+    "prep": [
+      "Pre-portion smoothie packs weekly"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Pre-made smoothie pack in freezer",
+    "metrics": [
+      "Ingredients used",
+      "Nutritional density"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [
+      "EQ-BLENDER"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-039",
+    "name": "Meal Prep Sunday",
+    "type": "food",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 120,
+    "details": "Prepare meals for the week: cook grains, roast vegetables, portion proteins, make sauces",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home Kitchen",
+    "remote_possible": false,
+    "prep": [
+      "Weekly menu plan",
+      "Grocery list",
+      "Container inventory"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Order meal prep delivery service",
+    "metrics": [
+      "Meals prepped",
+      "Time spent",
+      "Cost per meal"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [
+      "EQ-BLENDER"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-040",
+    "name": "Grocery Shopping",
+    "type": "food",
+    "priority": 6,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 60,
+    "details": "Weekly grocery run. Shop perimeter first (produce, meat, dairy). Check pantry before going.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Whole Foods Market",
+    "remote_possible": false,
+    "prep": [
+      "Inventory pantry",
+      "Write list by aisle",
+      "Bring reusable bags"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Delivery order instead",
+    "metrics": [
+      "Budget adherence",
+      "Whole foods percentage",
+      "Time spent"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-041",
+    "name": "Farmers Market Visit",
+    "type": "food",
+    "priority": 8,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 45,
+    "details": "Weekly visit for seasonal produce. Talk to farmers about growing practices.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Downtown Farmers Market",
+    "remote_possible": false,
+    "prep": [
+      "Reusable produce bags",
+      "Cash",
+      "Shopping list"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Order from local CSA box",
+    "metrics": [
+      "Local food percentage",
+      "Seasonal variety",
+      "Money spent locally"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-042",
+    "name": "Fermented Food Preparation",
+    "type": "food",
+    "priority": 14,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 30,
+    "details": "Make sauerkraut or kimchi. Focus on probiotic-rich fermentation.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home Kitchen",
+    "remote_possible": false,
+    "prep": [
+      "Sterilize jars",
+      "Buy fresh cabbage and seasonings"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Buy fermented foods from store",
+    "metrics": [
+      "Batch size",
+      "Fermentation quality",
+      "Probiotic content"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-043",
+    "name": "Fresh Juice Preparation",
+    "type": "food",
+    "priority": 5,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 10,
+    "details": "Fresh vegetable juice: celery, cucumber, ginger, lemon, apple",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home Kitchen",
+    "remote_possible": false,
+    "prep": [
+      "Wash produce",
+      "Set up juicer"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Store-bought cold-pressed juice",
+    "metrics": [
+      "Vegetable servings",
+      "Juice quality"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [
+      "EQ-JUICER"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-044",
+    "name": "Herbal Tea Time",
+    "type": "food",
+    "priority": 3,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 5,
+    "details": "Prepare and enjoy herbal tea. Rotate between chamomile, peppermint, ginger, rooibos.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": false,
+    "prep": [
+      "Select tea variety",
+      "Boil water"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Skip or have cold brew tea",
+    "metrics": [
+      "Tea variety",
+      "Mindfulness during tea (1-10)"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-045",
+    "name": "Post-Workout Protein Shake",
+    "type": "food",
+    "priority": 1,
+    "frequency_times": 6,
+    "frequency_period": "week",
+    "duration_minutes": 5,
+    "details": "Within 30min of workout: protein powder, banana, almond milk, creatine",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home Kitchen",
+    "remote_possible": false,
+    "prep": [
+      "Pre-measure protein powder in container"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Ready-to-drink protein shake",
+    "metrics": [
+      "Timing (how soon after workout)",
+      "Protein amount"
+    ],
+    "preferred_time_of_day": "any",
+    "requires_equipment": [
+      "EQ-BLENDER"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-046",
+    "name": "Healthy Snack Prep",
+    "type": "food",
+    "priority": 9,
+    "frequency_times": 3,
+    "frequency_period": "week",
+    "duration_minutes": 15,
+    "details": "Portion nuts, cut vegetables, make energy balls, prepare hummus portions",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home Kitchen",
+    "remote_possible": false,
+    "prep": [
+      "Check snack inventory"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Buy pre-portioned healthy snacks",
+    "metrics": [
+      "Snack variety",
+      "Portion control"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-047",
+    "name": "Bone Broth Preparation",
+    "type": "food",
+    "priority": 16,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 30,
+    "details": "Simmer beef/chicken bones with vegetables and herbs for 24+ hours",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home Kitchen",
+    "remote_possible": false,
+    "prep": [
+      "Buy bones from butcher",
+      "Stock vegetables"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Buy organic bone broth",
+    "metrics": [
+      "Collagen content",
+      "Simmering time"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-048",
+    "name": "Seed Sprouting",
+    "type": "food",
+    "priority": 17,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 10,
+    "details": "Rinse and drain sprouting seeds. Alfalfa, broccoli, mung bean rotation.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home Kitchen",
+    "remote_possible": false,
+    "prep": [
+      "Sprouting jar with mesh lid",
+      "Organic sprouting seeds"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Buy sprouted seeds",
+    "metrics": [
+      "Sprout quality",
+      "Days to harvest"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-049",
+    "name": "Hydration Check",
+    "type": "food",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 2,
+    "details": "Track water intake. Goal: 2.5L per day. Refill 500ml bottle 5x daily.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Anywhere",
+    "remote_possible": true,
+    "prep": [
+      "Fill water bottle morning",
+      "Set hydration reminders"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Drink when remembered",
+    "metrics": [
+      "Total water intake (L)",
+      "Bottle refills",
+      "Urine color"
+    ],
+    "preferred_time_of_day": "any",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-050",
+    "name": "Mindful Eating Practice",
+    "type": "food",
+    "priority": 2,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 20,
+    "details": "Eat one meal per day without screens. Chew 20x per bite. Pause between bites.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Set phone aside",
+      "Set table properly"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Practice during snack time",
+    "metrics": [
+      "Meal duration",
+      "Chews per bite",
+      "Satiety awareness (1-10)"
+    ],
+    "preferred_time_of_day": "any",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-051",
+    "name": "Food Journaling",
+    "type": "food",
+    "priority": 5,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 10,
+    "details": "Log meals, energy levels, mood, and digestive response in food tracking app",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Keep phone or journal handy"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Quick photo log instead",
+    "metrics": [
+      "Days logged",
+      "Food variety score",
+      "Energy-mood correlation"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-052",
+    "name": "Supplement Organization",
+    "type": "food",
+    "priority": 7,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 10,
+    "details": "Fill weekly pill organizer. Check expiration dates. Order refills if needed.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": false,
+    "prep": [
+      "Check supplement inventory"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Use daily pouches from delivery service",
+    "metrics": [
+      "Days organized",
+      "Refills needed"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-053",
+    "name": "New Recipe Exploration",
+    "type": "food",
+    "priority": 18,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 45,
+    "details": "Try one new healthy recipe each week. Focus on global cuisines and new ingredients.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home Kitchen",
+    "remote_possible": false,
+    "prep": [
+      "Select recipe",
+      "Ensure ingredients available"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Variation on existing recipe",
+    "metrics": [
+      "Recipe success (1-10)",
+      "New ingredients tried",
+      "Family rating"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [
+      "EQ-BLENDER"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-054",
+    "name": "Organic Food Delivery Pickup",
+    "type": "food",
+    "priority": 10,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 15,
+    "details": "Pick up organic produce box from delivery point. Inspect quality and store properly.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Neighborhood Drop-off Point",
+    "remote_possible": false,
+    "prep": [
+      "Bring reusable bags",
+      "Check delivery notification"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Reschedule delivery",
+    "metrics": [
+      "Produce quality",
+      "Seasonal items"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-055",
+    "name": "Take Vitamin D (5000 IU)",
+    "type": "medication",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 2,
+    "details": "Supports immune function, bone health, mood regulation.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Have supplements organized in daily container"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Skip dose if missed (do not double up)",
+    "metrics": [
+      "Dose taken",
+      "Time taken",
+      "Side effects (if any)"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-056",
+    "name": "Take Omega-3 (EPA/DHA 2000mg)",
+    "type": "medication",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 2,
+    "details": "Essential fatty acids. Supports brain, heart, joint health.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Have supplements organized in daily container"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Skip dose if missed (do not double up)",
+    "metrics": [
+      "Dose taken",
+      "Time taken",
+      "Side effects (if any)"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-057",
+    "name": "Take Probiotic (50B CFU)",
+    "type": "medication",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 2,
+    "details": "Multi-strain probiotic for gut health and digestion.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Have supplements organized in daily container"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Skip dose if missed (do not double up)",
+    "metrics": [
+      "Dose taken",
+      "Time taken",
+      "Side effects (if any)"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-058",
+    "name": "Take Magnesium Glycinate (400mg)",
+    "type": "medication",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 2,
+    "details": "Promotes relaxation, muscle recovery, sleep quality.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Have supplements organized in daily container"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Skip dose if missed (do not double up)",
+    "metrics": [
+      "Dose taken",
+      "Time taken",
+      "Side effects (if any)"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-059",
+    "name": "Take B-Complex",
+    "type": "medication",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 2,
+    "details": "Energy metabolism, stress support, neurotransmitter production.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Have supplements organized in daily container"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Skip dose if missed (do not double up)",
+    "metrics": [
+      "Dose taken",
+      "Time taken",
+      "Side effects (if any)"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-060",
+    "name": "Take CoQ10 (200mg)",
+    "type": "medication",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 2,
+    "details": "Mitochondrial support, heart health, cellular energy production.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Have supplements organized in daily container"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Skip dose if missed (do not double up)",
+    "metrics": [
+      "Dose taken",
+      "Time taken",
+      "Side effects (if any)"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-061",
+    "name": "Take Collagen Peptides (10g)",
+    "type": "medication",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 2,
+    "details": "Skin elasticity, joint health, hair and nail strength.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Have supplements organized in daily container"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Skip dose if missed (do not double up)",
+    "metrics": [
+      "Dose taken",
+      "Time taken",
+      "Side effects (if any)"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-062",
+    "name": "Take Blood Pressure Medication",
+    "type": "medication",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 2,
+    "details": "Prescribed by Dr. Reynolds. Take with breakfast.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Have supplements organized in daily container"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Skip dose if missed (do not double up)",
+    "metrics": [
+      "Dose taken",
+      "Time taken",
+      "Side effects (if any)"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-063",
+    "name": "Apply Topical Retinoid (0.05%)",
+    "type": "medication",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 5,
+    "details": "Evening skincare. Anti-aging, cell turnover. Use pea-sized amount.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Have supplements organized in daily container"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Skip dose if missed (do not double up)",
+    "metrics": [
+      "Dose taken",
+      "Time taken",
+      "Side effects (if any)"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-064",
+    "name": "Apply Mineral Sunscreen SPF50",
+    "type": "medication",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 5,
+    "details": "Daily sun protection. Apply to face, neck, hands. Reapply if outdoors.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Have supplements organized in daily container"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Skip dose if missed (do not double up)",
+    "metrics": [
+      "Dose taken",
+      "Time taken",
+      "Side effects (if any)"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-065",
+    "name": "Apply CBD Recovery Cream",
+    "type": "medication",
+    "priority": 1,
+    "frequency_times": 2,
+    "frequency_period": "day",
+    "duration_minutes": 5,
+    "details": "Post-workout recovery. Apply to sore muscles and joints.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Have supplements organized in daily container"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Skip dose if missed (do not double up)",
+    "metrics": [
+      "Dose taken",
+      "Time taken",
+      "Side effects (if any)"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-066",
+    "name": "Take Allergy Medication (Cetirizine)",
+    "type": "medication",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 2,
+    "details": "Seasonal allergy management. Non-drowsy formula.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Have supplements organized in daily container"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Skip dose if missed (do not double up)",
+    "metrics": [
+      "Dose taken",
+      "Time taken",
+      "Side effects (if any)"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-067",
+    "name": "Take Ashwagandha (600mg)",
+    "type": "medication",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 2,
+    "details": "Adaptogenic herb for stress management and cortisol balance.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Have supplements organized in daily container"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Skip dose if missed (do not double up)",
+    "metrics": [
+      "Dose taken",
+      "Time taken",
+      "Side effects (if any)"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-068",
+    "name": "Take Melatonin (3mg as needed)",
+    "type": "medication",
+    "priority": 15,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 2,
+    "details": "Sleep support. Use only when having difficulty falling asleep.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Have supplements organized in daily container"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Skip dose if missed (do not double up)",
+    "metrics": [
+      "Dose taken",
+      "Time taken",
+      "Side effects (if any)"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-069",
+    "name": "Medication Inventory Check",
+    "type": "medication",
+    "priority": 30,
+    "frequency_times": 1,
+    "frequency_period": "month",
+    "duration_minutes": 10,
+    "details": "Monthly review of all medications. Check expiry, order refills.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Skip dose if missed (do not double up)",
+    "metrics": [
+      "Dose taken",
+      "Time taken",
+      "Side effects (if any)"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-070",
+    "name": "Sauna Session",
+    "type": "therapy",
+    "priority": 10,
+    "frequency_times": 3,
+    "frequency_period": "week",
+    "duration_minutes": 30,
+    "details": "15-20min at 80\u00b0C. Hydrate before and after. Follow with cool shower.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Elite Fitness Gym Spa",
+    "remote_possible": false,
+    "prep": [
+      "Bring sauna towel",
+      "Fill water bottle 1L",
+      "Shower before"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Replace with warm bath at home",
+    "metrics": [
+      "Session duration",
+      "Sweat volume",
+      "Heart rate increase",
+      "Post-sauna relaxation (1-10)"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [
+      "EQ-SAUSA"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-071",
+    "name": "Ice Bath",
+    "type": "therapy",
+    "priority": 11,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 15,
+    "details": "10-12\u00b0C for 10-12min. Deep breathing throughout. Cold exposure benefits.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home Recovery Room",
+    "remote_possible": false,
+    "prep": [
+      "Fill with cold water",
+      "Add ice",
+      "Prepare warm robe nearby",
+      "Set timer"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Cold shower 3min at end of regular shower",
+    "metrics": [
+      "Duration",
+      "Water temperature",
+      "Shivering intensity (1-10)",
+      "Post-bath energy (1-10)"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-072",
+    "name": "Red Light Therapy",
+    "type": "therapy",
+    "priority": 12,
+    "frequency_times": 3,
+    "frequency_period": "week",
+    "duration_minutes": 20,
+    "details": "660nm + 850nm. 6-12 inches from panel. 10min front, 10min back.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home Recovery Room",
+    "remote_possible": false,
+    "prep": [
+      "Set up red light panel",
+      "Wear protective goggles"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Use handheld red light device for shorter session",
+    "metrics": [
+      "Session duration",
+      "Distance from panel",
+      "Notable effects"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [
+      "EQ-RED_LIGHT"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-073",
+    "name": "Compression Therapy",
+    "type": "therapy",
+    "priority": 14,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 30,
+    "details": "NormaTec leg recovery system. Recovery mode, medium pressure.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": false,
+    "prep": [
+      "Put on compression boots",
+      "Set device to recovery mode"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Legs-up-the-wall pose 15min",
+    "metrics": [
+      "Recovery feeling (1-10) before/after",
+      "Session program"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [
+      "EQ-COMPRESSION"
+    ],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-074",
+    "name": "Acupuncture Session",
+    "type": "therapy",
+    "priority": 13,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 45,
+    "details": "Full body session. Focus on stress reduction and energy flow (Qi).",
+    "facilitator": "Dr. Michael Brown",
+    "facilitator_type": null,
+    "location": "Wellness Point Acupuncture",
+    "remote_possible": false,
+    "prep": [
+      "Hydrate well",
+      "Avoid caffeine before session",
+      "Wear comfortable clothing"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Reschedule to next available slot",
+    "metrics": [
+      "Energy level (1-10) before/after",
+      "Stress level (1-10) before/after"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": "AH-ACUPUNCTURE"
+  },
+  {
+    "id": "ACT-075",
+    "name": "Sports Massage",
+    "type": "therapy",
+    "priority": 11,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 60,
+    "details": "Deep tissue sports massage. Focus on legs, back, and shoulders.",
+    "facilitator": "Lisa Anderson",
+    "facilitator_type": null,
+    "location": "Recovery Room Massage Studio",
+    "remote_possible": false,
+    "prep": [
+      "Hydrate throughout day",
+      "Arrive 10min early",
+      "Communicate problem areas"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Self-massage with foam roller at home",
+    "metrics": [
+      "Tightness level (1-10) before/after",
+      "Range of motion improvement"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": "AH-MASSAGE"
+  },
+  {
+    "id": "ACT-076",
+    "name": "Chiropractic Adjustment",
+    "type": "therapy",
+    "priority": 15,
+    "frequency_times": 1,
+    "frequency_period": "month",
+    "duration_minutes": 30,
+    "details": "Full spine adjustment. Focus on lower back and neck alignment.",
+    "facilitator": "Dr. Robert Taylor",
+    "facilitator_type": null,
+    "location": "Spinal Health Chiropractic",
+    "remote_possible": false,
+    "prep": [
+      "Fill out intake form",
+      "Wear comfortable clothing"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Corrective exercises at home",
+    "metrics": [
+      "Pain level (1-10) before/after",
+      "Range of motion improvement"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": "AH-CHIROPRACTOR"
+  },
+  {
+    "id": "ACT-077",
+    "name": "Float Tank Session",
+    "type": "therapy",
+    "priority": 20,
+    "frequency_times": 1,
+    "frequency_period": "month",
+    "duration_minutes": 60,
+    "details": "Sensory deprivation float. 10lbs Epsom salts. Focus on meditation and relaxation.",
+    "facilitator": "Self (monitored)",
+    "facilitator_type": null,
+    "location": "Float Haven Studio",
+    "remote_possible": false,
+    "prep": [
+      "Avoid caffeine",
+      "No shaving day of",
+      "Ear plugs provided"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Guided meditation 20min at home",
+    "metrics": [
+      "Relaxation depth (1-10)",
+      "Session insights"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-078",
+    "name": "Cold Plunge (Morning)",
+    "type": "therapy",
+    "priority": 12,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 10,
+    "details": "Quick cold exposure: 3-5min at 8-10\u00b0C. Wim Hof breathing before.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home Recovery Room",
+    "remote_possible": false,
+    "prep": [
+      "Set up cold plunge",
+      "Deep breathing preparation"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "End regular shower with 2min cold water",
+    "metrics": [
+      "Duration",
+      "Temperature",
+      "Breathing control rating"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-079",
+    "name": "Contrast Therapy",
+    "type": "therapy",
+    "priority": 16,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 20,
+    "details": "3min hot / 1min cold. Repeat 4x. End on cold. Hot: 38-40\u00b0C, Cold: 10-12\u00b0C.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Spa Center",
+    "remote_possible": false,
+    "prep": [
+      "Shower before",
+      "Hydrate",
+      "Bring change of clothes"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Hot-cold shower contrast at home",
+    "metrics": [
+      "Recovery feeling (1-10)",
+      "Temperature tolerance"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-080",
+    "name": "Infrared Sauna",
+    "type": "therapy",
+    "priority": 13,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 30,
+    "details": "Full spectrum infrared. 45-60\u00b0C. Deep detoxification and relaxation.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Wellness Center",
+    "remote_possible": false,
+    "prep": [
+      "Hydrate 500ml before",
+      "Shower",
+      "Bring electrolyte drink"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Regular sauna session",
+    "metrics": [
+      "Session duration",
+      "Sweat volume",
+      "Post-sauna energy (1-10)"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-081",
+    "name": "Hydrotherapy Pool",
+    "type": "therapy",
+    "priority": 17,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 30,
+    "details": "Warm water therapy: gentle movements, stretches, water walking in heated pool",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Physical Therapy & Wellness Center",
+    "remote_possible": false,
+    "prep": [
+      "Swimsuit",
+      "Water shoes",
+      "Towel"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Warm bath with Epsom salts at home",
+    "metrics": [
+      "Range of motion",
+      "Pain level (1-10) before/after"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-082",
+    "name": "Sound Bath Meditation",
+    "type": "therapy",
+    "priority": 18,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 45,
+    "details": "Singing bowls, gongs, chimes. Lie down and receive sound frequencies.",
+    "facilitator": "Instructor - Zen Sound Studio",
+    "facilitator_type": null,
+    "location": "Sound Healing Sanctuary",
+    "remote_possible": false,
+    "prep": [
+      "Bring yoga mat",
+      "Blanket",
+      "Eye mask",
+      "Dress warmly"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Listen to binaural beats at home",
+    "metrics": [
+      "Relaxation depth (1-10)",
+      "Stress reduction (1-10)"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-083",
+    "name": "Aromatherapy Session",
+    "type": "therapy",
+    "priority": 6,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 15,
+    "details": "Essential oil diffusion. Rotate: lavender (evening), peppermint (morning), eucalyptus (afternoon).",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Fill diffuser",
+      "Select oil blend",
+      "Set timer"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Apply essential oil roller blend",
+    "metrics": [
+      "Oil used",
+      "Mood before/after (1-10)",
+      "Sleep quality if evening"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-084",
+    "name": "Cupping Therapy",
+    "type": "therapy",
+    "priority": 22,
+    "frequency_times": 1,
+    "frequency_period": "month",
+    "duration_minutes": 30,
+    "details": "Fire cupping or silicone cupping. Focus on back and shoulders.",
+    "facilitator": "Dr. Michael Brown",
+    "facilitator_type": null,
+    "location": "Wellness Point Acupuncture",
+    "remote_possible": false,
+    "prep": [
+      "Hydrate well",
+      "Avoid applying lotions day of"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Self-massage cupping at home",
+    "metrics": [
+      "Pain level (1-10) before/after",
+      "Marking intensity"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": "AH-ACUPUNCTURE"
+  },
+  {
+    "id": "ACT-085",
+    "name": "Weekly Personal Training Session",
+    "type": "consultation",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 30,
+    "details": "One-on-one session focusing on progressive overload and form correction.",
+    "facilitator": "Alex Thompson - Personal Trainer",
+    "facilitator_type": null,
+    "location": "Elite Fitness Gym",
+    "remote_possible": false,
+    "prep": [
+      "Log previous workouts",
+      "Arrive 5min early for warmup"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Independent training following program",
+    "metrics": [
+      "Strength progress",
+      "Form correction notes",
+      "Next session plan"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": "SP-TRAINER",
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-086",
+    "name": "Monthly Nutritionist Review",
+    "type": "consultation",
+    "priority": 5,
+    "frequency_times": 1,
+    "frequency_period": "month",
+    "duration_minutes": 45,
+    "details": "Review food logs, body composition, blood work. Adjust meal plan as needed.",
+    "facilitator": "Rachel Patel - Registered Dietitian",
+    "facilitator_type": null,
+    "location": "Virtual (Zoom)",
+    "remote_possible": true,
+    "prep": [
+      "Complete 7-day food log",
+      "Recent blood work results",
+      "Body composition scan"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Virtual check-in 15min instead",
+    "metrics": [
+      "Diet adherence (1-10)",
+      "Body composition changes",
+      "Blood work markers"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": "AH-DIETITIAN"
+  },
+  {
+    "id": "ACT-087",
+    "name": "Physiotherapy Session",
+    "type": "consultation",
+    "priority": 3,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 45,
+    "details": "Rehabilitation exercises, manual therapy, movement assessment. Focus on\u819d\u76d6 and shoulder.",
+    "facilitator": "Emily Chen - Physiotherapist",
+    "facilitator_type": null,
+    "location": "PhysioFirst Clinic",
+    "remote_possible": false,
+    "prep": [
+      "Wear athletic clothing",
+      "Note any pain points",
+      "Bring previous exercise sheet"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Home exercise program from previous session",
+    "metrics": [
+      "Pain level (1-10)",
+      "Range of motion",
+      "Strength benchmarks"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": "AH-PHYSIO"
+  },
+  {
+    "id": "ACT-088",
+    "name": "Optometrist Checkup",
+    "type": "consultation",
+    "priority": 10,
+    "frequency_times": 1,
+    "frequency_period": "quarter",
+    "duration_minutes": 30,
+    "details": "Comprehensive eye exam, prescription check, eye health screening.",
+    "facilitator": "Dr. Karen Park - Optometrist",
+    "facilitator_type": null,
+    "location": "Vision Care Center",
+    "remote_possible": false,
+    "prep": [
+      "Bring current glasses/contacts",
+      "Insurance card"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Reschedule to next month",
+    "metrics": [
+      "Vision acuity",
+      "Prescription changes",
+      "Eye pressure"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-089",
+    "name": "Dermatologist Follow-up",
+    "type": "consultation",
+    "priority": 10,
+    "frequency_times": 1,
+    "frequency_period": "quarter",
+    "duration_minutes": 30,
+    "details": "Skin cancer screening, mole mapping, skincare routine review.",
+    "facilitator": "Dr. Sarah Lee - Dermatologist",
+    "facilitator_type": null,
+    "location": "ClearSkin Dermatology",
+    "remote_possible": false,
+    "prep": [
+      "List any skin concerns",
+      "Current skincare products list"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Telehealth visit instead",
+    "metrics": [
+      "Skin health score",
+      "Mole changes",
+      "Treatment efficacy"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": "SP-DERMATOLOGIST",
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-090",
+    "name": "Sleep Consultation",
+    "type": "consultation",
+    "priority": 8,
+    "frequency_times": 1,
+    "frequency_period": "month",
+    "duration_minutes": 45,
+    "details": "Review sleep data, adjust sleep hygiene protocol, discuss interventions.",
+    "facilitator": "Dr. James Wright - Sleep Specialist",
+    "facilitator_type": null,
+    "location": "Virtual (Zoom)",
+    "remote_possible": true,
+    "prep": [
+      "7 days of sleep log",
+      "Wearable sleep data export"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Email update to specialist",
+    "metrics": [
+      "Sleep duration",
+      "Sleep quality (1-10)",
+      "HRV trends",
+      "Bedtime consistency"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": "SP-SLEEP",
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-091",
+    "name": "Health Coach Call",
+    "type": "consultation",
+    "priority": 2,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 30,
+    "details": "Weekly accountability check. Review goals, challenges, and plan for upcoming week.",
+    "facilitator": "Maya Johnson - Health Coach",
+    "facilitator_type": null,
+    "location": "Virtual (Phone)",
+    "remote_possible": true,
+    "prep": [
+      "Weekly goal progress",
+      "Top 3 challenges",
+      "Log of completed activities"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Quick text check-in instead",
+    "metrics": [
+      "Goal progress %",
+      "Accountability score (1-10)",
+      "Next week priorities"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-092",
+    "name": "Mental Health Therapy",
+    "type": "consultation",
+    "priority": 4,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 50,
+    "details": "CBT-based therapy. Focus on stress management, anxiety tools, and emotional regulation.",
+    "facilitator": "Dr. Amanda Torres - Psychologist",
+    "facilitator_type": null,
+    "location": "Virtual (Zoom)",
+    "remote_possible": true,
+    "prep": [
+      "Note any key events/feelings since last session",
+      "Practice CBT exercise"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Reschedule within same week",
+    "metrics": [
+      "Mood score (1-10)",
+      "Coping strategy use",
+      "Therapy effectiveness (1-10)"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-093",
+    "name": "Healthspan AI Review",
+    "type": "consultation",
+    "priority": 6,
+    "frequency_times": 1,
+    "frequency_period": "month",
+    "duration_minutes": 60,
+    "details": "Review AI-generated health insights, biomarker trends, and personalized recommendations.",
+    "facilitator": "Elyx Health AI Specialist",
+    "facilitator_type": null,
+    "location": "Virtual (Video Call)",
+    "remote_possible": true,
+    "prep": [
+      "Review previous month's data",
+      "Prepare questions",
+      "Download health report"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Read AI summary report independently",
+    "metrics": [
+      "Biomarker changes",
+      "Recommendation adherence",
+      "Health score trend"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-094",
+    "name": "Blood Work Analysis",
+    "type": "consultation",
+    "priority": 9,
+    "frequency_times": 1,
+    "frequency_period": "quarter",
+    "duration_minutes": 30,
+    "details": "Comprehensive metabolic panel, lipid panel, hormone panel, vitamin levels.",
+    "facilitator": "Lab Technician + Dr. Reynolds review",
+    "facilitator_type": null,
+    "location": "Quest Diagnostics Lab",
+    "remote_possible": false,
+    "prep": [
+      "Fast 10 hours before",
+      "Hydrate with water only",
+      "Bring lab order form"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Reschedule within the month",
+    "metrics": [
+      "All lab values compared to optimal ranges"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-095",
+    "name": "Annual Physical Examination",
+    "type": "consultation",
+    "priority": 7,
+    "frequency_times": 1,
+    "frequency_period": "quarter",
+    "duration_minutes": 45,
+    "details": "Comprehensive physical with primary care physician. Review all systems.",
+    "facilitator": "Dr. Robert Reynolds - Primary Care",
+    "facilitator_type": null,
+    "location": "Reynolds Medical Group",
+    "remote_possible": false,
+    "prep": [
+      "Fast 10 hours",
+      "Medication list",
+      "Family history updates",
+      "Concerns list"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Telehealth check-in with PA",
+    "metrics": [
+      "Vitals",
+      "BMI",
+      "All systems normal/abnormal"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": "SP-PCP",
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-096",
+    "name": "Dental Cleaning & Checkup",
+    "type": "consultation",
+    "priority": 12,
+    "frequency_times": 1,
+    "frequency_period": "quarter",
+    "duration_minutes": 60,
+    "details": "Professional cleaning, oral cancer screening, cavity check, X-rays if needed.",
+    "facilitator": "Dr. Lisa Martinez - Dentist",
+    "facilitator_type": null,
+    "location": "Bright Smile Dental",
+    "remote_possible": false,
+    "prep": [
+      "Brush and floss before",
+      "Insurance card",
+      "List any dental concerns"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Reschedule to next available slot",
+    "metrics": [
+      "Cavities found",
+      "Gum health score",
+      "Cleaning quality"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-097",
+    "name": "Career Coaching Session",
+    "type": "consultation",
+    "priority": 14,
+    "frequency_times": 1,
+    "frequency_period": "month",
+    "duration_minutes": 45,
+    "details": "Professional development, goal setting, skill gap analysis, networking strategies.",
+    "facilitator": "Mark Williams - Career Coach",
+    "facilitator_type": null,
+    "location": "Virtual (Zoom)",
+    "remote_possible": true,
+    "prep": [
+      "Update accomplishment list",
+      "Goal progress review",
+      "Questions"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Self-guided career assessment",
+    "metrics": [
+      "Goal progress %",
+      "New connections made",
+      "Skills developed"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-098",
+    "name": "Financial Wellness Review",
+    "type": "consultation",
+    "priority": 15,
+    "frequency_times": 1,
+    "frequency_period": "month",
+    "duration_minutes": 30,
+    "details": "Budget review, investment performance check, financial goal tracking.",
+    "facilitator": "Sarah Chen - Financial Advisor",
+    "facilitator_type": null,
+    "location": "Virtual (Zoom)",
+    "remote_possible": true,
+    "prep": [
+      "Recent statements",
+      "Budget tracking sheet",
+      "Financial goals update"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Self-review using budgeting app",
+    "metrics": [
+      "Budget adherence %",
+      "Investment return %",
+      "Goal progress"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-099",
+    "name": "Group Fitness Class",
+    "type": "consultation",
+    "priority": 11,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 45,
+    "details": "Rotating schedule: Monday - Bootcamp, Wednesday - Spin, Friday - Yoga Flow",
+    "facilitator": "Rotating Instructors",
+    "facilitator_type": null,
+    "location": "Elite Fitness Gym",
+    "remote_possible": false,
+    "prep": [
+      "Book spot in advance",
+      "Pack class-specific gear",
+      "Arrive 5min early"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Follow class recording at home",
+    "metrics": [
+      "Class attendance",
+      "Intensity rating (1-10)",
+      "Enjoyment (1-10)"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-100",
+    "name": "Breathwork Practice",
+    "type": "consultation",
+    "priority": 5,
+    "frequency_times": 2,
+    "frequency_period": "day",
+    "duration_minutes": 10,
+    "details": "Box breathing (4-4-4-4) morning + 4-7-8 breathing evening. Wim Hof 3 rounds.",
+    "facilitator": "Self (guided app)",
+    "facilitator_type": null,
+    "location": "Anywhere",
+    "remote_possible": true,
+    "prep": [
+      "Set timer",
+      "Find quiet space",
+      "Sit comfortably"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "1 round of 3 deep breaths",
+    "metrics": [
+      "HRV before/after",
+      "Oxygen saturation",
+      "Calmness (1-10)"
+    ],
+    "preferred_time_of_day": "any",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-101",
+    "name": "Gratitude Journaling",
+    "type": "consultation",
+    "priority": 3,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 10,
+    "details": "Write 3 things grateful for, 1 positive experience, 1 affirmation.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Journal and pen on nightstand"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Mental gratitude list while falling asleep",
+    "metrics": [
+      "Mood score (1-10)",
+      "Journaling consistency"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-102",
+    "name": "Walking Meditation",
+    "type": "consultation",
+    "priority": 6,
+    "frequency_times": 2,
+    "frequency_period": "week",
+    "duration_minutes": 30,
+    "details": "Slow, deliberate walking. Focus on each step. 10-step breath cycle.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Peaceful Garden Trail",
+    "remote_possible": false,
+    "prep": [
+      "Find quiet natural setting",
+      "Silent phone"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "5-min standing meditation",
+    "metrics": [
+      "Mindfulness depth (1-10)",
+      "Steps taken",
+      "Stress reduction"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-103",
+    "name": "Sleep Hygiene Routine",
+    "type": "consultation",
+    "priority": 1,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 15,
+    "details": "Tidy bedroom, set temperature 18-20\u00b0C, blue light blocking, read fiction 20min.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Bedroom",
+    "remote_possible": true,
+    "prep": [
+      "No screens 1hr before",
+      "Prepare herbal tea",
+      "Set out sleep clothes"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "5-min wind down: 2min box breathing + 3min stretching",
+    "metrics": [
+      "Sleep latency (min)",
+      "Sleep quality (1-10)",
+      "Morning energy (1-10)"
+    ],
+    "preferred_time_of_day": "evening",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-104",
+    "name": "Biofeedback Training",
+    "type": "consultation",
+    "priority": 16,
+    "frequency_times": 1,
+    "frequency_period": "week",
+    "duration_minutes": 30,
+    "details": "Heart rate variability training with biofeedback device. Coherent breathing practice.",
+    "facilitator": "Self (with HeartMath device)",
+    "facilitator_type": null,
+    "location": "Home",
+    "remote_possible": true,
+    "prep": [
+      "Charge biofeedback device",
+      "Find quiet space",
+      "Connect to app"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "HRV app without device",
+    "metrics": [
+      "HRV score",
+      "Coherence ratio",
+      "Session duration"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  },
+  {
+    "id": "ACT-105",
+    "name": "Vision Board Review",
+    "type": "consultation",
+    "priority": 20,
+    "frequency_times": 1,
+    "frequency_period": "month",
+    "duration_minutes": 20,
+    "details": "Review goals, visualize outcomes, update progress photos, adjust quarterly objectives.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Home Office",
+    "remote_possible": true,
+    "prep": [
+      "Print progress photos",
+      "Update goal tracking sheet"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "5-min goal review in journal",
+    "metrics": [
+      "Goal completion rate",
+      "Visualization quality (1-10)"
+    ],
+    "preferred_time_of_day": "morning",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null
+  }
+]

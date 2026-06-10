@@ -1,0 +1,13 @@
+{
+  "total_activities_placed": 4349,
+  "total_activities_requested": 4597,
+  "constraint_violations": 248,
+  "backup_activities_used": 0,
+  "placed_by_type": {
+    "fitness": 1053,
+    "food": 1075,
+    "medication": 1383,
+    "consultation": 508,
+    "therapy": 330
+  }
+}

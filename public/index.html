@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elyx Resource Allocator - Personalised Plan</title>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.15/index.global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@6.1.15/index.global.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f2f5; color: #1a1a2e; }
+.header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; padding: 20px 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.header h1 { font-size: 20px; font-weight: 600; }
+.header .subtitle { font-size: 13px; color: #a0aec0; }
+.stats-bar { display: flex; gap: 20px; flex-wrap: wrap; }
+.stat { background: rgba(255,255,255,0.08); border-radius: 8px; padding: 8px 16px; text-align: center; }
+.stat .value { font-size: 18px; font-weight: 700; color: #63b3ed; }
+.stat .label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: #a0aec0; }
+.main { max-width: 1400px; margin: 0 auto; padding: 20px; }
+.layout { display: flex; gap: 20px; }
+.sidebar { width: 260px; flex-shrink: 0; }
+
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; }
+}
+
+.card { background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 16px; overflow: hidden; }
+.card-header { padding: 14px 18px; font-weight: 600; font-size: 14px; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 8px; }
+.card-body { padding: 14px 18px; }
+.card-body table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.card-body td { padding: 6px 4px; border-bottom: 1px solid #f0f0f0; }
+.card-body td:first-child { color: #718096; }
+.card-body .num { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #4a5568; }
+.legend-dot { width: 10px; height: 10px; border-radius: 2px; }
+
+#calendar { background: #fff; border-radius: 10px; padding: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); flex: 1; min-height: 600px; }
+
+.fc { font-size: 13px; }
+.fc .fc-toolbar-title { font-size: 16px !important; }
+.fc .fc-button { font-size: 12px !important; padding: 4px 10px !important; }
+.fc .fc-event { border-radius: 3px; padding: 1px 3px; font-size: 11px; border: none; cursor: pointer; }
+.fc .fc-daygrid-more-link { font-size: 11px; }
+.fc .fc-timegrid-slot { height: 24px; }
+
+.tooltip-content { display: none; }
+
+.fc-event.event-fitness { background: #48bb78; border-color: #48bb78; }
+.fc-event.event-food { background: #ecc94b; border-color: #ecc94b; color: #744210; }
+.fc-event.event-medication { background: #fc8181; border-color: #fc8181; }
+.fc-event.event-therapy { background: #9f7aea; border-color: #9f7aea; }
+.fc-event.event-consultation { background: #4299e1; border-color: #4299e1; }
+.travel-block { background: #f56565 !important; border-color: #f56565 !important; color: #fff !important; font-weight: 600; }
+
+.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; z-index: 1000; }
+.modal-overlay.active { display: flex; }
+.modal { background: #fff; border-radius: 10px; width: 500px; max-width: 90vw; max-height: 80vh; overflow-y: auto; }
+.modal-header { padding: 16px 20px; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; }
+.modal-header h2 { font-size: 16px; }
+.modal-close { background: none; border: none; font-size: 22px; cursor: pointer; color: #718096; }
+.modal-body { padding: 16px 20px; }
+.modal-body .field { margin-bottom: 10px; }
+.modal-body .field-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #718096; margin-bottom: 2px; }
+.modal-body .field-value { font-size: 14px; color: #1a1a2e; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>Elyx Resource Allocator</h1>
+    <div class="subtitle">Personalised Health Action Plan &middot; Jun 15 &ndash; Sep 15, 2026</div>
+  </div>
+  <div class="stats-bar" id="statsBar">
+    <div class="stat"><div class="value" id="statPlaced">0</div><div class="label">Placed</div></div>
+    <div class="stat"><div class="value" id="statRequested">0</div><div class="label">Requested</div></div>
+    <div class="stat"><div class="value" id="statViolations">0</div><div class="label">Violations</div></div>
+    <div class="stat"><div class="value" id="statBackups">0</div><div class="label">Backup Used</div></div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="legend" id="legend"></div>
+  <div class="layout">
+    <div class="sidebar">
+      <div class="card">
+        <div class="card-header">Type Breakdown</div>
+        <div class="card-body" id="typeBreakdown"></div>
+      </div>
+      <div class="card">
+        <div class="card-header">Top Activities by Priority</div>
+        <div class="card-body" id="priorityList"></div>
+      </div>
+      <div class="card">
+        <div class="card-header">Resource Constraints</div>
+        <div class="card-body" id="constraintsList"></div>
+      </div>
+    </div>
+    <div id="calendar"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle">Activity Details</h2>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const TYPE_COLORS = {
+  fitness: '#48bb78',
+  food: '#ecc94b',
+  medication: '#fc8181',
+  therapy: '#9f7aea',
+  consultation: '#4299e1'
+};
+
+const TYPE_LABELS = {
+  fitness: 'Fitness / Exercise',
+  food: 'Food / Nutrition',
+  medication: 'Medication',
+  therapy: 'Therapy',
+  consultation: 'Consultation'
+};
+
+function buildLegend() {
+  const el = document.getElementById('legend');
+  el.innerHTML = Object.entries(TYPE_LABELS).map(([k,v]) =>
+    `<div class="legend-item"><span class="legend-dot" style="background:${TYPE_COLORS[k]}"></span>${v}</div>`
+  ).join('') +
+    '<div class="legend-item"><span class="legend-dot" style="background:#f56565"></span>Travel / Blocked</div>';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+}
+
+function showEventModal(eventProps) {
+  const p = eventProps;
+  const body = document.getElementById('modalBody');
+  const fields = [
+    ['Activity', p.activity_name],
+    ['Type', TYPE_LABELS[p.activity_type] || p.activity_type],
+    ['Priority', p.priority > 99 ? 'Low' : p.priority > 50 ? 'Medium' : p.priority > 20 ? 'High' : 'Critical'],
+    ['Duration', p.duration_minutes + ' min'],
+    ['Location', p.location || 'N/A'],
+    ['Facilitator', p.facilitator || 'Self'],
+    ['Equipment', p.equipment_used?.length ? p.equipment_used.join(', ') : 'None'],
+    ['Prep', p.prep?.length ? p.prep.join(', ') : 'None'],
+    ['Metrics', p.metrics?.length ? p.metrics.join(', ') : 'None'],
+    ['Details', p.details || 'N/A'],
+    ['Notes', p.notes || '']
+  ].filter(f => f[1]);
+  body.innerHTML = fields.map(([label, value]) =>
+    `<div class="field"><div class="field-label">${label}</div><div class="field-value">${value}</div></div>`
+  ).join('');
+  document.getElementById('modalTitle').textContent = p.activity_name;
+  document.getElementById('modalOverlay').classList.add('active');
+}
+
+async function loadData() {
+  const resp = await fetch('/api/schedule');
+  const data = await resp.json();
+  return data;
+}
+
+function renderStats(s) {
+  document.getElementById('statPlaced').textContent = s.total_activities_placed;
+  document.getElementById('statRequested').textContent = s.total_activities_requested;
+  document.getElementById('statViolations').textContent = s.constraint_violations;
+  document.getElementById('statBackups').textContent = s.backup_activities_used;
+}
+
+function renderTypeBreakdown(pbt) {
+  const el = document.getElementById('typeBreakdown');
+  const total = Object.values(pbt).reduce((a,b) => a+b, 0);
+  el.innerHTML = '<table>' +
+    Object.entries(pbt).map(([k,v]) =>
+      `<tr><td style="border-left:3px solid ${TYPE_COLORS[k]};padding-left:8px">${TYPE_LABELS[k]||k}</td><td class="num">${v}</td><td class="num" style="color:#718096;width:60px">${Math.round(v/total*100)}%</td></tr>`
+    ).join('') +
+    `</table>`;
+}
+
+function renderPriorityList(activities) {
+  const el = document.getElementById('priorityList');
+  el.innerHTML = '<table>' +
+    activities.slice(0, 15).map(a =>
+      `<tr><td style="border-left:3px solid ${TYPE_COLORS[a.type]};padding-left:8px">${a.name}</td><td class="num">${a.frequency_times}x/${a.frequency_period}</td><td class="num" style="color:#718096">P${a.priority}</td></tr>`
+    ).join('') +
+    '</table>';
+}
+
+function renderConstraints(clientSchedule) {
+  const el = document.getElementById('constraintsList');
+  const trips = clientSchedule.travel_plans || [];
+  const blocked = clientSchedule.blocked_dates || [];
+  el.innerHTML =
+    `<div style="font-size:13px;margin-bottom:8px"><strong>${trips.length}</strong> travel plans</div>` +
+    trips.map(t => `<div style="font-size:12px;padding:4px 0;border-bottom:1px solid #f0f0f0">✈️ ${t.destination}<br><span style="color:#718096;font-size:11px">${t.start_date} → ${t.end_date}</span></div>`).join('') +
+    `<div style="font-size:13px;margin-top:10px"><strong>${blocked.length}</strong> blocked days</div>`;
+}
+
+function buildCalendar(events, trips) {
+  const calendarEl = document.getElementById('calendar');
+  const travelEvents = trips.flatMap(t => {
+    const start = new Date(t.start_date);
+    const end = new Date(t.end_date);
+    end.setDate(end.getDate() + 1);
+    return [{
+      title: '✈️ ' + t.destination,
+      start: t.start_date,
+      end: end.toISOString().split('T')[0],
+      allDay: true,
+      className: 'travel-block',
+      extendedProps: { isTravel: true, destination: t.destination }
+    }];
+  });
+
+  const calEvents = [
+    ...events.map(e => ({
+      title: e.activity_name,
+      start: e.start_datetime,
+      end: e.end_datetime,
+      className: 'event-' + e.activity_type,
+      extendedProps: { ...e }
+    })),
+    ...travelEvents
+  ];
+
+  const calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay'
+    },
+    events: calEvents,
+    eventClick: function(info) {
+      const props = info.event.extendedProps;
+      if (props.isTravel) return;
+      showEventModal(props);
+    },
+    height: 'auto',
+    slotMinTime: '06:00:00',
+    slotMaxTime: '22:00:00',
+    allDaySlot: true,
+    nowIndicator: true,
+    eventTimeFormat: { hour: '2-digit', minute: '2-digit' },
+    dayMaxEvents: 4,
+    moreLinkText: function(n) { return '+' + n + ' more'; }
+  });
+  calendar.render();
+}
+
+(async function() {
+  buildLegend();
+  const data = await loadData();
+  const { schedule, summary, data: fullData } = data;
+
+  renderStats(summary);
+  renderTypeBreakdown(summary.placed_by_type);
+  renderPriorityList(fullData.activities);
+  renderConstraints(fullData.client_schedule);
+  buildCalendar(schedule, fullData.client_schedule.travel_plans);
+})();
+</script>
+</body>
+</html>

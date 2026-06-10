@@ -1,0 +1,82 @@
+{
+  "weekly_availability": [
+    {
+      "day_of_week": 0,
+      "start_time": "07:00",
+      "end_time": "21:30"
+    },
+    {
+      "day_of_week": 1,
+      "start_time": "07:00",
+      "end_time": "21:30"
+    },
+    {
+      "day_of_week": 2,
+      "start_time": "07:00",
+      "end_time": "21:30"
+    },
+    {
+      "day_of_week": 3,
+      "start_time": "07:00",
+      "end_time": "21:30"
+    },
+    {
+      "day_of_week": 4,
+      "start_time": "07:00",
+      "end_time": "21:30"
+    },
+    {
+      "day_of_week": 5,
+      "start_time": "08:00",
+      "end_time": "20:00"
+    },
+    {
+      "day_of_week": 6,
+      "start_time": "08:00",
+      "end_time": "19:00"
+    }
+  ],
+  "travel_plans": [
+    {
+      "id": "TRIP-001",
+      "destination": "New York, NY - Business Conference",
+      "start_date": "2026-07-10",
+      "end_date": "2026-07-14",
+      "purpose": "Annual health technology summit. Attend talks and network."
+    },
+    {
+      "id": "TRIP-002",
+      "destination": "Aspen, CO - Family Vacation",
+      "start_date": "2026-08-05",
+      "end_date": "2026-08-12",
+      "purpose": "Summer hiking and outdoor activities with family."
+    },
+    {
+      "id": "TRIP-003",
+      "destination": "San Diego, CA - Wellness Retreat",
+      "start_date": "2026-09-01",
+      "end_date": "2026-09-05",
+      "purpose": "Wellness retreat focusing on advanced bio-hacking and recovery protocols."
+    }
+  ],
+  "blocked_dates": [
+    "2026-07-10",
+    "2026-07-11",
+    "2026-07-12",
+    "2026-07-13",
+    "2026-07-14",
+    "2026-08-05",
+    "2026-08-06",
+    "2026-08-07",
+    "2026-08-08",
+    "2026-08-09",
+    "2026-08-10",
+    "2026-08-11",
+    "2026-08-12",
+    "2026-09-01",
+    "2026-09-02",
+    "2026-09-03",
+    "2026-09-04",
+    "2026-09-05"
+  ]
+}
