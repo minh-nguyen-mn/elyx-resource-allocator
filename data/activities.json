@@ -17,7 +17,9 @@
       "Fill water bottle",
       "Check weather"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-021"
+    ],
     "skip_adjustments": "Replace with 30min brisk walk",
     "metrics": [
       "Heart Rate",
@@ -47,7 +49,10 @@
       "Pack gym bag",
       "Prepare pre-workout shake"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-003",
+      "ACT-019"
+    ],
     "skip_adjustments": "Substitute with resistance band workout at home",
     "metrics": [
       "Weight (kg)",
@@ -80,7 +85,10 @@
       "Pack gym bag",
       "Prepare pre-workout shake"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-002",
+      "ACT-017"
+    ],
     "skip_adjustments": "Substitute with bodyweight squats and lunges",
     "metrics": [
       "Weight (kg)",
@@ -113,7 +121,10 @@
       "Prepare water",
       "Dim lights"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-009",
+      "ACT-032"
+    ],
     "skip_adjustments": "15-min stretching routine",
     "metrics": [
       "Session duration",
@@ -145,7 +156,9 @@
       "Goggles",
       "Swim cap"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-029"
+    ],
     "skip_adjustments": "Replace with 30-min stationary bike",
     "metrics": [
       "Laps",
@@ -175,7 +188,10 @@
       "Fill water bottles",
       "Charge bike computer"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-026",
+      "ACT-021"
+    ],
     "skip_adjustments": "Replace with 45-min stationary bike",
     "metrics": [
       "Distance",
@@ -207,7 +223,10 @@
       "Fill water bottle",
       "Set up circuit stations"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-027",
+      "ACT-019"
+    ],
     "skip_adjustments": "Replace with 20-min jump rope session",
     "metrics": [
       "Heart rate max",
@@ -238,7 +257,9 @@
       "Wear grip socks",
       "Arrive 10min early"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-004"
+    ],
     "skip_adjustments": "Replace with mat Pilates at home",
     "metrics": [
       "Form quality",
@@ -266,7 +287,10 @@
       "Wear comfortable clothing",
       "Choose quiet spot in garden"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-004",
+      "ACT-102"
+    ],
     "skip_adjustments": "10-min mindful movement routine",
     "metrics": [
       "Form completion",
@@ -349,7 +373,10 @@
       "Water bottle",
       "Towel"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-019",
+      "ACT-007"
+    ],
     "skip_adjustments": "Replace with 30-min home dance session",
     "metrics": [
       "Calories burned",
@@ -379,7 +406,10 @@
       "Water 2L",
       "Navigation app"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-030",
+      "ACT-021"
+    ],
     "skip_adjustments": "Replace with 60-min power walk",
     "metrics": [
       "Distance",
@@ -409,7 +439,10 @@
       "Fill water bottle",
       "Set rower damper to 5"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-017",
+      "ACT-026"
+    ],
     "skip_adjustments": "Replace with 20-min battle ropes",
     "metrics": [
       "Split time (500m)",
@@ -469,7 +502,9 @@
       "Clear open space",
       "Have chair nearby for support"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-031"
+    ],
     "skip_adjustments": "5-min balance mini session",
     "metrics": [
       "Balance hold time",
@@ -498,7 +533,9 @@
     "prep": [
       "Set up bands with appropriate resistance"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-019"
+    ],
     "skip_adjustments": "Replace with bodyweight circuit",
     "metrics": [
       "Sets completed",
@@ -527,7 +564,10 @@
     "prep": [
       "Select appropriate kettlebell weights"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-002",
+      "ACT-003"
+    ],
     "skip_adjustments": "Replace with dumbbell circuit",
     "metrics": [
       "Weight used",
@@ -558,7 +598,10 @@
       "Exercise mat",
       "Timer app"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-031",
+      "ACT-027"
+    ],
     "skip_adjustments": "10-min express circuit",
     "metrics": [
       "Rounds completed",
@@ -589,7 +632,9 @@
       "Dynamic warm-up 10min",
       "Water"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-007"
+    ],
     "skip_adjustments": "Replace with stair sprints",
     "metrics": [
       "Sprint times",
@@ -678,7 +723,9 @@
       "Proper shoes",
       "Water"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-025"
+    ],
     "skip_adjustments": "Cancel or replace with wall practice",
     "metrics": [
       "Rally length",
@@ -709,7 +756,9 @@
       "Glove",
       "Sunscreen"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-013"
+    ],
     "skip_adjustments": "Replace with 30-min putting practice",
     "metrics": [
       "Fairway hits",
@@ -740,7 +789,9 @@
       "Mouth guard",
       "Jump rope"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-023"
+    ],
     "skip_adjustments": "Shadow boxing session at home",
     "metrics": [
       "Punch count",
@@ -769,7 +820,10 @@
       "Water bottle",
       "Podcast or audiobook"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-006",
+      "ACT-021"
+    ],
     "skip_adjustments": "Replace with 30-min outdoor walk",
     "metrics": [
       "Distance",
@@ -801,7 +855,10 @@
       "Adjust jump rope length",
       "Floor mat"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-007",
+      "ACT-020"
+    ],
     "skip_adjustments": "Replace with 10-min high knees",
     "metrics": [
       "Skips",
@@ -834,7 +891,10 @@
       "Chalk bag",
       "Arrive early for warmup"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-019",
+      "ACT-031"
+    ],
     "skip_adjustments": "Replace with 30-min hangboard at home",
     "metrics": [
       "Routes completed",
@@ -864,7 +924,9 @@
       "Water shoes",
       "Towel"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-005"
+    ],
     "skip_adjustments": "Replace with 30-min pool walk",
     "metrics": [
       "Heart rate",
@@ -893,7 +955,10 @@
       "Hiking shoes",
       "Water"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-013",
+      "ACT-021"
+    ],
     "skip_adjustments": "Regular walking without poles",
     "metrics": [
       "Distance",
@@ -922,7 +987,9 @@
     "prep": [
       "Exercise mat"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-016"
+    ],
     "skip_adjustments": "8-min ab express workout",
     "metrics": [
       "Hold times",
@@ -952,7 +1019,10 @@
     "prep": [
       "Yoga mat or carpeted area"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-015",
+      "ACT-011"
+    ],
     "skip_adjustments": "5-min hip opener on busy days",
     "metrics": [
       "Hip flexibility (1-10)",
@@ -982,7 +1052,9 @@
       "Resistance band",
       "Clear wall space"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-015"
+    ],
     "skip_adjustments": "5-min shoulder circuit",
     "metrics": [
       "Shoulder mobility (1-10)",
@@ -1039,7 +1111,9 @@
       "Grocery shopping completed",
       "Meal prep containers ready"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-038"
+    ],
     "skip_adjustments": "Quick smoothie if running late",
     "metrics": [
       "Meal quality (1-10)",
@@ -1069,7 +1143,10 @@
     "prep": [
       "Meal prep vegetables on Sunday"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-035",
+      "ACT-037"
+    ],
     "skip_adjustments": "Pre-prepped salad from fridge",
     "metrics": [
       "Vegetable servings",
@@ -1098,7 +1175,10 @@
       "Prep ingredients",
       "Clean as you go"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-036",
+      "ACT-053"
+    ],
     "skip_adjustments": "Prep meal from freezer",
     "metrics": [
       "Cooking quality (1-10)",
@@ -1128,7 +1208,9 @@
     "prep": [
       "Pre-portion smoothie packs weekly"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-043"
+    ],
     "skip_adjustments": "Pre-made smoothie pack in freezer",
     "metrics": [
       "Ingredients used",
@@ -1159,7 +1241,9 @@
       "Grocery list",
       "Container inventory"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-037"
+    ],
     "skip_adjustments": "Order meal prep delivery service",
     "metrics": [
       "Meals prepped",
@@ -1191,7 +1275,9 @@
       "Write list by aisle",
       "Bring reusable bags"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-054"
+    ],
     "skip_adjustments": "Delivery order instead",
     "metrics": [
       "Budget adherence",
@@ -1250,7 +1336,9 @@
       "Sterilize jars",
       "Buy fresh cabbage and seasonings"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-046"
+    ],
     "skip_adjustments": "Buy fermented foods from store",
     "metrics": [
       "Batch size",
@@ -1279,7 +1367,9 @@
       "Wash produce",
       "Set up juicer"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-038"
+    ],
     "skip_adjustments": "Store-bought cold-pressed juice",
     "metrics": [
       "Vegetable servings",
@@ -1336,7 +1426,9 @@
     "prep": [
       "Pre-measure protein powder in container"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-038"
+    ],
     "skip_adjustments": "Ready-to-drink protein shake",
     "metrics": [
       "Timing (how soon after workout)",
@@ -1365,7 +1457,9 @@
     "prep": [
       "Check snack inventory"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-042"
+    ],
     "skip_adjustments": "Buy pre-portioned healthy snacks",
     "metrics": [
       "Snack variety",
@@ -1478,7 +1572,9 @@
       "Set phone aside",
       "Set table properly"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-049"
+    ],
     "skip_adjustments": "Practice during snack time",
     "metrics": [
       "Meal duration",
@@ -1506,7 +1602,9 @@
     "prep": [
       "Keep phone or journal handy"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-050"
+    ],
     "skip_adjustments": "Quick photo log instead",
     "metrics": [
       "Days logged",
@@ -1562,7 +1660,9 @@
       "Select recipe",
       "Ensure ingredients available"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-037"
+    ],
     "skip_adjustments": "Variation on existing recipe",
     "metrics": [
       "Recipe success (1-10)",
@@ -2040,7 +2140,9 @@
       "Fill water bottle 1L",
       "Shower before"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-080"
+    ],
     "skip_adjustments": "Replace with warm bath at home",
     "metrics": [
       "Session duration",
@@ -2074,7 +2176,9 @@
       "Prepare warm robe nearby",
       "Set timer"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-078"
+    ],
     "skip_adjustments": "Cold shower 3min at end of regular shower",
     "metrics": [
       "Duration",
@@ -2104,7 +2208,9 @@
       "Set up red light panel",
       "Wear protective goggles"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-070"
+    ],
     "skip_adjustments": "Use handheld red light device for shorter session",
     "metrics": [
       "Session duration",
@@ -2135,7 +2241,9 @@
       "Put on compression boots",
       "Set device to recovery mode"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-022"
+    ],
     "skip_adjustments": "Legs-up-the-wall pose 15min",
     "metrics": [
       "Recovery feeling (1-10) before/after",
@@ -2166,7 +2274,9 @@
       "Avoid caffeine before session",
       "Wear comfortable clothing"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-084"
+    ],
     "skip_adjustments": "Reschedule to next available slot",
     "metrics": [
       "Energy level (1-10) before/after",
@@ -2195,7 +2305,9 @@
       "Arrive 10min early",
       "Communicate problem areas"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-022"
+    ],
     "skip_adjustments": "Self-massage with foam roller at home",
     "metrics": [
       "Tightness level (1-10) before/after",
@@ -2280,7 +2392,9 @@
       "Set up cold plunge",
       "Deep breathing preparation"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-071"
+    ],
     "skip_adjustments": "End regular shower with 2min cold water",
     "metrics": [
       "Duration",
@@ -2310,7 +2424,9 @@
       "Hydrate",
       "Bring change of clothes"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-078"
+    ],
     "skip_adjustments": "Hot-cold shower contrast at home",
     "metrics": [
       "Recovery feeling (1-10)",
@@ -2339,7 +2455,9 @@
       "Shower",
       "Bring electrolyte drink"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-070"
+    ],
     "skip_adjustments": "Regular sauna session",
     "metrics": [
       "Session duration",
@@ -2369,7 +2487,9 @@
       "Water shoes",
       "Towel"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-005"
+    ],
     "skip_adjustments": "Warm bath with Epsom salts at home",
     "metrics": [
       "Range of motion",
@@ -2399,7 +2519,9 @@
       "Eye mask",
       "Dress warmly"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-083"
+    ],
     "skip_adjustments": "Listen to binaural beats at home",
     "metrics": [
       "Relaxation depth (1-10)",
@@ -2428,7 +2550,9 @@
       "Select oil blend",
       "Set timer"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-044"
+    ],
     "skip_adjustments": "Apply essential oil roller blend",
     "metrics": [
       "Oil used",
@@ -2457,7 +2581,9 @@
       "Hydrate well",
       "Avoid applying lotions day of"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-074"
+    ],
     "skip_adjustments": "Self-massage cupping at home",
     "metrics": [
       "Pain level (1-10) before/after",
@@ -2485,7 +2611,10 @@
       "Log previous workouts",
       "Arrive 5min early for warmup"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-099",
+      "ACT-019"
+    ],
     "skip_adjustments": "Independent training following program",
     "metrics": [
       "Strength progress",
@@ -2515,7 +2644,9 @@
       "Recent blood work results",
       "Body composition scan"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-091"
+    ],
     "skip_adjustments": "Virtual check-in 15min instead",
     "metrics": [
       "Diet adherence (1-10)",
@@ -2535,7 +2666,7 @@
     "frequency_times": 1,
     "frequency_period": "week",
     "duration_minutes": 45,
-    "details": "Rehabilitation exercises, manual therapy, movement assessment. Focus on\u819d\u76d6 and shoulder.",
+    "details": "Rehabilitation exercises, manual therapy, movement assessment. Focus on knee and shoulder.",
     "facilitator": "Emily Chen - Physiotherapist",
     "facilitator_type": null,
     "location": "PhysioFirst Clinic",
@@ -2545,7 +2676,10 @@
       "Note any pain points",
       "Bring previous exercise sheet"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-015",
+      "ACT-011"
+    ],
     "skip_adjustments": "Home exercise program from previous session",
     "metrics": [
       "Pain level (1-10)",
@@ -2603,7 +2737,9 @@
       "List any skin concerns",
       "Current skincare products list"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-093"
+    ],
     "skip_adjustments": "Telehealth visit instead",
     "metrics": [
       "Skin health score",
@@ -2632,7 +2768,9 @@
       "7 days of sleep log",
       "Wearable sleep data export"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-103"
+    ],
     "skip_adjustments": "Email update to specialist",
     "metrics": [
       "Sleep duration",
@@ -2663,7 +2801,9 @@
       "Top 3 challenges",
       "Log of completed activities"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-093"
+    ],
     "skip_adjustments": "Quick text check-in instead",
     "metrics": [
       "Goal progress %",
@@ -2692,7 +2832,10 @@
       "Note any key events/feelings since last session",
       "Practice CBT exercise"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-101",
+      "ACT-100"
+    ],
     "skip_adjustments": "Reschedule within same week",
     "metrics": [
       "Mood score (1-10)",
@@ -2841,7 +2984,9 @@
       "Goal progress review",
       "Questions"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-098"
+    ],
     "skip_adjustments": "Self-guided career assessment",
     "metrics": [
       "Goal progress %",
@@ -2871,7 +3016,9 @@
       "Budget tracking sheet",
       "Financial goals update"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-097"
+    ],
     "skip_adjustments": "Self-review using budgeting app",
     "metrics": [
       "Budget adherence %",
@@ -2901,7 +3048,9 @@
       "Pack class-specific gear",
       "Arrive 5min early"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-085"
+    ],
     "skip_adjustments": "Follow class recording at home",
     "metrics": [
       "Class attendance",
@@ -2987,7 +3136,9 @@
       "Find quiet natural setting",
       "Silent phone"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-100"
+    ],
     "skip_adjustments": "5-min standing meditation",
     "metrics": [
       "Mindfulness depth (1-10)",
@@ -3047,7 +3198,9 @@
       "Find quiet space",
       "Connect to app"
     ],
-    "backup_activity_ids": [],
+    "backup_activity_ids": [
+      "ACT-100"
+    ],
     "skip_adjustments": "HRV app without device",
     "metrics": [
       "HRV score",

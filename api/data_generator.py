@@ -666,7 +666,7 @@ def generate_activities() -> list[ActivityDefinition]:
         requires_allied_health="AH-DIETITIAN", preferred_time_of_day=TimeOfDay.AFTERNOON))
 
     activities.append(make("Physiotherapy Session", ActivityType.CONSULTATION, 1, FrequencyPeriod.WEEK, 45, 3,
-        details="Rehabilitation exercises, manual therapy, movement assessment. Focus on膝盖 and shoulder.",
+        details="Rehabilitation exercises, manual therapy, movement assessment. Focus on knee and shoulder.",
         facilitator="Emily Chen - Physiotherapist", location="PhysioFirst Clinic",
         prep=["Wear athletic clothing", "Note any pain points", "Bring previous exercise sheet"],
         backup_activity_ids=[], skip_adjustments="Home exercise program from previous session",
@@ -816,6 +816,160 @@ def generate_activities() -> list[ActivityDefinition]:
         backup_activity_ids=[], skip_adjustments="5-min goal review in journal",
         metrics=["Goal completion rate", "Visualization quality (1-10)"],
         preferred_time_of_day=TimeOfDay.MORNING))
+
+    # ── Assign backup_activity_ids (post-processing) ──
+    # Build a name→id lookup for cross-referencing
+    name_to_id = {a.name.lower().strip(): a.id for a in activities}
+    def bid(*names):
+        """Resolve one or more activity names to IDs, skipping missing."""
+        result = []
+        for n in names:
+            n = n.lower().strip()
+            if n in name_to_id:
+                result.append(name_to_id[n])
+        return result
+
+    # Fitness backups
+    act_map = {a.id: a for a in activities}
+    for a in activities:
+        if a.id == "ACT-001":   # Morning Jog
+            a.backup_activity_ids = bid("Recovery Walk")
+        elif a.id == "ACT-002":  # Strength Upper
+            a.backup_activity_ids = bid("Strength Training - Lower Body", "Bodyweight Circuit")
+        elif a.id == "ACT-003":  # Strength Lower
+            a.backup_activity_ids = bid("Strength Training - Upper Body", "Resistance Band Full Body")
+        elif a.id == "ACT-004":  # Yoga Flow
+            a.backup_activity_ids = bid("Tai Chi Practice", "Hip Mobility Routine")
+        elif a.id == "ACT-005":  # Swimming
+            a.backup_activity_ids = bid("Aqua Aerobics")
+        elif a.id == "ACT-006":  # Outdoor Cycling
+            a.backup_activity_ids = bid("Elliptical Cardio", "Recovery Walk")
+        elif a.id == "ACT-007":  # HIIT Circuit
+            a.backup_activity_ids = bid("Jump Rope Cardio", "Bodyweight Circuit")
+        elif a.id == "ACT-008":  # Pilates Reformer
+            a.backup_activity_ids = bid("Yoga Flow")
+        elif a.id == "ACT-009":  # Tai Chi
+            a.backup_activity_ids = bid("Yoga Flow", "Walking Meditation")
+        elif a.id == "ACT-012":  # Dance Cardio
+            a.backup_activity_ids = bid("Bodyweight Circuit", "HIIT Circuit")
+        elif a.id == "ACT-013":  # Weekend Hike
+            a.backup_activity_ids = bid("Nordic Walking", "Recovery Walk")
+        elif a.id == "ACT-014":  # Rowing Machine
+            a.backup_activity_ids = bid("Resistance Band Full Body", "Elliptical Cardio")
+        elif a.id == "ACT-016":  # Balance Training
+            a.backup_activity_ids = bid("Core Strengthening")
+        elif a.id == "ACT-017":  # Resistance Band
+            a.backup_activity_ids = bid("Bodyweight Circuit")
+        elif a.id == "ACT-018":  # Kettlebell
+            a.backup_activity_ids = bid("Strength Training - Upper Body", "Strength Training - Lower Body")
+        elif a.id == "ACT-019":  # Bodyweight Circuit
+            a.backup_activity_ids = bid("Core Strengthening", "Jump Rope Cardio")
+        elif a.id == "ACT-020":  # Sprint Interval
+            a.backup_activity_ids = bid("HIIT Circuit")
+        elif a.id == "ACT-023":  # Tennis
+            a.backup_activity_ids = bid("Boxing Training")
+        elif a.id == "ACT-024":  # Golf
+            a.backup_activity_ids = bid("Weekend Trail Hike")
+        elif a.id == "ACT-025":  # Boxing
+            a.backup_activity_ids = bid("Tennis Practice")
+        elif a.id == "ACT-026":  # Elliptical
+            a.backup_activity_ids = bid("Outdoor Cycling", "Recovery Walk")
+        elif a.id == "ACT-027":  # Jump Rope
+            a.backup_activity_ids = bid("HIIT Circuit", "Sprint Interval Training")
+        elif a.id == "ACT-028":  # Rock Climbing
+            a.backup_activity_ids = bid("Bodyweight Circuit", "Core Strengthening")
+        elif a.id == "ACT-029":  # Aqua Aerobics
+            a.backup_activity_ids = bid("Swimming Laps")
+        elif a.id == "ACT-030":  # Nordic Walking
+            a.backup_activity_ids = bid("Weekend Trail Hike", "Recovery Walk")
+        elif a.id == "ACT-031":  # Core Strengthening
+            a.backup_activity_ids = bid("Balance Training")
+        elif a.id == "ACT-032":  # Hip Mobility
+            a.backup_activity_ids = bid("Posture Correction Exercises", "Morning Stretch Routine")
+        elif a.id == "ACT-033":  # Shoulder Mobility
+            a.backup_activity_ids = bid("Posture Correction Exercises")
+
+        # Food backups
+        elif a.id == "ACT-035":  # Breakfast
+            a.backup_activity_ids = bid("Morning Smoothie Prep")
+        elif a.id == "ACT-036":  # Lunch
+            a.backup_activity_ids = bid("Breakfast Preparation", "Dinner Preparation")
+        elif a.id == "ACT-037":  # Dinner
+            a.backup_activity_ids = bid("Lunch Preparation", "New Recipe Exploration")
+        elif a.id == "ACT-038":  # Smoothie
+            a.backup_activity_ids = bid("Fresh Juice Preparation")
+        elif a.id == "ACT-039":  # Meal Prep
+            a.backup_activity_ids = bid("Dinner Preparation")
+        elif a.id == "ACT-040":  # Grocery
+            a.backup_activity_ids = bid("Organic Food Delivery Pickup")
+        elif a.id == "ACT-042":  # Fermented
+            a.backup_activity_ids = bid("Healthy Snack Prep")
+        elif a.id == "ACT-043":  # Juice
+            a.backup_activity_ids = bid("Morning Smoothie Prep")
+        elif a.id == "ACT-045":  # Protein Shake
+            a.backup_activity_ids = bid("Morning Smoothie Prep")
+        elif a.id == "ACT-046":  # Snack Prep
+            a.backup_activity_ids = bid("Fermented Food Preparation")
+        elif a.id == "ACT-050":  # Mindful Eating
+            a.backup_activity_ids = bid("Hydration Check")
+        elif a.id == "ACT-051":  # Food Journaling
+            a.backup_activity_ids = bid("Mindful Eating Practice")
+        elif a.id == "ACT-053":  # New Recipe
+            a.backup_activity_ids = bid("Dinner Preparation")
+
+        # Therapy backups
+        elif a.id == "ACT-070":  # Sauna
+            a.backup_activity_ids = bid("Infrared Sauna")
+        elif a.id == "ACT-071":  # Ice Bath
+            a.backup_activity_ids = bid("Cold Plunge (Morning)")
+        elif a.id == "ACT-072":  # Red Light
+            a.backup_activity_ids = bid("Sauna Session")
+        elif a.id == "ACT-073":  # Compression
+            a.backup_activity_ids = bid("Foam Rolling Recovery")
+        elif a.id == "ACT-074":  # Acupuncture
+            a.backup_activity_ids = bid("Cupping Therapy")
+        elif a.id == "ACT-075":  # Sports Massage
+            a.backup_activity_ids = bid("Foam Rolling Recovery")
+        elif a.id == "ACT-078":  # Cold Plunge
+            a.backup_activity_ids = bid("Ice Bath")
+        elif a.id == "ACT-079":  # Contrast
+            a.backup_activity_ids = bid("Cold Plunge (Morning)")
+        elif a.id == "ACT-080":  # Infrared Sauna
+            a.backup_activity_ids = bid("Sauna Session")
+        elif a.id == "ACT-081":  # Hydrotherapy
+            a.backup_activity_ids = bid("Swimming Laps")
+        elif a.id == "ACT-082":  # Sound Bath
+            a.backup_activity_ids = bid("Aromatherapy Session")
+        elif a.id == "ACT-083":  # Aromatherapy
+            a.backup_activity_ids = bid("Herbal Tea Time")
+        elif a.id == "ACT-084":  # Cupping
+            a.backup_activity_ids = bid("Acupuncture Session")
+
+        # Consultation backups
+        elif a.id == "ACT-085":  # Personal Training
+            a.backup_activity_ids = bid("Group Fitness Class", "Bodyweight Circuit")
+        elif a.id == "ACT-086":  # Nutritionist
+            a.backup_activity_ids = bid("Health Coach Call")
+        elif a.id == "ACT-087":  # Physiotherapy
+            a.backup_activity_ids = bid("Posture Correction Exercises", "Morning Stretch Routine")
+        elif a.id == "ACT-089":  # Dermatologist
+            a.backup_activity_ids = bid("Healthspan AI Review")
+        elif a.id == "ACT-090":  # Sleep
+            a.backup_activity_ids = bid("Sleep Hygiene Routine")
+        elif a.id == "ACT-091":  # Health Coach
+            a.backup_activity_ids = bid("Healthspan AI Review")
+        elif a.id == "ACT-092":  # Mental Health
+            a.backup_activity_ids = bid("Gratitude Journaling", "Breathwork Practice")
+        elif a.id == "ACT-097":  # Career Coaching
+            a.backup_activity_ids = bid("Financial Wellness Review")
+        elif a.id == "ACT-098":  # Financial
+            a.backup_activity_ids = bid("Career Coaching Session")
+        elif a.id == "ACT-099":  # Group Fitness
+            a.backup_activity_ids = bid("Weekly Personal Training Session")
+        elif a.id == "ACT-102":  # Walking Meditation
+            a.backup_activity_ids = bid("Breathwork Practice")
+        elif a.id == "ACT-104":  # Biofeedback
+            a.backup_activity_ids = bid("Breathwork Practice")
 
     # Ensure we have the right number of activities
     assert len(activities) >= 100, f"Only generated {len(activities)} activities, need 100+"

@@ -116,12 +116,22 @@ class ScheduledActivity(BaseModel):
     notes: str = ""
 
 
+class SkippedActivity(BaseModel):
+    activity_id: str
+    activity_name: str
+    activity_type: ActivityType
+    priority: int
+    instances_missed: int
+    skip_adjustment: str
+
+
 class SchedulingSummary(BaseModel):
     total_activities_placed: int
     total_activities_requested: int
     constraint_violations: int
     backup_activities_used: int
     placed_by_type: dict[str, int]
+    skipped_activities: list[SkippedActivity] = Field(default_factory=list)
 
 
 class FullData(BaseModel):

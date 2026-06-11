@@ -99,6 +99,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
         <div class="card-header">Resource Constraints</div>
         <div class="card-body" id="constraintsList"></div>
       </div>
+      <div class="card">
+        <div class="card-header">Skipped Activities</div>
+        <div class="card-body" id="skippedList"></div>
+      </div>
     </div>
     <div id="calendar"></div>
   </div>
@@ -149,7 +153,7 @@ function showEventModal(eventProps) {
   const fields = [
     ['Activity', p.activity_name],
     ['Type', TYPE_LABELS[p.activity_type] || p.activity_type],
-    ['Priority', p.priority > 99 ? 'Low' : p.priority > 50 ? 'Medium' : p.priority > 20 ? 'High' : 'Critical'],
+    ['Priority', p.priority <= 3 ? 'Critical' : p.priority <= 10 ? 'High' : p.priority <= 20 ? 'Medium' : 'Low'],
     ['Duration', p.duration_minutes + ' min'],
     ['Location', p.location || 'N/A'],
     ['Facilitator', p.facilitator || 'Self'],
@@ -206,6 +210,20 @@ function renderConstraints(clientSchedule) {
     `<div style="font-size:13px;margin-bottom:8px"><strong>${trips.length}</strong> travel plans</div>` +
     trips.map(t => `<div style="font-size:12px;padding:4px 0;border-bottom:1px solid #f0f0f0">✈️ ${t.destination}<br><span style="color:#718096;font-size:11px">${t.start_date} → ${t.end_date}</span></div>`).join('') +
     `<div style="font-size:13px;margin-top:10px"><strong>${blocked.length}</strong> blocked days</div>`;
+}
+
+function renderSkipped(skipped) {
+  const el = document.getElementById('skippedList');
+  if (!skipped || skipped.length === 0) {
+    el.innerHTML = '<div style="color:#718096;font-size:13px">No activities skipped</div>';
+    return;
+  }
+  el.innerHTML = skipped.map(s =>
+    `<div style="font-size:12px;padding:6px 0;border-bottom:1px solid #f0f0f0">
+      <strong style="color:#e53e3e">${s.instances_missed}x ${s.activity_name}</strong>
+      <br><span style="color:#718096;font-size:11px">Adjustment: ${s.skip_adjustment}</span>
+    </div>`
+  ).join('');
 }
 
 function buildCalendar(events, trips) {
@@ -269,6 +287,7 @@ function buildCalendar(events, trips) {
   renderTypeBreakdown(summary.placed_by_type);
   renderPriorityList(fullData.activities);
   renderConstraints(fullData.client_schedule);
+  renderSkipped(summary.skipped_activities);
   buildCalendar(schedule, fullData.client_schedule.travel_plans);
 })();
 </script>

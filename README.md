@@ -63,10 +63,15 @@ python -m uvicorn api.index:app --port 8000
 ## Scheduling Results
 
 - **105 activities** across 5 types (fitness, food, medication, therapy, consultation)
-- **4349 events scheduled** over 92 days (94.6% placement rate)
-- **248 constraint violations** where activities couldn't be placed due to resource conflicts
+- **3,922 events scheduled** over 92 days (85.3% placement rate)
+- **675 constraint violations** where activities couldn't be placed (realistic daily cap + time buffers)
+- **190 backup activities used** as substitutes when primary activities couldn't be placed
+- **30 skipped activities** recorded with their recommended skip adjustments
 - **16 equipment items**, **8 specialists**, **5 allied health professionals**
-- **3 travel plans** covering 18 blocked days
+- **3 travel plans** covering 18 blocked days (light activities still allowed during travel)
+- **Short-activity stacking** — medications and quick tasks (≤5 min) can share time slots (15 meds in 1 slot)
+- **Day-of-week alignment** — weekly activities placed on their logical day (e.g., Meal Prep Sunday → Sunday)
+- **Time-of-day preference** — morning/evening activities strongly prefer their window
 
 ## Data
 
