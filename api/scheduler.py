@@ -321,7 +321,6 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
 
             _has_appointment = bool(activity.requires_specialist or activity.requires_allied_health)
             if (not activity.is_all_day
-                    and activity.type != ActivityType.CONSULTATION
                     and not _has_appointment
                     and current_date.weekday() < 5):
                 slots = _subtract_intervals(slots, [(510, 1050)])
@@ -438,7 +437,6 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
 
                         b_has_appt = bool(backup_act.requires_specialist or backup_act.requires_allied_health)
                         if (not backup_act.is_all_day
-                                and backup_act.type != ActivityType.CONSULTATION
                                 and not b_has_appt
                                 and cur.weekday() < 5):
                             b_slots = _subtract_intervals(b_slots, [(510, 1050)])
