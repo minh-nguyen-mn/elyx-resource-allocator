@@ -195,8 +195,9 @@ function renderTypeBreakdown(pbt) {
 
 function renderPriorityList(activities) {
   const el = document.getElementById('priorityList');
+  const sorted = [...activities].sort((a, b) => a.priority - b.priority);
   el.innerHTML = '<table>' +
-    activities.slice(0, 15).map(a =>
+    sorted.slice(0, 15).map(a =>
       `<tr><td style="border-left:3px solid ${TYPE_COLORS[a.type]};padding-left:8px">${a.name}</td><td class="num">${a.frequency_times}x/${a.frequency_period}</td><td class="num" style="color:#718096">P${a.priority}</td></tr>`
     ).join('') +
     '</table>';
@@ -245,8 +246,9 @@ function buildCalendar(events, trips) {
   const calEvents = [
     ...events.map(e => ({
       title: e.activity_name,
-      start: e.start_datetime,
-      end: e.end_datetime,
+      start: e.is_all_day ? e.start_datetime.slice(0, 10) : e.start_datetime,
+      end: e.is_all_day ? e.end_datetime.slice(0, 10) : e.end_datetime,
+      allDay: !!e.is_all_day,
       className: 'event-' + e.activity_type,
       extendedProps: { ...e }
     })),

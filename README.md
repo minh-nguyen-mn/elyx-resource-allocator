@@ -63,15 +63,16 @@ python -m uvicorn api.index:app --port 8000
 ## Scheduling Results
 
 - **105 activities** across 5 types (fitness, food, medication, therapy, consultation)
-- **3,922 events scheduled** over 92 days (85.3% placement rate)
-- **675 constraint violations** where activities couldn't be placed (realistic daily cap + time buffers)
-- **190 backup activities used** as substitutes when primary activities couldn't be placed
-- **30 skipped activities** recorded with their recommended skip adjustments
+- **~2,500 events scheduled** over 93 days across ~1,600 unique time slots (99.9% placement rate)
+- **~113 unique slots/week** — a realistic personal health plan density
+- **Time-of-day enforced** — sleep hygiene at ~9pm, lunch at ~12:30pm, dinner at ~5:30pm, breakfast ~7am
+- **Short-activity stacking** — medications (2min) share same slot, respecting morning/evening preference
+- **Day-of-week alignment** — weekly activities placed on their logical day (Meal Prep Sunday → Sunday)
+- **All-day events** — long activities (≥120min) display as day-spanning calendar reminders
+- **Activity spread** — start dates distributed across 13 weeks to prevent daily cramming
+- **5-min inter-event buffer** prevents overlapping; daily counts are realistic
 - **16 equipment items**, **8 specialists**, **5 allied health professionals**
 - **3 travel plans** covering 18 blocked days (light activities still allowed during travel)
-- **Short-activity stacking** — medications and quick tasks (≤5 min) can share time slots (15 meds in 1 slot)
-- **Day-of-week alignment** — weekly activities placed on their logical day (e.g., Meal Prep Sunday → Sunday)
-- **Time-of-day preference** — morning/evening activities strongly prefer their window
 
 ## Data
 

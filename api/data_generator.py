@@ -971,7 +971,23 @@ def generate_activities() -> list[ActivityDefinition]:
         elif a.id == "ACT-104":  # Biofeedback
             a.backup_activity_ids = bid("Breathwork Practice")
 
-    # Ensure we have the right number of activities
+    # Adjust frequencies for realistic plan density (~100 sessions/week)
+    daily_to_weekly = {
+        "ACT-010", "ACT-011", "ACT-015", "ACT-021", "ACT-022",
+        "ACT-032", "ACT-033", "ACT-034", "ACT-035", "ACT-036",
+        "ACT-037", "ACT-038", "ACT-043", "ACT-044", "ACT-050",
+        "ACT-051", "ACT-083", "ACT-101", "ACT-103",
+    }
+    for a in activities:
+        if a.id in daily_to_weekly and a.frequency_period == FrequencyPeriod.DAY:
+            a.frequency_period = FrequencyPeriod.WEEK
+        if a.frequency_period == FrequencyPeriod.WEEK and a.frequency_times > 1:
+            a.frequency_times = max(1, a.frequency_times // 2)
+        if a.id == "ACT-065" and a.frequency_times == 2:
+            a.frequency_times = 1
+        if a.id == "ACT-100" and a.frequency_times == 2:
+            a.frequency_times = 1
+
     assert len(activities) >= 100, f"Only generated {len(activities)} activities, need 100+"
     return activities
 

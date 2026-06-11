@@ -114,6 +114,7 @@ class ScheduledActivity(BaseModel):
     metrics: list[str] = Field(default_factory=list)
     details: str = ""
     notes: str = ""
+    is_all_day: bool = False
 
 
 class SkippedActivity(BaseModel):

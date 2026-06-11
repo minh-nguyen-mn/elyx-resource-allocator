@@ -16,7 +16,6 @@ TIME_RANGES = {
 }
 
 BUFFER_MINUTES = 5
-MAX_EVENTS_PER_DAY = 40
 
 
 def _date_range():
@@ -25,7 +24,11 @@ def _date_range():
 
 
 def _build_day_availability(schedule) -> dict[str, list[tuple[int, int]]]:
-    weekly = {wa.day_of_week: (wa.start_time, wa.end_time) for wa in schedule.weekly_availability}
+    weekly: dict[int, list[tuple[int, int]]] = {}
+    for wa in schedule.weekly_availability:
+        sh, sm = map(int, wa.start_time.split(":"))
+        eh, em = map(int, wa.end_time.split(":"))
+        weekly.setdefault(wa.day_of_week, []).append((sh * 60 + sm, eh * 60 + em))
     overrides = {o.date: o for o in getattr(schedule, 'overrides', [])}
     result = {}
     for d in _date_range():
@@ -43,10 +46,7 @@ def _build_day_availability(schedule) -> dict[str, list[tuple[int, int]]]:
             else:
                 result[ds] = []
         elif weekday in weekly:
-            ws, we = weekly[weekday]
-            sh, sm = map(int, ws.split(":"))
-            eh, em = map(int, we.split(":"))
-            result[ds] = [(sh * 60 + sm, eh * 60 + em)]
+            result[ds] = weekly[weekday]
         else:
             result[ds] = []
     return result
@@ -149,6 +149,31 @@ def _find_best_slot(
     return best_start, best_start + duration_min
 
 
+def _refine_time_preference(name: str, pref_range: tuple[int, int]) -> tuple[int, int]:
+    name_lower = name.lower()
+    pref_start, pref_end = pref_range
+
+    if 'consultation' in name_lower or 'checkup' in name_lower or 'check-up' in name_lower:
+        return pref_range
+
+    if any(kw in name_lower for kw in ['sleep hygiene', 'sleep routine', 'wind down', 'wind-down', 'bedtime', 'bed time']):
+        return (pref_end - 120, pref_end)
+
+    if any(kw in name_lower for kw in ['lunch', 'noon']):
+        return (pref_start, pref_start + 90)
+
+    if any(kw in name_lower for kw in ['dinner', 'supper']):
+        return (pref_start, pref_start + 90)
+
+    if any(kw in name_lower for kw in ['morning', 'breakfast', 'sunrise']):
+        return (pref_start, pref_start + 120)
+
+    if 'sunset' in name_lower:
+        return (pref_end - 60, pref_end)
+
+    return pref_range
+
+
 def _infer_preferred_day_offset(name: str) -> int | None:
     name_lower = name.lower()
     days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
@@ -215,7 +240,7 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
             continue
 
         interval_days = max(1, total_days // n_instances)
-        pref_range = TIME_RANGES.get(activity.preferred_time_of_day, TIME_RANGES[TimeOfDay.ANY])
+        pref_range = _refine_time_preference(activity.name, TIME_RANGES.get(activity.preferred_time_of_day, TIME_RANGES[TimeOfDay.ANY]))
         duration = activity.duration_minutes
 
         requires_fixed_location = bool(
@@ -233,7 +258,9 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
             required_resources.append(f"allied_health:{activity.requires_allied_health}")
 
         placed = 0
-        current_date = START_DATE
+        act_index = int(activity.id.split("-")[1])
+        days_offset = ((act_index - 1) * 13) % 84
+        current_date = START_DATE + timedelta(days=days_offset)
 
         if activity.frequency_period == FrequencyPeriod.WEEK:
             pref_day = _infer_preferred_day_offset(activity.name)
@@ -252,10 +279,6 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
             ds = current_date.strftime("%Y-%m-%d")
 
             if (activity.id, ds) in activity_date_used:
-                current_date += timedelta(days=1)
-                continue
-
-            if day_event_count[ds] >= MAX_EVENTS_PER_DAY:
                 current_date += timedelta(days=1)
                 continue
 
@@ -283,11 +306,12 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
 
             is_short = duration <= SHORT_DURATION
             stacked = False
+            pref_start, pref_end = pref_range
 
             if is_short:
                 existing = day_short_stacked.get(ds, [])
                 for ss, se in existing:
-                    if se - ss >= duration:
+                    if se - ss >= duration and ss >= pref_start and se <= pref_end:
                         start_m = ss
                         end_m = ss + duration
                         stacked = True
@@ -328,6 +352,7 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
                 metrics=activity.metrics,
                 details=activity.details,
                 notes="",
+                is_all_day=(duration >= 120),
             )
             schedule.append(sched)
 
@@ -349,7 +374,7 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
             for backup_id in activity.backup_activity_ids:
                 if backup_id in activity_map and placed < n_instances:
                     backup_act = activity_map[backup_id]
-                    cur = START_DATE
+                    cur = START_DATE + timedelta(days=days_offset)
                     for __ in range((n_instances - placed) * total_days):
                         if placed >= n_instances:
                             break
@@ -361,10 +386,6 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
 
                         b_duration = backup_act.duration_minutes
                         b_is_short = b_duration <= SHORT_DURATION
-
-                        if day_event_count[b_ds] >= MAX_EVENTS_PER_DAY:
-                            cur += timedelta(days=1)
-                            continue
 
                         b_slots = client_day_avail.get(b_ds, [])
                         if not b_slots:
@@ -402,7 +423,7 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
                                 continue
 
                             b_result = _find_best_slot(
-                                b_slots, TIME_RANGES[TimeOfDay.ANY], b_duration
+                                b_slots, _refine_time_preference(backup_act.name, TIME_RANGES[TimeOfDay.ANY]), b_duration
                             )
                             if not b_result:
                                 cur += timedelta(days=1)
@@ -428,6 +449,7 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
                             metrics=backup_act.metrics,
                             details=backup_act.details,
                             notes=f"Substituted for {activity.name}",
+                            is_all_day=(b_duration >= 120),
                         ))
 
                         if not b_stacked:
