@@ -161,8 +161,6 @@ def _refine_time_preference(name: str, pref_range: tuple[int, int]) -> tuple[int
     if any(kw in name_lower for kw in ['sleep hygiene', 'sleep routine', 'wind down', 'wind-down', 'bedtime', 'bed time']):
         return (pref_end - 120, pref_end)
 
-    if any(kw in name_lower for kw in ['lunch', 'noon']):
-        return (pref_start + 60, pref_end)
 
     if any(kw in name_lower for kw in ['dinner', 'supper']):
         return (pref_start + 60, pref_start + 150)
@@ -198,7 +196,7 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
 
     eq_name_map = {e.resource_id: e.resource_name for e in data.equipment}
 
-    total_days = (END_DATE - START_DATE).days
+    total_days = (END_DATE - START_DATE).days + 1
 
     client_day_avail = _build_day_availability(data.client_schedule)
 
@@ -336,6 +334,16 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
                     _advance_date()
                     continue
 
+            # Reserve midday slot from all non-is_all_day activities so Lunch Break gets priority
+            if not activity.is_all_day and 'lunch break' not in activity.name.lower():
+                slots = _subtract_intervals(slots, [(690, 750)])
+
+            # Lunch Break: always carve out a midday slot regardless of day
+            if 'lunch break' in activity.name.lower():
+                slots = [(s, e) for s, e in slots if e <= 480 or s >= 1080]
+                slots.append((690, 750))
+                slots.sort()
+
             if ds in travel_dates and requires_fixed_location:
                 _advance_date()
                 continue
@@ -450,6 +458,14 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
                             if not b_slots:
                                 cur += timedelta(days=1)
                                 continue
+
+                        if not backup_act.is_all_day and 'lunch break' not in backup_act.name.lower():
+                            b_slots = _subtract_intervals(b_slots, [(690, 750)])
+
+                        if 'lunch break' in backup_act.name.lower():
+                            b_slots = [(s, e) for s, e in b_slots if e <= 480 or s >= 1080]
+                            b_slots.append((690, 750))
+                            b_slots.sort()
 
                         b_reqs_fixed = bool(
                             backup_act.requires_equipment

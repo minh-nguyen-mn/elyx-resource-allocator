@@ -334,11 +334,11 @@ def generate_activities() -> list[ActivityDefinition]:
 
     # ── FOOD / NUTRITION (20 activities) ──
     activities.append(make("Breakfast Preparation", ActivityType.FOOD, 1, FrequencyPeriod.DAY, 35, 1,
-        details="Prepare balanced breakfast with protein, complex carbs, and healthy fats",
+        details="Prepare and eat balanced breakfast with protein, complex carbs, and healthy fats. Eat mindfully without screens.",
         facilitator="Self", location="Home Kitchen",
-        prep=["Grocery shopping completed", "Meal prep containers ready"],
+        prep=["Grocery shopping completed", "Meal prep containers ready", "Plate prepared breakfast", "Sit at table"],
         backup_activity_ids=[], skip_adjustments="Quick smoothie if running late",
-        metrics=["Meal quality (1-10)", "Time spent", "Macro balance"],
+        metrics=["Meal quality (1-10)", "Time spent", "Macro balance", "Satiety (1-10)", "Mindfulness score (1-10)"],
         requires_equipment=["EQ-BLENDER"], preferred_time_of_day=TimeOfDay.MORNING))
 
     activities.append(make("Lunch Preparation", ActivityType.FOOD, 2, FrequencyPeriod.WEEK, 15, 2,
@@ -357,10 +357,10 @@ def generate_activities() -> list[ActivityDefinition]:
         metrics=["Cooking quality (1-10)", "Nutritional balance", "Prep efficiency"],
         requires_equipment=["EQ-BLENDER"], preferred_time_of_day=TimeOfDay.EVENING))
 
-    activities.append(make("Morning Smoothie Prep", ActivityType.FOOD, 1, FrequencyPeriod.DAY, 15, 4,
-        details="Green smoothie: spinach, banana, protein powder, almond milk, flax seeds, berries",
+    activities.append(make("Morning Smoothie", ActivityType.FOOD, 1, FrequencyPeriod.DAY, 15, 4,
+        details="Prepare and drink green smoothie: spinach, banana, protein powder, almond milk, flax seeds, berries. Enjoy slowly.",
         facilitator="Self", location="Home Kitchen",
-        prep=["Pre-portion smoothie packs weekly"],
+        prep=["Pre-portion smoothie packs weekly", "Pour into glass"],
         backup_activity_ids=[], skip_adjustments="Pre-made smoothie pack in freezer",
         metrics=["Ingredients used", "Nutritional density"],
         requires_equipment=["EQ-BLENDER"], preferred_time_of_day=TimeOfDay.MORNING))
@@ -397,10 +397,10 @@ def generate_activities() -> list[ActivityDefinition]:
         metrics=["Batch size", "Fermentation quality", "Probiotic content"],
         preferred_time_of_day=TimeOfDay.AFTERNOON))
 
-    activities.append(make("Fresh Juice Preparation", ActivityType.FOOD, 1, FrequencyPeriod.DAY, 10, 5,
-        details="Fresh vegetable juice: celery, cucumber, ginger, lemon, apple",
+    activities.append(make("Fresh Juice", ActivityType.FOOD, 1, FrequencyPeriod.DAY, 15, 5,
+        details="Prepare and drink fresh vegetable juice: celery, cucumber, ginger, lemon, apple. Drink immediately for maximum nutrients.",
         facilitator="Self", location="Home Kitchen",
-        prep=["Wash produce", "Set up juicer"],
+        prep=["Wash produce", "Set up juicer", "Pour into glass"],
         backup_activity_ids=[], skip_adjustments="Store-bought cold-pressed juice",
         metrics=["Vegetable servings", "Juice quality"],
         requires_equipment=["EQ-JUICER"], preferred_time_of_day=TimeOfDay.MORNING))
@@ -834,6 +834,15 @@ def generate_activities() -> list[ActivityDefinition]:
     activities.append(make_reminder("Screen Wind-Down Before Bed", 1, FrequencyPeriod.DAY, 4,
         "No screens 60 min before sleep. Blue light disrupts melatonin production."))
 
+    # ── Lunch Break (eaten during work hours) ──
+    activities.append(make("Lunch Break", ActivityType.FOOD, 1, FrequencyPeriod.DAY, 30, 5,
+        details="Eat lunch during work break. Use pre-prepped meal from Sunday. Step away from desk.",
+        facilitator="Self", location="Work",
+        prep=["Grab pre-prepped lunch container", "Heat if needed", "Fill water"],
+        backup_activity_ids=[], skip_adjustments="Buy lunch from café",
+        metrics=["Meal quality (1-10)", "Break relaxation (1-10)", "Hydration"],
+        preferred_time_of_day=TimeOfDay.AFTERNOON))
+
     # ── Assign backup_activity_ids (post-processing) ──
     # Build a name→id lookup for cross-referencing
     name_to_id = {a.name.lower().strip(): a.id for a in activities}
@@ -908,13 +917,13 @@ def generate_activities() -> list[ActivityDefinition]:
 
         # Food backups
         elif a.id == "ACT-035":  # Breakfast
-            a.backup_activity_ids = bid("Morning Smoothie Prep")
+            a.backup_activity_ids = bid("Morning Smoothie")
         elif a.id == "ACT-036":  # Lunch
             a.backup_activity_ids = bid("Breakfast Preparation", "Dinner Preparation")
         elif a.id == "ACT-037":  # Dinner
             a.backup_activity_ids = bid("New Recipe Exploration")
         elif a.id == "ACT-038":  # Smoothie
-            a.backup_activity_ids = bid("Fresh Juice Preparation")
+            a.backup_activity_ids = bid("Fresh Juice")
         elif a.id == "ACT-039":  # Meal Prep
             a.backup_activity_ids = bid("Dinner Preparation")
         elif a.id == "ACT-040":  # Grocery
@@ -922,9 +931,9 @@ def generate_activities() -> list[ActivityDefinition]:
         elif a.id == "ACT-042":  # Fermented
             a.backup_activity_ids = bid("Healthy Snack Prep")
         elif a.id == "ACT-043":  # Juice
-            a.backup_activity_ids = bid("Morning Smoothie Prep")
+            a.backup_activity_ids = bid("Morning Smoothie")
         elif a.id == "ACT-045":  # Protein Shake
-            a.backup_activity_ids = bid("Morning Smoothie Prep")
+            a.backup_activity_ids = bid("Morning Smoothie")
         elif a.id == "ACT-046":  # Snack Prep
             a.backup_activity_ids = bid("Fermented Food Preparation")
         elif a.id == "ACT-051":  # Food Journaling
@@ -1008,9 +1017,17 @@ def generate_activities() -> list[ActivityDefinition]:
             a.frequency_period = FrequencyPeriod.WEEK
             a.frequency_times = max(1, a.frequency_times)
 
+    # Keep lunch break as daily (not the "Consume " prefix anymore)
+    for a in activities:
+        if a.name == "Lunch Break":
+            a.frequency_period = FrequencyPeriod.DAY
+
     # Suppress redundant activities
     for a in activities:
         if a.id == "ACT-036":
+            a.frequency_period = FrequencyPeriod.DAY
+            a.frequency_times = 0
+        if a.id == "ACT-045":
             a.frequency_period = FrequencyPeriod.DAY
             a.frequency_times = 0
         if a.id == "ACT-049":
@@ -1100,7 +1117,7 @@ def generate_resource_schedules(rand: random.Random):
             for d in range(5)
         ]
         weekly_avail.append(WeeklyAvailability(day_of_week=5, start_time="07:00", end_time="20:00"))
-        weekly_avail.append(WeeklyAvailability(day_of_week=6, start_time="08:00", end_time="18:00"))
+        weekly_avail.append(WeeklyAvailability(day_of_week=6, start_time="08:00", end_time="20:00"))
 
         overrides = [AvailabilityOverride(date=d.strftime("%Y-%m-%d"), is_blocked=True) for d in days_off]
 
