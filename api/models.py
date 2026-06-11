@@ -47,6 +47,7 @@ class ActivityDefinition(BaseModel):
     requires_equipment: list[str] = Field(default_factory=list)
     requires_specialist: Optional[str] = None
     requires_allied_health: Optional[str] = None
+    is_all_day: bool = False
 
 
 class WeeklyAvailability(BaseModel):

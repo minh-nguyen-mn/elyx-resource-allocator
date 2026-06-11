@@ -817,6 +817,23 @@ def generate_activities() -> list[ActivityDefinition]:
         metrics=["Goal completion rate", "Visualization quality (1-10)"],
         preferred_time_of_day=TimeOfDay.MORNING))
 
+    # ── All-day reminder activities ──
+    def make_reminder(name, freq_t, freq_p, priority, details, **kw):
+        return ActivityDefinition(
+            id=aid(), name=name, type=ActivityType.CONSULTATION,
+            frequency_times=freq_t, frequency_period=freq_p,
+            duration_minutes=1, priority=priority,
+            details=details, facilitator="Self", location="",
+            remote_possible=True, is_all_day=True, **kw
+        )
+
+    activities.append(make_reminder("Hydration Reminder", 1, FrequencyPeriod.DAY, 2,
+        "Drink 8+ glasses of water today. Set hourly alerts. Track intake in app."))
+    activities.append(make_reminder("No Caffeine After 2pm", 1, FrequencyPeriod.DAY, 3,
+        "Avoid caffeine after 2pm to protect sleep quality. Switch to herbal tea or water."))
+    activities.append(make_reminder("Screen Wind-Down Before Bed", 1, FrequencyPeriod.DAY, 4,
+        "No screens 60 min before sleep. Blue light disrupts melatonin production."))
+
     # ── Assign backup_activity_ids (post-processing) ──
     # Build a name→id lookup for cross-referencing
     name_to_id = {a.name.lower().strip(): a.id for a in activities}
@@ -975,7 +992,7 @@ def generate_activities() -> list[ActivityDefinition]:
     daily_to_weekly = {
         "ACT-010", "ACT-011", "ACT-015", "ACT-021", "ACT-022",
         "ACT-032", "ACT-033", "ACT-034", "ACT-035", "ACT-036",
-        "ACT-037", "ACT-038", "ACT-043", "ACT-044", "ACT-050",
+        "ACT-037", "ACT-038", "ACT-043", "ACT-050",
         "ACT-051", "ACT-083", "ACT-101", "ACT-103",
     }
     for a in activities:
@@ -987,6 +1004,20 @@ def generate_activities() -> list[ActivityDefinition]:
             a.frequency_times = 1
         if a.id == "ACT-100" and a.frequency_times == 2:
             a.frequency_times = 1
+
+    always_daily = {"ACT-044", "ACT-106", "ACT-107", "ACT-108"}
+    for a in activities:
+        if a.frequency_period == FrequencyPeriod.DAY and a.id not in always_daily:
+            a.frequency_period = FrequencyPeriod.WEEK
+            a.frequency_times = max(1, a.frequency_times)
+
+    weekly_ids = sorted(
+        [a for a in activities if a.frequency_period == FrequencyPeriod.WEEK],
+        key=lambda a: (a.priority, a.id), reverse=True
+    )
+    convert_count = len(weekly_ids) * 3 // 5
+    for a in weekly_ids[:convert_count]:
+        a.frequency_period = FrequencyPeriod.MONTH
 
     assert len(activities) >= 100, f"Only generated {len(activities)} activities, need 100+"
     return activities
@@ -1174,7 +1205,7 @@ def generate_resource_schedules(rand: random.Random):
 
 def generate_client_schedule(rand: random.Random) -> ClientSchedule:
     weekly_avail = [
-        WeeklyAvailability(day_of_week=d, start_time="07:00", end_time="21:30")
+        WeeklyAvailability(day_of_week=d, start_time="06:00", end_time="21:30")
         for d in range(5)
     ]
     weekly_avail.append(WeeklyAvailability(day_of_week=5, start_time="08:00", end_time="20:00"))

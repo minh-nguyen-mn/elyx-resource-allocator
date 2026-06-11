@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta, date, time
 from collections import defaultdict
 from api.models import (
-    ActivityDefinition, ScheduledActivity, SchedulingSummary,
+    ActivityDefinition, ActivityType, ScheduledActivity, SchedulingSummary,
     SkippedActivity, FullData, TimeOfDay, FrequencyPeriod
 )
 
@@ -80,6 +80,8 @@ def _subtract_intervals(
     for s, e in intervals:
         for bs, be in sorted(busy):
             if bs >= e:
+                if s < e:
+                    result.append((s, e))
                 break
             if be <= s:
                 continue
@@ -138,7 +140,7 @@ def _find_best_slot(
             else:
                 edge_dist = 0
             cand = (lo + hi) // 2
-            dist = abs(cand - pref_mid) + edge_dist * 10 + 1000
+            dist = abs(cand - pref_mid) + edge_dist * 10 + 100000
 
         if dist < best_dist:
             best_dist = dist
@@ -228,7 +230,7 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
 
     day_booked: dict[str, list[tuple[int, int]]] = defaultdict(list)
     day_event_count: dict[str, int] = defaultdict(int)
-    day_short_stacked: dict[str, list[tuple[int, int]]] = defaultdict(list)
+    day_short_cursor: dict[str, int] = {}
     activity_date_used: set[tuple[str, str]] = set()
     SHORT_DURATION = 5
 
@@ -258,37 +260,77 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
             required_resources.append(f"allied_health:{activity.requires_allied_health}")
 
         placed = 0
+        is_daily = activity.frequency_period == FrequencyPeriod.DAY
+        is_weekly = activity.frequency_period == FrequencyPeriod.WEEK
         act_index = int(activity.id.split("-")[1])
         days_offset = ((act_index - 1) * 13) % 84
-        current_date = START_DATE + timedelta(days=days_offset)
-
-        if activity.frequency_period == FrequencyPeriod.WEEK:
+        pref_day = None
+        if is_daily:
+            current_date = START_DATE
+        elif is_weekly:
+            current_date = START_DATE
             pref_day = _infer_preferred_day_offset(activity.name)
             if pref_day is not None:
-                days_ahead = pref_day - current_date.weekday()
-                if days_ahead <= 0:
-                    days_ahead += 7
+                days_ahead = (pref_day - current_date.weekday()) % 7
                 current_date += timedelta(days=days_ahead)
+            else:
+                small_offset = (act_index * 3 + act_index // 7) % 7
+                current_date += timedelta(days=small_offset)
+        else:
+            current_date = START_DATE + timedelta(days=days_offset)
+            pref_day = _infer_preferred_day_offset(activity.name)
+            if pref_day is not None:
+                days_ahead = (pref_day - current_date.weekday()) % 7
+                if days_ahead > 0:
+                    current_date += timedelta(days=days_ahead)
+        base_date = current_date
 
-        for _ in range(n_instances * max(1, total_days // max(1, n_instances)) + total_days + 30):
+        def _advance_date():
+            nonlocal current_date, pref_day_fails
+            if pref_day is not None and pref_day_fails < 5:
+                pref_day_fails += 1
+                da = (pref_day - current_date.weekday()) % 7
+                current_date += timedelta(days=da if da > 0 else 7)
+            else:
+                current_date += timedelta(days=1)
+
+        wrap_count = 0
+        pref_day_fails = 0
+        for _ in range(n_instances * max(1, total_days // max(1, n_instances)) + total_days + 60):
             if placed >= n_instances:
                 break
             if current_date > END_DATE:
-                current_date = START_DATE
+                wrap_count += 1
+                if wrap_count > 14:
+                    break
+                base_date += timedelta(days=1)
+                current_date = base_date
+                pref_day_fails = 0
+                continue
 
             ds = current_date.strftime("%Y-%m-%d")
 
             if (activity.id, ds) in activity_date_used:
-                current_date += timedelta(days=1)
+                _advance_date()
                 continue
 
             slots = client_day_avail.get(ds, [])
             if not slots:
-                current_date += timedelta(days=1)
+                _advance_date()
                 continue
 
+            _has_appointment = bool(activity.requires_specialist or activity.requires_allied_health)
+            if (not activity.is_all_day
+                    and activity.type != ActivityType.CONSULTATION
+                    and not _has_appointment
+                    and current_date.weekday() < 5):
+                slots = _subtract_intervals(slots, [(510, 1050)])
+                if not slots:
+                    _advance_date()
+                    continue
+
             if ds in travel_dates and requires_fixed_location:
-                current_date += timedelta(days=1)
+                _advance_date()
                 continue
 
             for rkey in required_resources:
@@ -301,33 +343,37 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
                     break
 
             if not slots:
-                current_date += timedelta(days=1)
+                _advance_date()
                 continue
 
             is_short = duration <= SHORT_DURATION
             stacked = False
             pref_start, pref_end = pref_range
 
-            if is_short:
-                existing = day_short_stacked.get(ds, [])
-                for ss, se in existing:
-                    if se - ss >= duration and ss >= pref_start and se <= pref_end:
-                        start_m = ss
-                        end_m = ss + duration
-                        stacked = True
-                        break
+            if is_short and ds in day_short_cursor:
+                cursor = day_short_cursor[ds]
+                avail_slots = client_day_avail.get(ds, [])
+                bkd = day_booked.get(ds, [])
+                if bkd:
+                    avail_slots = _subtract_intervals(avail_slots, bkd)
+                if (cursor >= pref_start and cursor + duration <= pref_end
+                        and any(s <= cursor and cursor + duration <= e for s, e in avail_slots)):
+                    start_m = cursor
+                    end_m = cursor + duration
+                    day_short_cursor[ds] = end_m
+                    stacked = True
 
             if not stacked:
                 booked = day_booked.get(ds, [])
                 if booked:
                     slots = _subtract_intervals(slots, booked)
                 if not slots:
-                    current_date += timedelta(days=1)
+                    _advance_date()
                     continue
 
                 result = _find_best_slot(slots, pref_range, duration)
                 if result is None:
-                    current_date += timedelta(days=1)
+                    _advance_date()
                     continue
 
                 start_m, end_m = result
@@ -352,18 +398,16 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
                 metrics=activity.metrics,
                 details=activity.details,
                 notes="",
-                is_all_day=(duration >= 120),
+                is_all_day=activity.is_all_day,
             )
             schedule.append(sched)
 
+            book_start = max(0, start_m - BUFFER_MINUTES)
+            book_end = min(1440, end_m + BUFFER_MINUTES)
+            day_booked[ds].append((book_start, book_end))
             if not stacked:
-                book_start = max(0, start_m - BUFFER_MINUTES)
-                book_end = min(1440, end_m + BUFFER_MINUTES)
-                day_booked[ds].append((book_start, book_end))
                 if is_short:
-                    day_short_stacked[ds].append((start_m, end_m))
-
-            if not stacked:
+                    day_short_cursor[ds] = end_m
                 day_event_count[ds] += 1
             activity_date_used.add((activity.id, ds))
             placed += 1
@@ -392,6 +436,16 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
                             cur += timedelta(days=1)
                             continue
 
+                        b_has_appt = bool(backup_act.requires_specialist or backup_act.requires_allied_health)
+                        if (not backup_act.is_all_day
+                                and backup_act.type != ActivityType.CONSULTATION
+                                and not b_has_appt
+                                and cur.weekday() < 5):
+                            b_slots = _subtract_intervals(b_slots, [(510, 1050)])
+                            if not b_slots:
+                                cur += timedelta(days=1)
+                                continue
+
                         b_reqs_fixed = bool(
                             backup_act.requires_equipment
                             or backup_act.requires_specialist
@@ -405,14 +459,18 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
                         b_sm = 0
                         b_em = 0
 
-                        if b_is_short:
-                            existing = day_short_stacked.get(b_ds, [])
-                            for ss, se in existing:
-                                if se - ss >= b_duration:
-                                    b_sm = ss
-                                    b_em = ss + b_duration
-                                    b_stacked = True
-                                    break
+                        if b_is_short and b_ds in day_short_cursor:
+                            cursor = day_short_cursor[b_ds]
+                            b_avail = client_day_avail.get(b_ds, [])
+                            b_bkd = day_booked.get(b_ds, [])
+                            if b_bkd:
+                                b_avail = _subtract_intervals(b_avail, b_bkd)
+                            if (cursor + b_duration <= 1440
+                                    and any(s <= cursor and cursor + b_duration <= e for s, e in b_avail)):
+                                b_sm = cursor
+                                b_em = cursor + b_duration
+                                day_short_cursor[b_ds] = b_em
+                                b_stacked = True
 
                         if not b_stacked:
                             b_booked = day_booked.get(b_ds, [])
@@ -449,16 +507,15 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
                             metrics=backup_act.metrics,
                             details=backup_act.details,
                             notes=f"Substituted for {activity.name}",
-                            is_all_day=(b_duration >= 120),
+                            is_all_day=backup_act.is_all_day,
                         ))
 
+                        b_book_start = max(0, b_sm - BUFFER_MINUTES)
+                        b_book_end = min(1440, b_em + BUFFER_MINUTES)
+                        day_booked[b_ds].append((b_book_start, b_book_end))
                         if not b_stacked:
-                            b_book_start = max(0, b_sm - BUFFER_MINUTES)
-                            b_book_end = min(1440, b_em + BUFFER_MINUTES)
-                            day_booked[b_ds].append((b_book_start, b_book_end))
                             if b_is_short:
-                                day_short_stacked[b_ds].append((b_sm, b_em))
-                        if not b_stacked:
+                                day_short_cursor[b_ds] = b_em
                             day_event_count[b_ds] += 1
                         activity_date_used.add((backup_id, b_ds))
                         placed += 1
