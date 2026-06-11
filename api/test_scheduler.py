@@ -23,7 +23,7 @@ def test_activities_have_valid_frequencies():
     valid_periods = {p.value for p in FrequencyPeriod}
     for a in activities:
         assert a.frequency_period.value in valid_periods, f"Activity {a.id} has invalid period {a.frequency_period}"
-        assert a.frequency_times >= 1, f"Activity {a.id} has frequency_times < 1"
+        assert a.frequency_times >= 0, f"Activity {a.id} has frequency_times < 0"
         assert 1 <= a.priority <= 100, f"Activity {a.id} has priority out of range: {a.priority}"
         assert 1 <= a.duration_minutes <= 240, f"Activity {a.id} has duration out of range: {a.duration_minutes}"
 

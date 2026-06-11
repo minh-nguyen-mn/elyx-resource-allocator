@@ -139,8 +139,8 @@ def _find_best_slot(
                 edge_dist = slot_start - pref_end
             else:
                 edge_dist = 0
-            cand = (lo + hi) // 2
-            dist = abs(cand - pref_mid) + edge_dist * 10 + 100000
+            cand = min(max(lo, pref_mid - duration_min // 2), hi)
+            dist = abs(cand - pref_mid) * 0.2 + edge_dist * 10 + 100000
 
         if dist < best_dist:
             best_dist = dist
@@ -162,16 +162,22 @@ def _refine_time_preference(name: str, pref_range: tuple[int, int]) -> tuple[int
         return (pref_end - 120, pref_end)
 
     if any(kw in name_lower for kw in ['lunch', 'noon']):
-        return (pref_start, pref_start + 90)
+        return (pref_start + 60, pref_end)
 
     if any(kw in name_lower for kw in ['dinner', 'supper']):
-        return (pref_start, pref_start + 90)
+        return (pref_start + 60, pref_start + 150)
+
+    if any(kw in name_lower for kw in ['mindful eating', 'mindful']):
+        return (pref_start + 105, pref_start + 165)
 
     if any(kw in name_lower for kw in ['morning', 'breakfast', 'sunrise']):
         return (pref_start, pref_start + 120)
 
     if 'sunset' in name_lower:
         return (pref_end - 60, pref_end)
+
+    if 'retinoid' in name_lower or name_lower.startswith('cbd') or 'cbd recovery' in name_lower:
+        return (pref_start + 150, pref_end)
 
     return pref_range
 
@@ -303,7 +309,11 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
                 wrap_count += 1
                 if wrap_count > 14:
                     break
-                base_date += timedelta(days=1)
+                if pref_day is not None:
+                    da = (pref_day - base_date.weekday()) % 7
+                    base_date += timedelta(days=da if da > 0 else 7)
+                else:
+                    base_date += timedelta(days=1)
                 current_date = base_date
                 pref_day_fails = 0
                 continue
@@ -319,11 +329,9 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
                 _advance_date()
                 continue
 
-            _has_appointment = bool(activity.requires_specialist or activity.requires_allied_health)
             if (not activity.is_all_day
-                    and not _has_appointment
                     and current_date.weekday() < 5):
-                slots = _subtract_intervals(slots, [(510, 1050)])
+                slots = _subtract_intervals(slots, [(480, 1080)])
                 if not slots:
                     _advance_date()
                     continue
@@ -401,8 +409,9 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
             )
             schedule.append(sched)
 
-            book_start = max(0, start_m - BUFFER_MINUTES)
-            book_end = min(1440, end_m + BUFFER_MINUTES)
+            buf = 0 if duration <= 2 else BUFFER_MINUTES
+            book_start = max(0, start_m - buf)
+            book_end = min(1440, end_m + buf)
             day_booked[ds].append((book_start, book_end))
             if not stacked:
                 if is_short:
@@ -435,11 +444,9 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
                             cur += timedelta(days=1)
                             continue
 
-                        b_has_appt = bool(backup_act.requires_specialist or backup_act.requires_allied_health)
                         if (not backup_act.is_all_day
-                                and not b_has_appt
                                 and cur.weekday() < 5):
-                            b_slots = _subtract_intervals(b_slots, [(510, 1050)])
+                            b_slots = _subtract_intervals(b_slots, [(480, 1080)])
                             if not b_slots:
                                 cur += timedelta(days=1)
                                 continue
@@ -508,8 +515,9 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
                             is_all_day=backup_act.is_all_day,
                         ))
 
-                        b_book_start = max(0, b_sm - BUFFER_MINUTES)
-                        b_book_end = min(1440, b_em + BUFFER_MINUTES)
+                        b_buf = 0 if b_duration <= 2 else BUFFER_MINUTES
+                        b_book_start = max(0, b_sm - b_buf)
+                        b_book_end = min(1440, b_em + b_buf)
                         day_booked[b_ds].append((b_book_start, b_book_end))
                         if not b_stacked:
                             if b_is_short:

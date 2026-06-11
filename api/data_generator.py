@@ -333,7 +333,7 @@ def generate_activities() -> list[ActivityDefinition]:
         preferred_time_of_day=TimeOfDay.ANY))
 
     # ── FOOD / NUTRITION (20 activities) ──
-    activities.append(make("Breakfast Preparation", ActivityType.FOOD, 1, FrequencyPeriod.DAY, 20, 1,
+    activities.append(make("Breakfast Preparation", ActivityType.FOOD, 1, FrequencyPeriod.DAY, 35, 1,
         details="Prepare balanced breakfast with protein, complex carbs, and healthy fats",
         facilitator="Self", location="Home Kitchen",
         prep=["Grocery shopping completed", "Meal prep containers ready"],
@@ -341,23 +341,23 @@ def generate_activities() -> list[ActivityDefinition]:
         metrics=["Meal quality (1-10)", "Time spent", "Macro balance"],
         requires_equipment=["EQ-BLENDER"], preferred_time_of_day=TimeOfDay.MORNING))
 
-    activities.append(make("Lunch Preparation", ActivityType.FOOD, 1, FrequencyPeriod.DAY, 15, 2,
-        details="Prepare or assemble healthy lunch. Focus on vegetables and lean protein.",
+    activities.append(make("Lunch Preparation", ActivityType.FOOD, 2, FrequencyPeriod.WEEK, 15, 2,
+        details="Pack pre-prepped lunch from Sunday meal prep. Add fresh veggies.",
         facilitator="Self", location="Home Kitchen",
-        prep=["Meal prep vegetables on Sunday"],
-        backup_activity_ids=[], skip_adjustments="Pre-prepped salad from fridge",
+        prep=["Meal prep vegetables on Sunday", "Pack lunch container"],
+        backup_activity_ids=[], skip_adjustments="Grab pre-prepped salad",
         metrics=["Vegetable servings", "Protein quality"],
-        preferred_time_of_day=TimeOfDay.AFTERNOON))
+        preferred_time_of_day=TimeOfDay.MORNING))
 
-    activities.append(make("Dinner Preparation", ActivityType.FOOD, 1, FrequencyPeriod.DAY, 30, 3,
-        details="Cook dinner from scratch. Include 3+ vegetable varieties. Mindful cooking practice.",
+    activities.append(make("Dinner Preparation", ActivityType.FOOD, 1, FrequencyPeriod.DAY, 45, 2,
+        details="Cook dinner. Include 3+ vegetable varieties. Sundays from meal prep leftovers.",
         facilitator="Self", location="Home Kitchen",
         prep=["Review recipe", "Prep ingredients", "Clean as you go"],
-        backup_activity_ids=[], skip_adjustments="Prep meal from freezer",
+        backup_activity_ids=[], skip_adjustments="Heat meal prep container",
         metrics=["Cooking quality (1-10)", "Nutritional balance", "Prep efficiency"],
         requires_equipment=["EQ-BLENDER"], preferred_time_of_day=TimeOfDay.EVENING))
 
-    activities.append(make("Morning Smoothie Prep", ActivityType.FOOD, 1, FrequencyPeriod.DAY, 10, 4,
+    activities.append(make("Morning Smoothie Prep", ActivityType.FOOD, 1, FrequencyPeriod.DAY, 15, 4,
         details="Green smoothie: spinach, banana, protein powder, almond milk, flax seeds, berries",
         facilitator="Self", location="Home Kitchen",
         prep=["Pre-portion smoothie packs weekly"],
@@ -405,7 +405,7 @@ def generate_activities() -> list[ActivityDefinition]:
         metrics=["Vegetable servings", "Juice quality"],
         requires_equipment=["EQ-JUICER"], preferred_time_of_day=TimeOfDay.MORNING))
 
-    activities.append(make("Herbal Tea Time", ActivityType.FOOD, 1, FrequencyPeriod.DAY, 5, 3,
+    activities.append(make("Herbal Tea Time", ActivityType.FOOD, 1, FrequencyPeriod.DAY, 5, 4,
         details="Prepare and enjoy herbal tea. Rotate between chamomile, peppermint, ginger, rooibos.",
         facilitator="Self", location="Home",
         prep=["Select tea variety", "Boil water"],
@@ -419,7 +419,7 @@ def generate_activities() -> list[ActivityDefinition]:
         prep=["Pre-measure protein powder in container"],
         backup_activity_ids=[], skip_adjustments="Ready-to-drink protein shake",
         metrics=["Timing (how soon after workout)", "Protein amount"],
-        requires_equipment=["EQ-BLENDER"], preferred_time_of_day=TimeOfDay.ANY))
+        requires_equipment=["EQ-BLENDER"], preferred_time_of_day=TimeOfDay.MORNING))
 
     activities.append(make("Healthy Snack Prep", ActivityType.FOOD, 3, FrequencyPeriod.WEEK, 15, 9,
         details="Portion nuts, cut vegetables, make energy balls, prepare hummus portions",
@@ -459,7 +459,7 @@ def generate_activities() -> list[ActivityDefinition]:
         prep=["Set phone aside", "Set table properly"],
         backup_activity_ids=[], skip_adjustments="Practice during snack time",
         metrics=["Meal duration", "Chews per bite", "Satiety awareness (1-10)"],
-        preferred_time_of_day=TimeOfDay.ANY))
+        preferred_time_of_day=TimeOfDay.EVENING))
 
     activities.append(make("Food Journaling", ActivityType.FOOD, 1, FrequencyPeriod.DAY, 10, 5,
         details="Log meals, energy levels, mood, and digestive response in food tracking app",
@@ -912,7 +912,7 @@ def generate_activities() -> list[ActivityDefinition]:
         elif a.id == "ACT-036":  # Lunch
             a.backup_activity_ids = bid("Breakfast Preparation", "Dinner Preparation")
         elif a.id == "ACT-037":  # Dinner
-            a.backup_activity_ids = bid("Lunch Preparation", "New Recipe Exploration")
+            a.backup_activity_ids = bid("New Recipe Exploration")
         elif a.id == "ACT-038":  # Smoothie
             a.backup_activity_ids = bid("Fresh Juice Preparation")
         elif a.id == "ACT-039":  # Meal Prep
@@ -927,8 +927,6 @@ def generate_activities() -> list[ActivityDefinition]:
             a.backup_activity_ids = bid("Morning Smoothie Prep")
         elif a.id == "ACT-046":  # Snack Prep
             a.backup_activity_ids = bid("Fermented Food Preparation")
-        elif a.id == "ACT-050":  # Mindful Eating
-            a.backup_activity_ids = bid("Hydration Check")
         elif a.id == "ACT-051":  # Food Journaling
             a.backup_activity_ids = bid("Mindful Eating Practice")
         elif a.id == "ACT-053":  # New Recipe
@@ -991,9 +989,8 @@ def generate_activities() -> list[ActivityDefinition]:
     # Adjust frequencies for realistic plan density (~100 sessions/week)
     daily_to_weekly = {
         "ACT-010", "ACT-011", "ACT-015", "ACT-021", "ACT-022",
-        "ACT-032", "ACT-033", "ACT-034", "ACT-035", "ACT-036",
-        "ACT-037", "ACT-038", "ACT-043", "ACT-050",
-        "ACT-051", "ACT-083", "ACT-101", "ACT-103",
+        "ACT-032", "ACT-033", "ACT-034", "ACT-043",
+        "ACT-051", "ACT-083", "ACT-101",
     }
     for a in activities:
         if a.id in daily_to_weekly and a.frequency_period == FrequencyPeriod.DAY:
@@ -1005,11 +1002,23 @@ def generate_activities() -> list[ActivityDefinition]:
         if a.id == "ACT-100" and a.frequency_times == 2:
             a.frequency_times = 1
 
-    always_daily = {"ACT-044", "ACT-106", "ACT-107", "ACT-108"}
+    always_daily = {"ACT-035", "ACT-036", "ACT-037", "ACT-038", "ACT-044", "ACT-050", "ACT-103", "ACT-106", "ACT-107"}
     for a in activities:
         if a.frequency_period == FrequencyPeriod.DAY and a.id not in always_daily:
             a.frequency_period = FrequencyPeriod.WEEK
             a.frequency_times = max(1, a.frequency_times)
+
+    # Suppress redundant activities
+    for a in activities:
+        if a.id == "ACT-036":
+            a.frequency_period = FrequencyPeriod.DAY
+            a.frequency_times = 0
+        if a.id == "ACT-049":
+            a.frequency_period = FrequencyPeriod.DAY
+            a.frequency_times = 0
+        if a.id == "ACT-108":
+            a.frequency_period = FrequencyPeriod.DAY
+            a.frequency_times = 0
 
     weekly_ids = sorted(
         [a for a in activities if a.frequency_period == FrequencyPeriod.WEEK],
@@ -1082,7 +1091,10 @@ def generate_resource_schedules(rand: random.Random):
     ]
 
     for eid, ename, loc in eq_defs:
-        days_off = rand.sample([d for d in date_range()], rand.randint(5, 12))
+        if eid in ("EQ-BLENDER", "EQ-JUICER"):
+            days_off = []
+        else:
+            days_off = rand.sample([d for d in date_range()], rand.randint(5, 12))
         weekly_avail = [
             WeeklyAvailability(day_of_week=d, start_time="06:00", end_time="21:00")
             for d in range(5)
@@ -1113,36 +1125,29 @@ def generate_resource_schedules(rand: random.Random):
 
     # ── SPECIALISTS ──
     spec_defs = [
-        ("SP-TRAINER", "Alex Thompson", "Personal Training", ["06:00", "18:00"]),
-        ("SP-YOGA", "Maria Garcia", "Yoga Instruction", ["08:00", "16:00"]),
-        ("SP-SWIM", "David Kim", "Swimming Coaching", ["07:00", "19:00"]),
-        ("SP-TENNIS", "Sarah Williams", "Tennis Coaching", ["08:00", "17:00"]),
-        ("SP-BOXING", "James Johnson", "Boxing Training", ["10:00", "20:00"]),
-        ("SP-PCP", "Dr. Robert Reynolds", "Primary Care", ["08:00", "17:00"]),
-        ("SP-DERMATOLOGIST", "Dr. Sarah Lee", "Dermatology", ["09:00", "16:00"]),
-        ("SP-SLEEP", "Dr. James Wright", "Sleep Medicine", ["09:00", "15:00"]),
+        ("SP-TRAINER", "Alex Thompson", "Personal Training", ["06:00", "20:00"]),
+        ("SP-YOGA", "Maria Garcia", "Yoga Instruction", ["06:00", "20:00"]),
+        ("SP-SWIM", "David Kim", "Swimming Coaching", ["06:00", "20:00"]),
+        ("SP-TENNIS", "Sarah Williams", "Tennis Coaching", ["06:00", "20:00"]),
+        ("SP-BOXING", "James Johnson", "Boxing Training", ["06:00", "20:00"]),
+        ("SP-PCP", "Dr. Robert Reynolds", "Primary Care", ["06:00", "20:00"]),
+        ("SP-DERMATOLOGIST", "Dr. Sarah Lee", "Dermatology", ["06:00", "20:00"]),
+        ("SP-SLEEP", "Dr. James Wright", "Sleep Medicine", ["06:00", "20:00"]),
     ]
 
     for sid, sname, spec, hours in spec_defs:
         days_off = []
         for d in date_range():
-            if d.weekday() >= 5 and rand.random() < 0.5:
+            if d.weekday() >= 5 and rand.random() < 0.15:
                 days_off.append(d)
-            elif d.weekday() < 5 and rand.random() < 0.05:
+            elif d.weekday() < 5 and rand.random() < 0.04:
                 days_off.append(d)
 
         weekly_avail = []
         for d in range(5):
-            if d < 3:
-                weekly_avail.append(WeeklyAvailability(day_of_week=d, start_time=hours[0], end_time=hours[1]))
-            elif d == 3 or d == 4:
-                late_start = time(rand.randint(9, 11), 0)
-                late_end = time(rand.randint(17, 19), 0)
-                weekly_avail.append(WeeklyAvailability(
-                    day_of_week=d,
-                    start_time=late_start.strftime("%H:%M"),
-                    end_time=late_end.strftime("%H:%M")
-                ))
+            weekly_avail.append(WeeklyAvailability(day_of_week=d, start_time=hours[0], end_time=hours[1]))
+        weekly_avail.append(WeeklyAvailability(day_of_week=5, start_time="07:00", end_time="13:00"))
+        weekly_avail.append(WeeklyAvailability(day_of_week=6, start_time="08:00", end_time="12:00"))
 
         overrides = []
         for d in days_off:
@@ -1166,25 +1171,27 @@ def generate_resource_schedules(rand: random.Random):
 
     # ── ALLIED HEALTH ──
     ah_defs = [
-        ("AH-PHYSIO", "Emily Chen", "Physiotherapy", ["07:00", "18:00"]),
-        ("AH-DIETITIAN", "Rachel Patel", "Dietetics", ["08:00", "17:00"]),
-        ("AH-ACUPUNCTURE", "Michael Brown", "Acupuncture", ["09:00", "18:00"]),
-        ("AH-MASSAGE", "Lisa Anderson", "Massage Therapy", ["09:00", "19:00"]),
-        ("AH-CHIROPRACTOR", "Robert Taylor", "Chiropractic", ["08:00", "17:00"]),
+        ("AH-PHYSIO", "Emily Chen", "Physiotherapy", ["06:00", "20:00"]),
+        ("AH-DIETITIAN", "Rachel Patel", "Dietetics", ["06:00", "20:00"]),
+        ("AH-ACUPUNCTURE", "Michael Brown", "Acupuncture", ["06:00", "20:00"]),
+        ("AH-MASSAGE", "Lisa Anderson", "Massage Therapy", ["06:00", "20:00"]),
+        ("AH-CHIROPRACTOR", "Robert Taylor", "Chiropractic", ["06:00", "20:00"]),
     ]
 
     for aid, aname, prof, hours in ah_defs:
         days_off = []
         for d in date_range():
-            if d.weekday() >= 5 and rand.random() < 0.4:
+            if d.weekday() >= 5 and rand.random() < 0.15:
                 days_off.append(d)
-            elif d.weekday() < 5 and rand.random() < 0.04:
+            elif d.weekday() < 5 and rand.random() < 0.03:
                 days_off.append(d)
 
         weekly_avail = [
             WeeklyAvailability(day_of_week=d, start_time=hours[0], end_time=hours[1])
             for d in range(5)
         ]
+        weekly_avail.append(WeeklyAvailability(day_of_week=5, start_time="07:00", end_time="13:00"))
+        weekly_avail.append(WeeklyAvailability(day_of_week=6, start_time="08:00", end_time="12:00"))
 
         overrides = [
             AvailabilityOverride(date=d.strftime("%Y-%m-%d"), is_blocked=True)
@@ -1208,8 +1215,8 @@ def generate_client_schedule(rand: random.Random) -> ClientSchedule:
         WeeklyAvailability(day_of_week=d, start_time="06:00", end_time="21:30")
         for d in range(5)
     ]
-    weekly_avail.append(WeeklyAvailability(day_of_week=5, start_time="08:00", end_time="20:00"))
-    weekly_avail.append(WeeklyAvailability(day_of_week=6, start_time="08:00", end_time="19:00"))
+    weekly_avail.append(WeeklyAvailability(day_of_week=5, start_time="08:00", end_time="22:00"))
+    weekly_avail.append(WeeklyAvailability(day_of_week=6, start_time="08:00", end_time="21:00"))
 
     # 3 travel plans over the 3 months
     travel_plans = [
