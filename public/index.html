@@ -21,10 +21,10 @@
   --border: #E0DDD9;
   --border-light: #E8E6E3;
   --gold: #D4AF37;
-  --gold-hover: #C4A030;
   --header-bg: #000000;
   --shadow: 0 2px 6px rgba(0,0,0,0.06);
   --radius: 6px;
+  --radius-sm: 4px;
   --radius-pill: 50px;
   --font-ui: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-display: 'Cormorant Garamond', Georgia, serif;
@@ -52,88 +52,39 @@ body {
   border-bottom: 2px solid var(--gold);
 }
 
-.header-brand {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  height: 100%;
-}
+.header-brand { display: flex; align-items: center; gap: 16px; height: 100%; }
+.header-logo { height: 28px; display: block; }
+.header-logo img { height: 28px; display: block; }
+.header-divider { width: 1px; height: 24px; background: rgba(255,255,255,0.2); }
+.header-title-area { display: flex; flex-direction: column; }
+.header-title { font-size: 13px; font-weight: 500; color: #fff; letter-spacing: 0.3px; }
+.header-subtitle { font-size: 10px; color: rgba(255,255,255,0.5); font-weight: 400; letter-spacing: 0.5px; }
 
-.header-logo {
-  height: 28px;
-  display: block;
-}
-
-.header-logo img {
-  height: 28px;
-  display: block;
-}
-
-.header-divider {
-  width: 1px;
-  height: 24px;
-  background: rgba(255,255,255,0.2);
-}
-
-.header-title-area {
-  display: flex;
-  flex-direction: column;
-}
-
-.header-title {
-  font-size: 13px;
-  font-weight: 500;
-  color: #fff;
-  letter-spacing: 0.3px;
-}
-
-.header-subtitle {
-  font-size: 10px;
-  color: rgba(255,255,255,0.5);
-  font-weight: 400;
-  letter-spacing: 0.5px;
-}
-
-.stats-bar {
-  display: flex;
-  gap: 8px;
-}
-
+.stats-bar { display: flex; gap: 8px; }
 .stat {
   background: rgba(255,255,255,0.06);
   border-radius: 4px;
   padding: 6px 12px;
   text-align: center;
   min-width: 62px;
+  cursor: pointer;
+  transition: background .15s;
 }
-
-.stat .value {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--gold);
-  font-variant-numeric: tabular-nums;
-}
-
-.stat .label {
-  font-size: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  color: rgba(255,255,255,0.45);
-  margin-top: 1px;
-}
+.stat:hover { background: rgba(255,255,255,0.12); }
+.stat .value { font-size: 15px; font-weight: 600; color: var(--gold); font-variant-numeric: tabular-nums; }
+.stat .label { font-size: 8px; text-transform: uppercase; letter-spacing: 0.6px; color: rgba(255,255,255,0.45); margin-top: 1px; }
 
 .main {
   max-width: 1440px;
   margin: 0 auto;
   padding: 20px;
-}
-
-.layout {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.sidebar { width: 270px; flex-shrink: 0; }
+.layout { display: flex; gap: 20px; align-items: flex-start; }
+.sidebar { width: 280px; flex-shrink: 0; }
 
 @media (max-width: 900px) {
   .layout { flex-direction: column; }
@@ -146,57 +97,42 @@ body {
   background: var(--card-bg);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  margin-bottom: 14px;
+  margin-bottom: 6px;
   overflow: hidden;
   border: 1px solid var(--border-light);
 }
 
 .card-header {
-  padding: 12px 16px;
+  padding: 10px 14px;
   font-weight: 600;
   font-size: 10px;
   letter-spacing: 0.8px;
   text-transform: uppercase;
   border-bottom: 1px solid var(--border-light);
   color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.card-body { padding: 12px 16px; }
+.card-body { padding: 10px 14px; }
+.card-body.compact { padding: 6px 14px; }
 .card-body table { width: 100%; border-collapse: collapse; font-size: 12px; }
 .card-body td { padding: 5px 4px; border-bottom: 1px solid var(--border-light); }
 .card-body td:first-child { color: var(--text-muted); }
 .card-body .num { text-align: right; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--text); }
 
-.legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 14px;
-}
-
+.legend { display: flex; flex-wrap: wrap; gap: 6px; }
 .legend-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 11px;
-  color: var(--text-muted);
-  cursor: pointer;
-  padding: 4px 10px;
-  border-radius: var(--radius-pill);
+  display: flex; align-items: center; gap: 5px;
+  font-size: 11px; color: var(--text-muted); cursor: pointer;
+  padding: 4px 10px; border-radius: var(--radius-pill);
   transition: opacity .15s, background .15s;
-  border: 1px solid var(--border);
-  background: var(--card-bg);
+  border: 1px solid var(--border); background: var(--card-bg);
 }
-
 .legend-item:hover { background: #F5F5F5; }
 .legend-item.dimmed { opacity: 0.3; }
-
-.legend-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
+.legend-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 
 #calendar {
   background: var(--card-bg);
@@ -225,13 +161,29 @@ body {
 .fc .fc-button-primary:not(:disabled).fc-button-active { background: #000 !important; border-color: #000 !important; color: #fff !important; }
 .fc .fc-today-button { font-weight: 500 !important; }
 .fc .fc-today-button:disabled { opacity: 0.4 !important; }
+.fc-datejump-container {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 6px;
+}
+.fc-datejump-input {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  color: var(--text);
+  outline: none;
+  width: 100px;
+  cursor: pointer;
+  line-height: 1.6;
+}
+.fc-datejump-input:focus { border-color: #000; }
 .fc .fc-event { border-radius: 2px; padding: 1px 3px; font-size: 10px; border: none; cursor: pointer; font-weight: 400; }
 .fc .fc-daygrid-more-link { font-size: 10px; color: var(--text-muted); }
 .fc .fc-timegrid-slot { height: 24px; }
-.fc .fc-col-header-cell-cushion {
-  font-weight: 500; color: var(--text-muted);
-  text-transform: uppercase; font-size: 10px; letter-spacing: 0.5px;
-}
+.fc .fc-col-header-cell-cushion { font-weight: 500; color: var(--text-muted); text-transform: uppercase; font-size: 10px; letter-spacing: 0.5px; }
 .fc .fc-daygrid-day-number { font-size: 12px; color: var(--text); }
 .fc .fc-day-today .fc-daygrid-day-number { font-weight: 600; color: #000; }
 .fc .fc-day-today { background: rgba(0,0,0,0.02) !important; }
@@ -242,16 +194,125 @@ body {
 .fc .fc-popover { border-radius: var(--radius) !important; box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important; border: 1px solid var(--border) !important; }
 .fc .fc-popover-title { font-family: var(--font-display); font-size: 13px; }
 .fc .fc-more-popover .fc-daygrid-more { font-size: 11px; }
-
 .tooltip-content { display: none; }
 
-.fc-event.event-fitness { background: #1B5E20; border-color: #1B5E20; color: #fff; }
-.fc-event.event-food { background: #6D4C41; border-color: #6D4C41; color: #fff; }
-.fc-event.event-medication { background: #9B2226; border-color: #9B2226; color: #fff; }
-.fc-event.event-therapy { background: #5C2E7A; border-color: #5C2E7A; color: #fff; }
-.fc-event.event-consultation { background: #1A237E; border-color: #1A237E; color: #fff; }
+.event-fitness { background: #1B5E20 !important; border-color: #1B5E20 !important; color: #fff !important; }
+.event-food { background: #6D4C41 !important; border-color: #6D4C41 !important; color: #fff !important; }
+.event-medication { background: #9B2226 !important; border-color: #9B2226 !important; color: #fff !important; }
+.event-therapy { background: #5C2E7A !important; border-color: #5C2E7A !important; color: #fff !important; }
+.event-consultation { background: #1A237E !important; border-color: #1A237E !important; color: #fff !important; }
 .travel-block { background: var(--gold) !important; border-color: var(--gold) !important; color: #000 !important; font-weight: 600; }
-.fc-event.event-skipped { background: #D5D2CE !important; border-color: #C5C2BE !important; color: #8A8A8A !important; font-weight: 400; font-style: italic; text-decoration: line-through; }
+.event-skipped { background: #D5D2CE !important; border-color: #C5C2BE !important; color: #8A8A8A !important; font-weight: 400; font-style: italic; text-decoration: line-through; }
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.sort-controls select {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  padding: 3px 6px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  color: var(--text);
+  outline: none;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.sort-controls select:focus { border-color: #000; }
+
+.sort-toggle {
+  font-size: 11px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text-muted);
+  line-height: 1;
+  transition: all .15s;
+}
+
+.sort-toggle:hover { background: #F5F5F5; color: var(--text); }
+
+.select-all-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.select-all-bar button {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all .15s;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.select-all-bar button:hover { background: #F5F5F5; color: var(--text); }
+
+.activity-list {
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.activity-list::-webkit-scrollbar { width: 4px; }
+.activity-list::-webkit-scrollbar-track { background: transparent; }
+.activity-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+  font-size: 11px;
+  border-bottom: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: background .1s;
+}
+
+.activity-item:hover { background: #FAFAFA; }
+.activity-item .act-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.activity-item .act-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.activity-item .act-tag { font-size: 9px; color: var(--text-dim); flex-shrink: 0; }
+
+.skipped-list {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.skipped-list::-webkit-scrollbar { width: 4px; }
+.skipped-list::-webkit-scrollbar-track { background: transparent; }
+.skipped-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.skipped-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 5px 0;
+  font-size: 11px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.skipped-item .skipped-body { flex: 1; min-width: 0; }
+.skipped-item .skipped-head { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.skipped-item .skipped-name { color: #9B2226; font-weight: 600; }
+.skipped-item .skipped-pri { font-size: 9px; color: var(--text-dim); }
+.skipped-item .skipped-dates { color: var(--text-muted); font-size: 10px; margin-top: 1px; }
+.skipped-item .skipped-adj { color: var(--text-muted); font-size: 10px; }
 
 .modal-overlay {
   position: fixed; top: 0; left: 0; right: 0; bottom: 0;
@@ -271,6 +332,7 @@ body {
   padding: 16px 20px;
   border-bottom: 1px solid var(--border);
   display: flex; justify-content: space-between; align-items: center;
+  position: sticky; top: 0; background: var(--card-bg); z-index: 1;
 }
 .modal-header h2 { font-size: 16px; font-weight: 500; font-family: var(--font-display); }
 .modal-close {
@@ -281,19 +343,59 @@ body {
 .modal-close:hover { color: var(--text); }
 .modal-body { padding: 16px 20px; }
 .modal-body .field { margin-bottom: 10px; }
-.modal-body .field-label {
-  font-size: 9px; text-transform: uppercase;
-  letter-spacing: 0.6px; color: var(--text-dim); margin-bottom: 2px; font-weight: 500;
-}
+.modal-body .field-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text-dim); margin-bottom: 2px; font-weight: 500; }
 .modal-body .field-value { font-size: 13px; color: var(--text); }
+
+.act-expand {
+  font-size: 8px;
+  cursor: pointer;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  width: 16px;
+  text-align: center;
+  transition: color .15s;
+  user-select: none;
+}
+.act-expand:hover { color: var(--text); }
+
+.act-details {
+  padding: 6px 8px 6px 22px;
+  font-size: 11px;
+  background: #FAFAFA;
+  border-bottom: 1px solid var(--border-light);
+}
+.act-detail-row {
+  display: flex;
+  gap: 8px;
+  padding: 2px 0;
+}
+.act-detail-lbl {
+  color: var(--text-muted);
+  width: 80px;
+  flex-shrink: 0;
+  font-size: 10px;
+}
+.act-sort-val {
+  font-size: 9px;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  margin-right: 4px;
+}
+
+.skipped-detail {
+  padding: 6px 8px 6px 44px;
+  font-size: 11px;
+  background: #FAFAFA;
+}
+.skipped-detail .act-detail-row {
+  padding: 1px 0;
+}
 
 .footer {
   text-align: center;
-  padding: 16px 20px;
+  padding: 12px 20px;
   font-size: 10px;
   color: var(--text-dim);
-  border-top: 1px solid var(--border-light);
-  margin-top: 20px;
 }
 .footer a { color: #000; text-decoration: none; font-weight: 500; }
 .footer a:hover { text-decoration: underline; }
@@ -313,22 +415,40 @@ body {
     </div>
   </div>
   <div class="stats-bar" id="statsBar">
-    <div class="stat"><div class="value" id="statPlaced">0</div><div class="label">Placed</div></div>
-    <div class="stat"><div class="value" id="statRequested">0</div><div class="label">Requested</div></div>
-    <div class="stat"><div class="value" id="statViolations">0</div><div class="label">Violations</div></div>
-    <div class="stat"><div class="value" id="statBackups">0</div><div class="label">Backup</div></div>
+    <div class="stat" onclick="showStatModal('placed')"><div class="value" id="statPlaced">0</div><div class="label">Placed</div></div>
+    <div class="stat" onclick="showStatModal('requested')"><div class="value" id="statRequested">0</div><div class="label">Requested</div></div>
+    <div class="stat" onclick="showStatModal('violations')"><div class="value" id="statViolations">0</div><div class="label">Violations</div></div>
+    <div class="stat" onclick="showStatModal('backups')"><div class="value" id="statBackups">0</div><div class="label">Backup</div></div>
   </div>
 </div>
 
 <div class="main">
-  <div class="legend" id="legend"></div>
   <div class="layout">
     <div class="sidebar">
-      <div class="card"><div class="card-header">Filters</div><div class="card-body" id="filtersCard"></div></div>
-      <div class="card"><div class="card-header">Type Breakdown</div><div class="card-body" id="typeBreakdown"></div></div>
-      <div class="card"><div class="card-header">Activities by Priority</div><div class="card-body" id="priorityList" style="max-height:340px;overflow-y:auto"></div></div>
-      <div class="card"><div class="card-header">Resource Constraints</div><div class="card-body" id="constraintsList"></div></div>
-      <div class="card"><div class="card-header">Skipped Activities</div><div class="card-body" id="skippedList"></div></div>
+      <div class="card">
+        <div class="card-header">Filters</div>
+        <div class="card-body" id="filtersCard"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">Activities <span id="activityCount" style="font-weight:400;color:var(--text-dim)"></span></div>
+        <div class="card-body compact" id="activitiesCard"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">Skipped Activities</div>
+        <div class="card-body compact" id="skippedCard"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">Travel &amp; Away</div>
+        <div class="card-body compact" id="constraintsList"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">Type Breakdown</div>
+        <div class="card-body compact" id="typeBreakdown"></div>
+      </div>
     </div>
     <div id="calendar"></div>
   </div>
@@ -337,7 +457,7 @@ body {
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <div class="modal-header">
-      <h2 id="modalTitle">Activity Details</h2>
+      <h2 id="modalTitle">Details</h2>
       <button class="modal-close" onclick="closeModal()">&times;</button>
     </div>
     <div class="modal-body" id="modalBody"></div>
@@ -370,12 +490,17 @@ let allSchedule = [];
 let allTrips = [];
 let allActivities = [];
 let allSkipped = [];
+let allBlockedDates = [];
+let summaryData = null;
+let sortField = 'priority';
+let sortAsc = true;
+let _lastPickerDate = '';
 
 const PRIORITY_LEVELS = [
-  { key: 'critical', label: 'Critical', min: 1, max: 3 },
-  { key: 'high', label: 'High', min: 4, max: 10 },
-  { key: 'medium', label: 'Medium', min: 11, max: 20 },
-  { key: 'low', label: 'Low', min: 21, max: 100 },
+  { key: 'critical', label: 'Critical', range: 'P1\u2013P3', min: 1, max: 3 },
+  { key: 'high', label: 'High', range: 'P4\u2013P10', min: 4, max: 10 },
+  { key: 'medium', label: 'Medium', range: 'P11\u2013P20', min: 11, max: 20 },
+  { key: 'low', label: 'Low', range: 'P21+', min: 21, max: 100 },
 ];
 
 const filters = {
@@ -384,21 +509,96 @@ const filters = {
   showScheduled: true,
   showBackups: true,
   showSkipped: true,
-  hiddenActivityIds: new Set()
+  hiddenActivityIds: new Set(),
+  hiddenSkippedIds: new Set()
 };
 
+function getPriorityLabel(pri) {
+  if (pri <= 3) return 'P' + pri;
+  if (pri <= 10) return 'P' + pri;
+  if (pri <= 20) return 'P' + pri;
+  return 'P' + pri;
+}
+
+function getPriorityClass(pri) {
+  if (pri <= 3) return 'critical';
+  if (pri <= 10) return 'high';
+  if (pri <= 20) return 'medium';
+  return 'low';
+}
+
 function buildLegend() {
-  const el = document.getElementById('legend');
+  const el = document.getElementById('legend') || createLegend();
   el.innerHTML = Object.entries(TYPE_LABELS).map(([k,v]) =>
     `<div class="legend-item${filters.types[k]?'':' dimmed'}" onclick="toggleType('${k}')">
       <span class="legend-dot" style="background:${TYPE_COLORS[k]}"></span>${v}
     </div>`
   ).join('') +
-    '<div class="legend-item"><span class="legend-dot" style="background:#D4AF37"></span>Travel / Blocked</div>';
+    '<div class="legend-item"><span class="legend-dot" style="background:#D4AF37"></span>Travel / Away</div>';
 }
 
-function closeModal() {
-  document.getElementById('modalOverlay').classList.remove('active');
+function createLegend() {
+  const el = document.createElement('div');
+  el.className = 'legend'; el.id = 'legend';
+  document.querySelector('.main > .layout').before(el);
+  return el;
+}
+
+function closeModal() { document.getElementById('modalOverlay').classList.remove('active'); }
+
+function showStatModal(type) {
+  if (!summaryData) return;
+  const s = summaryData;
+  const body = document.getElementById('modalBody');
+  let title, rows;
+
+  if (type === 'placed') {
+    title = 'Placed Activities';
+    const pbt = s.placed_by_type || {};
+    const total = Object.values(pbt).reduce((a,b) => a+b, 0);
+    const byMonth = {};
+    allSchedule.forEach(e => {
+      if (e.activity_name.includes('(backup)')) return;
+      const m = e.start_datetime.slice(0, 7);
+      byMonth[m] = (byMonth[m] || 0) + 1;
+    });
+    rows = [
+      `<div class="field"><div class="field-label">Total</div><div class="field-value">${total} activities</div></div>`,
+      `<div class="field" style="margin-top:14px"><div class="field-label">By Type</div></div>`,
+      ...Object.entries(pbt).map(([k,v]) =>
+        `<div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:1px solid var(--border-light)"><span style="display:flex;align-items:center;gap:5px"><span style="width:6px;height:6px;border-radius:50%;background:${TYPE_COLORS[k]};display:inline-block"></span>${TYPE_LABELS[k]||k}</span><span style="font-weight:500">${v} (${Math.round(v/total*100)}%)</span></div>`
+      ),
+      `<div class="field" style="margin-top:14px"><div class="field-label">By Month</div></div>`,
+      ...Object.entries(byMonth).sort().map(([m,c]) =>
+        `<div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:1px solid var(--border-light)"><span>${new Date(m+'-01').toLocaleDateString('en-US',{month:'long',year:'numeric'})}</span><span style="font-weight:500">${c}</span></div>`
+      )
+    ];
+  } else if (type === 'requested') {
+    title = 'Requested Activities';
+    rows = [
+      `<div class="field"><div class="field-label">Total Requested</div><div class="field-value">${s.total_activities_requested} activities</div></div>`,
+      `<div class="field"><div class="field-label">Placed</div><div class="field-value">${s.total_activities_placed} (${Math.round(s.total_activities_placed/s.total_activities_requested*100)}%)</div></div>`
+    ];
+  } else if (type === 'violations') {
+    title = 'Constraint Violations';
+    rows = [
+      `<div class="field"><div class="field-label">Total Violations</div><div class="field-value">${s.constraint_violations}</div></div>`,
+      `<div class="field"><div class="field-label">Skipped Activities</div><div class="field-value">${(s.skipped_activities||[]).length} activities affected</div></div>`,
+      `<div class="field"><div class="field-label">Details</div><div class="field-value">Violations occur when activities cannot be placed within their preferred time windows due to resource constraints, schedule conflicts, or availability limits.</div></div>`
+    ];
+  } else if (type === 'backups') {
+    title = 'Backup Activities Used';
+    const backupNames = [...new Set(allSchedule.filter(e => e.activity_name.includes('(backup)')).map(e => e.activity_name))];
+    rows = [
+      `<div class="field"><div class="field-label">Total Backup Events</div><div class="field-value">${s.backup_activities_used}</div></div>`,
+      backupNames.length ? `<div class="field" style="margin-top:14px"><div class="field-label">Backup Activities</div></div>` +
+        backupNames.map(n => `<div style="font-size:12px;padding:3px 0;border-bottom:1px solid var(--border-light)">${n}</div>`).join('') : ''
+    ];
+  }
+
+  body.innerHTML = rows.join('');
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalOverlay').classList.add('active');
 }
 
 function showTravelModal(props) {
@@ -416,29 +616,13 @@ function showTravelModal(props) {
   document.getElementById('modalOverlay').classList.add('active');
 }
 
-function showSkippedModal(props) {
-  const body = document.getElementById('modalBody');
-  const fields = [
-    ['Activity', props.activity_name],
-    ['Type', TYPE_LABELS[props.activity_type] || props.activity_type],
-    ['Priority', props.priority <= 3 ? 'Critical' : props.priority <= 10 ? 'High' : props.priority <= 20 ? 'Medium' : 'Low'],
-    ['Missed Date', props.missed_date],
-    ['Adjustment', props.skip_adjustment]
-  ];
-  body.innerHTML = fields.map(([label, value]) =>
-    `<div class="field"><div class="field-label">${label}</div><div class="field-value">${value}</div></div>`
-  ).join('');
-  document.getElementById('modalTitle').textContent = props.activity_name;
-  document.getElementById('modalOverlay').classList.add('active');
-}
-
 function showEventModal(eventProps) {
   const p = eventProps;
   const body = document.getElementById('modalBody');
   const fields = [
     ['Activity', p.activity_name],
     ['Type', TYPE_LABELS[p.activity_type] || p.activity_type],
-    ['Priority', p.priority <= 3 ? 'Critical' : p.priority <= 10 ? 'High' : p.priority <= 20 ? 'Medium' : 'Low'],
+    ['Priority', getPriorityLabel(p.priority)],
     ['Duration', p.duration_minutes + ' min'],
     ['Location', p.location || 'N/A'],
     ['Facilitator', p.facilitator || 'Self'],
@@ -457,11 +641,11 @@ function showEventModal(eventProps) {
 
 async function loadData() {
   const resp = await fetch('/api/schedule');
-  const data = await resp.json();
-  return data;
+  return await resp.json();
 }
 
 function renderStats(s) {
+  summaryData = s;
   document.getElementById('statPlaced').textContent = s.total_activities_placed;
   document.getElementById('statRequested').textContent = s.total_activities_requested;
   document.getElementById('statViolations').textContent = s.constraint_violations;
@@ -474,8 +658,113 @@ function renderTypeBreakdown(pbt) {
   el.innerHTML = '<table>' +
     Object.entries(pbt).map(([k,v]) =>
       `<tr><td style="border-left:3px solid ${TYPE_COLORS[k]};padding-left:8px">${TYPE_LABELS[k]||k}</td><td class="num">${v}</td><td class="num" style="color:#8A8A8A;width:60px">${Math.round(v/total*100)}%</td></tr>`
-    ).join('') +
-    `</table>`;
+    ).join('') + '</table>';
+}
+
+function sortActivities(activities) {
+  const sorted = [...activities];
+  const cmp = sortAsc ? 1 : -1;
+  sorted.sort((a, b) => {
+    let r = 0;
+    switch (sortField) {
+      case 'priority': r = a.priority - b.priority; break;
+      case 'alpha': r = a.name.localeCompare(b.name); break;
+      case 'frequency': r = (b.frequency_times || 0) - (a.frequency_times || 0); break;
+      case 'duration': r = (a.duration_minutes || 0) - (b.duration_minutes || 0); break;
+      case 'type': r = Object.keys(TYPE_LABELS).indexOf(a.type) - Object.keys(TYPE_LABELS).indexOf(b.type); break;
+    }
+    return r * cmp;
+  });
+  return sorted;
+}
+
+function selectAllActivities(show) {
+  if (show) {
+    filters.hiddenActivityIds.clear();
+  } else {
+    allActivities.forEach(a => filters.hiddenActivityIds.add(a.id));
+  }
+  renderActivities();
+  rebuildCalendar();
+}
+
+function toggleActExpand(id, el) {
+  const detail = document.getElementById('actDetail_' + id);
+  if (!detail) return;
+  const expanded = detail.style.display !== 'none';
+  detail.style.display = expanded ? 'none' : 'block';
+  if (el) el.textContent = expanded ? '\u25B6' : '\u25BC';
+}
+
+function getSortIndicator(a) {
+  switch (sortField) {
+    case 'duration': return a.duration_minutes ? a.duration_minutes + ' min' : '';
+    case 'frequency': return a.frequency_times ? a.frequency_times + '/' + (a.frequency_period||'') : '';
+    case 'type': return TYPE_LABELS[a.type] || a.type;
+    default: return '';
+  }
+}
+
+function renderActivities() {
+  const countEl = document.getElementById('activityCount');
+  const listEl = document.getElementById('activitiesCard');
+  const oldScroll = listEl.querySelector('.activity-list');
+  const savedScrollTop = oldScroll ? oldScroll.scrollTop : 0;
+  countEl.textContent = `(${allActivities.length})`;
+
+  const sortOpts = [
+    { value: 'priority', label: 'Priority' },
+    { value: 'alpha', label: 'A\u2013Z' },
+    { value: 'frequency', label: 'Frequency' },
+    { value: 'duration', label: 'Duration' },
+    { value: 'type', label: 'Type' },
+  ];
+
+  const sorted = sortActivities(allActivities);
+  const visibleCount = sorted.filter(a => !filters.hiddenActivityIds.has(a.id)).length;
+  const allHidden = visibleCount === 0;
+  const allVisible = visibleCount === sorted.length;
+
+  listEl.innerHTML =
+    `<div class="sort-controls">
+      <select onchange="sortField=this.value;renderActivities();rebuildCalendar()">
+        ${sortOpts.map(o => `<option value="${o.value}" ${sortField===o.value?'selected':''}>${o.label}</option>`).join('')}
+      </select>
+      <span class="sort-toggle" onclick="sortAsc=!sortAsc;renderActivities();rebuildCalendar()">${sortAsc ? '\u25B2' : '\u25BC'}</span>
+    </div>
+    <div class="select-all-bar">
+      <button onclick="selectAllActivities(true)">${allVisible ? '\u2713' : ''} Select All</button>
+      <button onclick="selectAllActivities(false)">Clear All</button>
+    </div>
+    <div class="activity-list">
+      ${sorted.map(a => {
+        const checked = !filters.hiddenActivityIds.has(a.id);
+        const si = getSortIndicator(a);
+        return `<div class="activity-item">
+          <span class="act-expand" onclick="toggleActExpand('${a.id}', this)">\u25B6</span>
+          <input type="checkbox" ${checked?'checked':''} style="accent-color:${TYPE_COLORS[a.type]}" onchange="toggleActivity('${a.id}')">
+          <span class="act-dot" style="background:${TYPE_COLORS[a.type]}"></span>
+          <span class="act-name" onclick="toggleActExpand('${a.id}', this.parentElement.querySelector('.act-expand'))">${a.name}</span>
+          ${si ? `<span class="act-sort-val">${si}</span>` : ''}
+          <span class="act-tag">${getPriorityLabel(a.priority)}</span>
+        </div>
+        <div class="act-details" id="actDetail_${a.id}" style="display:none">
+          <div class="act-detail-row"><span class="act-detail-lbl">Type</span><span>${TYPE_LABELS[a.type]||a.type}</span></div>
+          <div class="act-detail-row"><span class="act-detail-lbl">Duration</span><span>${a.duration_minutes || 'N/A'} min</span></div>
+          <div class="act-detail-row"><span class="act-detail-lbl">Frequency</span><span>${(a.frequency_times || 'N/A') + ' / ' + (a.frequency_period || 'N/A')}</span></div>
+          <div class="act-detail-row"><span class="act-detail-lbl">Location</span><span>${a.location || 'N/A'}</span></div>
+          <div class="act-detail-row"><span class="act-detail-lbl">Facilitator</span><span>${a.facilitator || 'Self'}</span></div>
+          <div class="act-detail-row"><span class="act-detail-lbl">Equipment</span><span>${a.equipment_needed?.length ? a.equipment_needed.join(', ') : 'None'}</span></div>
+          <div class="act-detail-row"><span class="act-detail-lbl">Prep</span><span>${a.prep?.length ? a.prep.join(', ') : 'None'}</span></div>
+          ${a.metrics?.length ? `<div class="act-detail-row"><span class="act-detail-lbl">Metrics</span><span>${a.metrics.join(', ')}</span></div>` : ''}
+          ${a.notes ? `<div class="act-detail-row"><span class="act-detail-lbl">Notes</span><span>${a.notes}</span></div>` : ''}
+        </div>`;
+      }).join('')}
+    </div>`;
+  requestAnimationFrame(() => {
+    const newScroll = listEl.querySelector('.activity-list');
+    if (newScroll) newScroll.scrollTop = savedScrollTop;
+  });
 }
 
 function renderFilters() {
@@ -485,6 +774,7 @@ function renderFilters() {
     `<label style="display:flex;align-items:center;gap:4px;font-size:11px;padding:2px 0;cursor:pointer">
       <input type="checkbox" ${filters.priorityKeys.has(p.key)?'checked':''} onchange="togglePriority('${p.key}')" style="accent-color:#D4AF37">
       ${p.label}
+      <span style="color:var(--text-dim);font-size:9px">${p.range}</span>
     </label>`
   ).join('');
 
@@ -492,96 +782,54 @@ function renderFilters() {
     `<div style="margin-top:6px">
       <div style="font-size:10px;color:#8A8A8A;margin-bottom:2px;text-transform:uppercase;letter-spacing:0.5px">Show</div>
       <label style="display:flex;align-items:center;gap:4px;font-size:12px;padding:2px 0;cursor:pointer">
-        <input type="checkbox" ${filters.showScheduled?'checked':''} onchange="filters.showScheduled=!filters.showScheduled;rebuildCalendar()">
-        Scheduled
+        <input type="checkbox" ${filters.showScheduled?'checked':''} onchange="filters.showScheduled=!filters.showScheduled;rebuildCalendar()"> Scheduled
       </label>
       <label style="display:flex;align-items:center;gap:4px;font-size:12px;padding:2px 0;cursor:pointer">
-        <input type="checkbox" ${filters.showBackups?'checked':''} onchange="filters.showBackups=!filters.showBackups;rebuildCalendar()">
-        Backup
+        <input type="checkbox" ${filters.showBackups?'checked':''} onchange="filters.showBackups=!filters.showBackups;rebuildCalendar()"> Backup
       </label>
       <label style="display:flex;align-items:center;gap:4px;font-size:12px;padding:2px 0;cursor:pointer">
-        <input type="checkbox" ${filters.showSkipped?'checked':''} onchange="filters.showSkipped=!filters.showSkipped;rebuildCalendar()">
-        Skipped
+        <input type="checkbox" ${filters.showSkipped?'checked':''} onchange="filters.showSkipped=!filters.showSkipped;rebuildCalendar()"> Skipped
       </label>
-    </div>`;
-
-  const activityToggles =
-    `<div style="margin-top:8px;border-top:1px solid #E8E6E3;padding-top:6px">
-      <div style="font-size:11px;color:#8A8A8A;cursor:pointer;user-select:none" onclick="toggleActivityList()">
-        <span id="activityToggleArrow">▶</span> Per-activity (${allActivities.length})
-      </div>
-      <div id="activityFilterList" style="display:none;max-height:200px;overflow-y:auto;margin-top:4px;padding-left:8px;border-left:2px solid #E8E6E3">
-        ${allActivities.sort((a,b) => a.priority - b.priority).map(a =>
-          `<label style="display:flex;align-items:center;gap:4px;font-size:11px;padding:1px 0;cursor:pointer">
-            <input type="checkbox" ${filters.hiddenActivityIds.has(a.id)?'':'checked'} onchange="toggleActivity('${a.id}')" style="accent-color:${TYPE_COLORS[a.type]}">
-            <span style="color:#8A8A8A;font-size:10px">P${a.priority}</span> ${a.name}
-          </label>`
-        ).join('')}
-      </div>
     </div>`;
 
   el.innerHTML =
-    `<div style="font-size:11px;font-weight:600;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px;color:#8A8A8A">Priority</div>` +
+    `<div style="font-size:10px;font-weight:600;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px;color:#8A8A8A">Priority</div>` +
     `<div style="display:flex;flex-wrap:wrap;gap:0 12px">` + priorityChecks + `</div>` +
-    viewChecks +
-    activityToggles;
-}
-
-function toggleActivityList() {
-  const list = document.getElementById('activityFilterList');
-  const arrow = document.getElementById('activityToggleArrow');
-  const isOpen = list.style.display !== 'none';
-  list.style.display = isOpen ? 'none' : 'block';
-  arrow.textContent = isOpen ? '▶' : '▼';
+    viewChecks;
 }
 
 function toggleType(type) {
   filters.types[type] = !filters.types[type];
   buildLegend();
+  renderActivities();
   rebuildCalendar();
 }
 
 function togglePriority(key) {
-  if (filters.priorityKeys.has(key)) {
-    filters.priorityKeys.delete(key);
-  } else {
-    filters.priorityKeys.add(key);
-  }
+  if (filters.priorityKeys.has(key)) filters.priorityKeys.delete(key);
+  else filters.priorityKeys.add(key);
   rebuildCalendar();
 }
 
 function toggleActivity(id) {
-  if (filters.hiddenActivityIds.has(id)) {
-    filters.hiddenActivityIds.delete(id);
-  } else {
-    filters.hiddenActivityIds.add(id);
-  }
+  if (filters.hiddenActivityIds.has(id)) filters.hiddenActivityIds.delete(id);
+  else filters.hiddenActivityIds.add(id);
+  renderActivities();
   rebuildCalendar();
-}
-
-function renderPriorityList(activities) {
-  const el = document.getElementById('priorityList');
-  const sorted = [...activities].sort((a, b) => a.priority - b.priority);
-  el.innerHTML = '<table>' +
-    sorted.map(a =>
-      `<tr><td style="border-left:3px solid ${TYPE_COLORS[a.type]};padding-left:8px">${a.name}</td><td class="num">${a.frequency_times}x/${a.frequency_period}</td><td class="num" style="color:#8A8A8A">P${a.priority}</td></tr>`
-    ).join('') +
-    '</table>';
 }
 
 function renderConstraints(clientSchedule) {
   const el = document.getElementById('constraintsList');
-  const trips = clientSchedule.travel_plans || [];
-  const blocked = clientSchedule.blocked_dates || [];
+  allTrips = clientSchedule.travel_plans || [];
+  allBlockedDates = clientSchedule.blocked_dates || [];
   el.innerHTML =
-    `<div style="font-size:13px;margin-bottom:8px"><strong>${trips.length}</strong> travel plans</div>` +
-    trips.map(t => `<div style="font-size:12px;padding:4px 0;border-bottom:1px solid #E8E6E3;cursor:pointer" onclick="showTravelModal({destination:'${t.destination.replace(/'/g, "\\'")}',start_date:'${t.start_date}',end_date:'${t.end_date}',purpose:'${(t.purpose||'').replace(/'/g, "\\'")}'})">${t.destination}<br><span style="color:#8A8A8A;font-size:11px">${t.start_date} → ${t.end_date}</span></div>`).join('') +
-    `<div style="font-size:13px;margin-top:10px"><strong>${blocked.length}</strong> blocked days</div>`;
+    `<div style="font-size:12px;margin-bottom:6px"><strong>${allTrips.length}</strong> travel plan${allTrips.length!==1?'s':''}</div>` +
+    allTrips.map(t => `<div style="font-size:12px;padding:3px 0;border-bottom:1px solid #E8E6E3;cursor:pointer" onclick="showTravelModal({destination:'${t.destination.replace(/'/g, "\\'")}',start_date:'${t.start_date}',end_date:'${t.end_date}',purpose:'${(t.purpose||'').replace(/'/g, "\\'")}'})">${t.destination}<br><span style="color:#8A8A8A;font-size:11px">${t.start_date} → ${t.end_date}</span></div>`).join('') +
+    (allBlockedDates.length ? `<div style="font-size:12px;margin-top:8px"><strong>${allBlockedDates.length}</strong> blocked date${allBlockedDates.length!==1?'s':''}</div>` : '');
 }
 
 function formatDate(d) {
-  const dt = new Date(d + 'T00:00:00');
-  return dt.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  return new Date(d + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
 }
 
 function groupMissedDates(dates, period) {
@@ -594,14 +842,10 @@ function groupMissedDates(dates, period) {
       const prev = new Date(end + 'T00:00:00');
       const cur = new Date(sorted[i] + 'T00:00:00');
       const diff = (cur - prev) / 86400000;
-      if (diff === 1) {
-        end = sorted[i];
-      } else {
-        ranges.push(start === end ? formatDate(start) : formatDate(start) + ' – ' + formatDate(end));
-        start = end = sorted[i];
-      }
+      if (diff === 1) { end = sorted[i]; }
+      else { ranges.push(start === end ? formatDate(start) : formatDate(start) + ' \u2013 ' + formatDate(end)); start = end = sorted[i]; }
     }
-    ranges.push(start === end ? formatDate(start) : formatDate(start) + ' – ' + formatDate(end));
+    ranges.push(start === end ? formatDate(start) : formatDate(start) + ' \u2013 ' + formatDate(end));
     return ranges;
   }
   const groups = {};
@@ -611,19 +855,14 @@ function groupMissedDates(dates, period) {
     const dt = new Date(d + 'T00:00:00');
     let key, label;
     if (period === 'week') {
-      const wkStart = new Date(dt);
-      wkStart.setDate(dt.getDate() - dt.getDay());
-      key = wkStart.toISOString().slice(0, 10);
-      label = 'Week of ' + wkStart.toLocaleDateString(locale, { month: 'short', day: 'numeric' });
+      const wkStart = new Date(dt); wkStart.setDate(dt.getDate() - dt.getDay());
+      key = wkStart.toISOString().slice(0, 10); label = 'Week of ' + wkStart.toLocaleDateString(locale, { month: 'short', day: 'numeric' });
     } else if (period === 'month') {
-      key = d.slice(0, 7);
-      label = dt.toLocaleDateString(locale, { month: 'long', year: 'numeric' });
+      key = d.slice(0, 7); label = dt.toLocaleDateString(locale, { month: 'long', year: 'numeric' });
     } else {
-      const q = Math.floor(dt.getMonth() / 3) + 1;
-      key = dt.getFullYear() + '-Q' + q;
-      label = 'Q' + q + ' ' + dt.getFullYear();
+      const q = Math.floor(dt.getMonth() / 3) + 1; key = dt.getFullYear() + '-Q' + q; label = 'Q' + q + ' ' + dt.getFullYear();
     }
-    if (!groups[key]) { groups[key] = { label, count: 0 }; }
+    if (!groups[key]) groups[key] = { label, count: 0 };
     groups[key].count++;
   }
   return Object.values(groups).map(g => g.count + 'x ' + g.label);
@@ -631,30 +870,91 @@ function groupMissedDates(dates, period) {
 
 let skippedIdCounter = 0;
 
-function renderSkipped(skipped) {
-  const el = document.getElementById('skippedList');
+function toggleSkippedExpand(uid, el) {
+  const detail = document.getElementById('skpDetail_' + uid);
+  if (!detail) return;
+  const expanded = detail.style.display !== 'none';
+  detail.style.display = expanded ? 'none' : 'block';
+  if (el) el.textContent = expanded ? '\u25B6' : '\u25BC';
+}
+
+function selectAllSkipped(show) {
+  allSkipped.forEach(s => {
+    if (show) filters.hiddenSkippedIds.delete(s.activity_id);
+    else filters.hiddenSkippedIds.add(s.activity_id);
+  });
+  renderSkipped();
+  rebuildCalendar();
+}
+
+function renderSkipped() {
+  const el = document.getElementById('skippedCard');
+  const skipped = allSkipped;
+  const oldScroll = el.querySelector('.skipped-list');
+  const savedScrollTop = oldScroll ? oldScroll.scrollTop : 0;
   if (!skipped || skipped.length === 0) {
-    el.innerHTML = '<div style="color:#8A8A8A;font-size:13px">No activities skipped</div>';
+    el.innerHTML = '<div style="color:#8A8A8A;font-size:12px">No activities skipped</div>';
     return;
   }
-  el.innerHTML = skipped.map(s => {
-    const act = allActivities.find(a => a.id === s.activity_id);
-    const period = act ? act.frequency_period : 'day';
-    const allDates = s.missed_dates || [];
-    const groups = groupMissedDates(allDates, period);
-    const uid = 'skp_' + (++skippedIdCounter);
-    const showCount = 5;
-    const visible = groups.slice(0, showCount);
-    const hidden = groups.slice(showCount);
-    const hasMore = hidden.length > 0;
-    return `<div style="font-size:12px;padding:6px 0;border-bottom:1px solid #E8E6E3">
-      <strong style="color:#9B2226">${allDates.length}x ${s.activity_name}</strong>
-      <br><span style="color:#8A8A8A;font-size:11px">${visible.join('; ')}</span>
-      ${hasMore ? `<br><span style="color:#D4AF37;font-size:11px;cursor:pointer;font-weight:500" onclick="document.getElementById('${uid}').style.display='inline';this.style.display='none'">+${hidden.length} more...</span>
-      <span id="${uid}" style="display:none;color:#8A8A8A;font-size:11px">; ${hidden.join('; ')}</span>` : ''}
-      <br><span style="color:#8A8A8A;font-size:11px">↪ ${s.skip_adjustment}</span>
-    </div>`;
-  }).join('');
+
+  const allVisible = skipped.every(s => !filters.hiddenSkippedIds.has(s.activity_id));
+
+  skippedIdCounter = 0;
+  el.innerHTML = `
+    <div class="select-all-bar">
+      <button onclick="selectAllSkipped(true)">${allVisible ? '\u2713' : ''} Select All</button>
+      <button onclick="selectAllSkipped(false)">Clear All</button>
+    </div>
+    <div class="skipped-list">${
+    skipped.map(s => {
+      const act = allActivities.find(a => a.id === s.activity_id);
+      const period = act ? act.frequency_period : 'day';
+      const allDates = s.missed_dates || [];
+      const groups = groupMissedDates(allDates, period);
+      const uid = ++skippedIdCounter;
+      const showCount = 3;
+      const visible = groups.slice(0, showCount);
+      const hidden = groups.slice(showCount);
+      const hasMore = hidden.length > 0;
+      const checked = !filters.hiddenSkippedIds.has(s.activity_id);
+      return `<div class="skipped-item">
+        <div style="display:flex;align-items:flex-start;gap:6px;width:100%">
+          <span class="act-expand" onclick="toggleSkippedExpand(${uid}, this)" style="margin-top:2px">\u25B6</span>
+          <input type="checkbox" ${checked?'checked':''} style="accent-color:#D4AF37;margin-top:2px" onchange="toggleSkipped('${s.activity_id}')">
+          <div class="skipped-body">
+            <div class="skipped-head">
+              <span class="skipped-name">${allDates.length}x ${s.activity_name}</span>
+              <span class="skipped-pri">${getPriorityLabel(s.priority)}</span>
+            </div>
+            <div class="skipped-dates">${visible.join('; ')}${hasMore ? '; <span style="color:#D4AF37;cursor:pointer;font-weight:500" onclick="document.getElementById(\'more_'+uid+'\').style.display=\'inline\';this.style.display=\'none\'">+' + hidden.length + ' more...</span><span id="more_'+uid+'" style="display:none">' + hidden.join('; ') + '</span>' : ''}</div>
+            <div class="skipped-adj">\u21AA ${s.skip_adjustment}</div>
+          </div>
+        </div>
+        <div class="skipped-detail" id="skpDetail_${uid}" style="display:none">
+          ${act ? `
+            <div class="act-detail-row"><span class="act-detail-lbl">Type</span><span>${TYPE_LABELS[act.type]||act.type}</span></div>
+            <div class="act-detail-row"><span class="act-detail-lbl">Duration</span><span>${act.duration_minutes || 'N/A'} min</span></div>
+            <div class="act-detail-row"><span class="act-detail-lbl">Frequency</span><span>${(act.frequency_times || 'N/A') + ' / ' + (act.frequency_period || 'N/A')}</span></div>
+            <div class="act-detail-row"><span class="act-detail-lbl">Location</span><span>${act.location || 'N/A'}</span></div>
+            <div class="act-detail-row"><span class="act-detail-lbl">Facilitator</span><span>${act.facilitator || 'Self'}</span></div>
+            <div class="act-detail-row"><span class="act-detail-lbl">Equipment</span><span>${act.equipment_needed?.length ? act.equipment_needed.join(', ') : 'None'}</span></div>
+            ${act.notes ? `<div class="act-detail-row"><span class="act-detail-lbl">Notes</span><span>${act.notes}</span></div>` : ''}
+          ` : '<div style="color:var(--text-muted);font-size:11px;padding:4px 0">Activity details not available</div>'}
+        </div>
+      </div>`;
+    }).join('')
+  }</div>`;
+  requestAnimationFrame(() => {
+    const newScroll = el.querySelector('.skipped-list');
+    if (newScroll) newScroll.scrollTop = savedScrollTop;
+  });
+}
+
+function toggleSkipped(id) {
+  if (filters.hiddenSkippedIds.has(id)) filters.hiddenSkippedIds.delete(id);
+  else filters.hiddenSkippedIds.add(id);
+  renderSkipped();
+  rebuildCalendar();
 }
 
 function getFilteredEvents() {
@@ -674,89 +974,85 @@ function getFilteredEvents() {
 }
 
 function rebuildCalendar() {
-  if (calendarInstance) {
-    calendarInstance.destroy();
-    calendarInstance = null;
-  }
-  const filtered = getFilteredEvents();
-  buildCalendar(filtered, allTrips);
+  const p = document.getElementById('calendarDatePicker');
+  if (p) _lastPickerDate = p.value;
+  if (calendarInstance) { calendarInstance.destroy(); calendarInstance = null; }
+  buildCalendar(getFilteredEvents(), allTrips);
 }
 
 function buildCalendar(events, trips) {
   const calendarEl = document.getElementById('calendar');
 
   const travelEvents = trips.flatMap(t => {
-    const start = new Date(t.start_date);
     const end = new Date(t.end_date);
     end.setDate(end.getDate() + 1);
-    return [{
-      title: t.destination,
-      start: t.start_date,
-      end: end.toISOString().split('T')[0],
-      allDay: true,
-      className: 'travel-block',
-      extendedProps: { isTravel: true, destination: t.destination, purpose: t.purpose, start_date: t.start_date, end_date: t.end_date }
-    }];
+    return [{ title: t.destination, start: t.start_date, end: end.toISOString().split('T')[0], allDay: true, className: 'travel-block', extendedProps: { isTravel: true, destination: t.destination, purpose: t.purpose, start_date: t.start_date, end_date: t.end_date } }];
   });
 
   const skippedEvents = (filters.showSkipped ? allSkipped : []).flatMap(s => {
     const act = allActivities.find(a => a.id === s.activity_id);
     if (!act || act.frequency_period !== 'day') return [];
-    if (!filters.types[act.type] || filters.hiddenActivityIds.has(s.activity_id)) return [];
+    if (!filters.types[act.type] || filters.hiddenSkippedIds.has(s.activity_id)) return [];
     return (s.missed_dates || []).map(d => ({
-      title: s.activity_name,
-      start: d,
-      allDay: true,
-      className: 'event-skipped',
-      extendedProps: {
-        isSkipped: true,
-        activity_name: s.activity_name,
-        activity_type: act.type,
-        priority: s.priority,
-        skip_adjustment: s.skip_adjustment,
-        missed_date: d,
-        duration_minutes: 0
-      }
+      title: s.activity_name, start: d, allDay: true, className: 'event-skipped',
+      extendedProps: { isSkipped: true, activity_name: s.activity_name, activity_type: act.type, priority: s.priority, skip_adjustment: s.skip_adjustment, missed_date: d, duration_minutes: 0 }
     }));
   });
 
-  const calEvents = [
-    ...events.map(e => ({
-      title: e.activity_name,
-      start: e.is_all_day ? e.start_datetime.slice(0, 10) : e.start_datetime,
-      end: e.is_all_day ? e.end_datetime.slice(0, 10) : e.end_datetime,
-      allDay: !!e.is_all_day,
-      className: 'event-' + e.activity_type,
-      extendedProps: { ...e }
-    })),
-    ...travelEvents,
-    ...skippedEvents
-  ];
-
   calendarInstance = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
-    headerToolbar: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'dayGridMonth,timeGridWeek,timeGridDay'
-    },
-    events: calEvents,
+    headerToolbar: { left: 'prev,next today', center: 'title', right: 'dayGridMonth,timeGridWeek,timeGridDay' },
+    events: [
+      ...events.map(e => ({ title: e.activity_name, start: e.is_all_day ? e.start_datetime.slice(0, 10) : e.start_datetime, end: e.is_all_day ? e.end_datetime.slice(0, 10) : e.end_datetime, allDay: !!e.is_all_day, className: 'event-' + e.activity_type, extendedProps: { ...e } })),
+      ...travelEvents, ...skippedEvents
+    ],
     eventClick: function(info) {
       const props = info.event.extendedProps;
       if (props.isTravel) { showTravelModal(props); return; }
-      if (props.isSkipped) { showSkippedModal(props); return; }
+      if (props.isSkipped) { showSkippedModalFromProps(props); return; }
       showEventModal(props);
     },
+    datesSet: function(info) {
+      // no-op — picker only updated on user selection
+    },
     height: 'auto',
-    slotMinTime: '06:00:00',
-    slotMaxTime: '22:00:00',
-    allDaySlot: true,
-    nowIndicator: true,
+    slotMinTime: '06:00:00', slotMaxTime: '22:00:00',
+    allDaySlot: true, nowIndicator: true,
     eventTimeFormat: { hour: '2-digit', minute: '2-digit' },
     dayMaxEvents: 4,
     moreLinkText: function(n) { return '+' + n + ' more'; }
   });
   calendarInstance.render();
+
+  const toolbar = calendarEl.querySelector('.fc-toolbar');
+  if (toolbar) {
+    const container = document.createElement('span');
+    container.className = 'fc-datejump-container';
+    container.innerHTML = '<input type="date" id="calendarDatePicker" class="fc-datejump-input" title="Jump to date">';
+    toolbar.appendChild(container);
+    document.getElementById('calendarDatePicker').addEventListener('change', function() {
+      _lastPickerDate = this.value;
+      if (calendarInstance && this.value) calendarInstance.gotoDate(this.value);
+    });
+  }
+  const p = document.getElementById('calendarDatePicker');
+  if (p) p.value = _lastPickerDate || new Date().toISOString().slice(0, 10);
+}
+
+function showSkippedModalFromProps(props) {
+  const body = document.getElementById('modalBody');
+  const fields = [
+    ['Activity', props.activity_name],
+    ['Type', TYPE_LABELS[props.activity_type] || props.activity_type],
+    ['Priority', getPriorityLabel(props.priority)],
+    ['Missed Date', props.missed_date],
+    ['Adjustment', props.skip_adjustment]
+  ];
+  body.innerHTML = fields.map(([label, value]) =>
+    `<div class="field"><div class="field-label">${label}</div><div class="field-value">${value}</div></div>`
+  ).join('');
+  document.getElementById('modalTitle').textContent = props.activity_name;
+  document.getElementById('modalOverlay').classList.add('active');
 }
 
 (async function() {
@@ -772,10 +1068,10 @@ function buildCalendar(events, trips) {
   renderStats(summary);
   renderTypeBreakdown(summary.placed_by_type);
   renderFilters();
-  renderPriorityList(fullData.activities);
+  renderActivities();
   renderConstraints(fullData.client_schedule);
-  renderSkipped(summary.skipped_activities);
-  buildCalendar(schedule, fullData.client_schedule.travel_plans);
+  renderSkipped();
+  buildCalendar(schedule, allTrips);
 })();
 </script>
 </body>
