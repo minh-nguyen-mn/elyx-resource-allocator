@@ -3,86 +3,320 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elyx Resource Allocator - Personalised Plan</title>
+<title>Resource Allocator | Elyx</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/68d24af5fc6a2d3ce44f3853/d5c8e1ab-304c-49f8-a3a3-64eec5ae5381/favicon.ico?format=100w">
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.15/index.global.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@6.1.15/index.global.min.js"></script>
 <style>
+:root {
+  --bg: #EFEDEB;
+  --card-bg: #FFFFFF;
+  --text: #2B2B2B;
+  --text-muted: #8A8A8A;
+  --text-dim: #B0B0B0;
+  --border: #E0DDD9;
+  --border-light: #E8E6E3;
+  --gold: #D4AF37;
+  --gold-hover: #C4A030;
+  --header-bg: #000000;
+  --shadow: 0 2px 6px rgba(0,0,0,0.06);
+  --radius: 6px;
+  --radius-pill: 50px;
+  --font-ui: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f2f5; color: #1a1a2e; }
-.header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; padding: 20px 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-.header h1 { font-size: 20px; font-weight: 600; }
-.header .subtitle { font-size: 13px; color: #a0aec0; }
-.stats-bar { display: flex; gap: 20px; flex-wrap: wrap; }
-.stat { background: rgba(255,255,255,0.08); border-radius: 8px; padding: 8px 16px; text-align: center; }
-.stat .value { font-size: 18px; font-weight: 700; color: #63b3ed; }
-.stat .label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: #a0aec0; }
-.main { max-width: 1400px; margin: 0 auto; padding: 20px; }
-.layout { display: flex; gap: 20px; }
-.sidebar { width: 260px; flex-shrink: 0; }
+
+body {
+  font-family: var(--font-ui);
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.header {
+  background: var(--header-bg);
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  border-bottom: 2px solid var(--gold);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 100%;
+}
+
+.header-logo {
+  height: 28px;
+  display: block;
+}
+
+.header-logo img {
+  height: 28px;
+  display: block;
+}
+
+.header-divider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255,255,255,0.2);
+}
+
+.header-title-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+.header-subtitle {
+  font-size: 10px;
+  color: rgba(255,255,255,0.5);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.stats-bar {
+  display: flex;
+  gap: 8px;
+}
+
+.stat {
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  padding: 6px 12px;
+  text-align: center;
+  min-width: 62px;
+}
+
+.stat .value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat .label {
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: rgba(255,255,255,0.45);
+  margin-top: 1px;
+}
+
+.main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.layout {
+  display: flex;
+  gap: 20px;
+}
+
+.sidebar { width: 270px; flex-shrink: 0; }
 
 @media (max-width: 900px) {
   .layout { flex-direction: column; }
   .sidebar { width: 100%; }
+  .header { height: auto; padding: 12px 20px; flex-direction: column; gap: 10px; }
+  .stats-bar { width: 100%; justify-content: center; }
 }
 
-.card { background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 16px; overflow: hidden; }
-.card-header { padding: 14px 18px; font-weight: 600; font-size: 14px; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 8px; }
-.card-body { padding: 14px 18px; }
-.card-body table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.card-body td { padding: 6px 4px; border-bottom: 1px solid #f0f0f0; }
-.card-body td:first-child { color: #718096; }
-.card-body .num { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+}
 
-.legend { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-.legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #4a5568; cursor: pointer; padding: 2px 6px; border-radius: 4px; transition: opacity .15s, background .15s; }
-.legend-item:hover { background: #edf2f7; }
-.legend-item.dimmed { opacity: 0.35; }
-.legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+.card-header {
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-muted);
+}
 
-#calendar { background: #fff; border-radius: 10px; padding: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); flex: 1; min-height: 600px; }
+.card-body { padding: 12px 16px; }
+.card-body table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.card-body td { padding: 5px 4px; border-bottom: 1px solid var(--border-light); }
+.card-body td:first-child { color: var(--text-muted); }
+.card-body .num { text-align: right; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--text); }
 
-.fc { font-size: 13px; }
-.fc .fc-toolbar-title { font-size: 16px !important; }
-.fc .fc-button { font-size: 12px !important; padding: 4px 10px !important; }
-.fc .fc-event { border-radius: 3px; padding: 1px 3px; font-size: 11px; border: none; cursor: pointer; }
-.fc .fc-daygrid-more-link { font-size: 11px; }
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  transition: opacity .15s, background .15s;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+}
+
+.legend-item:hover { background: #F5F5F5; }
+.legend-item.dimmed { opacity: 0.3; }
+
+.legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+#calendar {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 12px;
+  box-shadow: var(--shadow);
+  flex: 1;
+  min-height: 600px;
+  border: 1px solid var(--border-light);
+}
+
+.fc { font-size: 13px; font-family: var(--font-ui); }
+.fc .fc-toolbar-title { font-size: 16px !important; font-weight: 500 !important; font-family: var(--font-display); }
+.fc .fc-button {
+  font-size: 10px !important; padding: 4px 10px !important;
+  border-radius: var(--radius-pill) !important;
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  transition: all .15s !important;
+}
+.fc .fc-button-primary:not(:disabled):hover { background: #F5F5F5 !important; }
+.fc .fc-button-primary:not(:disabled).fc-button-active { background: #000 !important; border-color: #000 !important; color: #fff !important; }
+.fc .fc-today-button { font-weight: 500 !important; }
+.fc .fc-today-button:disabled { opacity: 0.4 !important; }
+.fc .fc-event { border-radius: 2px; padding: 1px 3px; font-size: 10px; border: none; cursor: pointer; font-weight: 400; }
+.fc .fc-daygrid-more-link { font-size: 10px; color: var(--text-muted); }
 .fc .fc-timegrid-slot { height: 24px; }
+.fc .fc-col-header-cell-cushion {
+  font-weight: 500; color: var(--text-muted);
+  text-transform: uppercase; font-size: 10px; letter-spacing: 0.5px;
+}
+.fc .fc-daygrid-day-number { font-size: 12px; color: var(--text); }
+.fc .fc-day-today .fc-daygrid-day-number { font-weight: 600; color: #000; }
+.fc .fc-day-today { background: rgba(0,0,0,0.02) !important; }
+.fc .fc-non-business { background: #F7F6F4; }
+.fc .fc-scrollgrid { border-color: var(--border-light) !important; }
+.fc .fc-scrollgrid-section > td { border-color: var(--border-light) !important; }
+.fc .fc-daygrid-day-frame { border-color: var(--border-light) !important; }
+.fc .fc-popover { border-radius: var(--radius) !important; box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important; border: 1px solid var(--border) !important; }
+.fc .fc-popover-title { font-family: var(--font-display); font-size: 13px; }
+.fc .fc-more-popover .fc-daygrid-more { font-size: 11px; }
 
 .tooltip-content { display: none; }
 
-.fc-event.event-fitness { background: #48bb78; border-color: #48bb78; }
-.fc-event.event-food { background: #ecc94b; border-color: #ecc94b; color: #744210; }
-.fc-event.event-medication { background: #fc8181; border-color: #fc8181; }
-.fc-event.event-therapy { background: #9f7aea; border-color: #9f7aea; }
-.fc-event.event-consultation { background: #4299e1; border-color: #4299e1; }
-.travel-block { background: #f56565 !important; border-color: #f56565 !important; color: #fff !important; font-weight: 600; }
-.fc-event.event-skipped { background: #e2e8f0 !important; border-color: #cbd5e0 !important; color: #a0aec0 !important; font-weight: 400; font-style: italic; text-decoration: line-through; opacity: .65; }
+.fc-event.event-fitness { background: #1B5E20; border-color: #1B5E20; color: #fff; }
+.fc-event.event-food { background: #6D4C41; border-color: #6D4C41; color: #fff; }
+.fc-event.event-medication { background: #9B2226; border-color: #9B2226; color: #fff; }
+.fc-event.event-therapy { background: #5C2E7A; border-color: #5C2E7A; color: #fff; }
+.fc-event.event-consultation { background: #1A237E; border-color: #1A237E; color: #fff; }
+.travel-block { background: var(--gold) !important; border-color: var(--gold) !important; color: #000 !important; font-weight: 600; }
+.fc-event.event-skipped { background: #D5D2CE !important; border-color: #C5C2BE !important; color: #8A8A8A !important; font-weight: 400; font-style: italic; text-decoration: line-through; }
 
-.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; z-index: 1000; }
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: none; align-items: center; justify-content: center;
+  z-index: 1000; backdrop-filter: blur(1px);
+}
 .modal-overlay.active { display: flex; }
-.modal { background: #fff; border-radius: 10px; width: 500px; max-width: 90vw; max-height: 80vh; overflow-y: auto; }
-.modal-header { padding: 16px 20px; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; }
-.modal-header h2 { font-size: 16px; }
-.modal-close { background: none; border: none; font-size: 22px; cursor: pointer; color: #718096; }
+.modal {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  width: 520px; max-width: 90vw; max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+.modal-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.modal-header h2 { font-size: 16px; font-weight: 500; font-family: var(--font-display); }
+.modal-close {
+  background: none; border: none; font-size: 22px;
+  cursor: pointer; color: var(--text-dim); line-height: 1;
+  padding: 0 2px; transition: color .15s;
+}
+.modal-close:hover { color: var(--text); }
 .modal-body { padding: 16px 20px; }
 .modal-body .field { margin-bottom: 10px; }
-.modal-body .field-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #718096; margin-bottom: 2px; }
-.modal-body .field-value { font-size: 14px; color: #1a1a2e; }
+.modal-body .field-label {
+  font-size: 9px; text-transform: uppercase;
+  letter-spacing: 0.6px; color: var(--text-dim); margin-bottom: 2px; font-weight: 500;
+}
+.modal-body .field-value { font-size: 13px; color: var(--text); }
+
+.footer {
+  text-align: center;
+  padding: 16px 20px;
+  font-size: 10px;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border-light);
+  margin-top: 20px;
+}
+.footer a { color: #000; text-decoration: none; font-weight: 500; }
+.footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div>
-    <h1>Elyx Resource Allocator</h1>
-    <div class="subtitle">Personalised Health Action Plan &middot; Jun 15 &ndash; Sep 15, 2026</div>
+  <div class="header-brand">
+    <a href="https://www.elyx.life/" target="_blank" class="header-logo">
+      <img src="https://images.squarespace-cdn.com/content/v1/68d24af5fc6a2d3ce44f3853/ec91d45f-f1ea-44e8-bc7a-82409475505f/Elyx+Icon+%2B+Word+Logo+-+White.png" alt="Elyx">
+    </a>
+    <div class="header-divider"></div>
+    <div class="header-title-area">
+      <span class="header-title">Resource Allocator</span>
+      <span class="header-subtitle">Personalised Health Action Plan &middot; Jun 15 &ndash; Sep 15, 2026</span>
+    </div>
   </div>
   <div class="stats-bar" id="statsBar">
     <div class="stat"><div class="value" id="statPlaced">0</div><div class="label">Placed</div></div>
     <div class="stat"><div class="value" id="statRequested">0</div><div class="label">Requested</div></div>
     <div class="stat"><div class="value" id="statViolations">0</div><div class="label">Violations</div></div>
-    <div class="stat"><div class="value" id="statBackups">0</div><div class="label">Backup Used</div></div>
+    <div class="stat"><div class="value" id="statBackups">0</div><div class="label">Backup</div></div>
   </div>
 </div>
 
@@ -90,26 +324,11 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
   <div class="legend" id="legend"></div>
   <div class="layout">
     <div class="sidebar">
-      <div class="card">
-        <div class="card-header">Filters</div>
-        <div class="card-body" id="filtersCard"></div>
-      </div>
-      <div class="card">
-        <div class="card-header">Type Breakdown</div>
-        <div class="card-body" id="typeBreakdown"></div>
-      </div>
-      <div class="card">
-        <div class="card-header">Activities by Priority</div>
-        <div class="card-body" id="priorityList" style="max-height:360px;overflow-y:auto"></div>
-      </div>
-      <div class="card">
-        <div class="card-header">Resource Constraints</div>
-        <div class="card-body" id="constraintsList"></div>
-      </div>
-      <div class="card">
-        <div class="card-header">Skipped Activities</div>
-        <div class="card-body" id="skippedList"></div>
-      </div>
+      <div class="card"><div class="card-header">Filters</div><div class="card-body" id="filtersCard"></div></div>
+      <div class="card"><div class="card-header">Type Breakdown</div><div class="card-body" id="typeBreakdown"></div></div>
+      <div class="card"><div class="card-header">Activities by Priority</div><div class="card-body" id="priorityList" style="max-height:340px;overflow-y:auto"></div></div>
+      <div class="card"><div class="card-header">Resource Constraints</div><div class="card-body" id="constraintsList"></div></div>
+      <div class="card"><div class="card-header">Skipped Activities</div><div class="card-body" id="skippedList"></div></div>
     </div>
     <div id="calendar"></div>
   </div>
@@ -125,13 +344,17 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
   </div>
 </div>
 
+<div class="footer">
+  <a href="https://www.elyx.life/" target="_blank">Elyx</a> &mdash; Maximizing Your Health &middot; Raffles Hotel Arcade, Singapore
+</div>
+
 <script>
 const TYPE_COLORS = {
-  fitness: '#48bb78',
-  food: '#ecc94b',
-  medication: '#fc8181',
-  therapy: '#9f7aea',
-  consultation: '#4299e1'
+  fitness: '#1B5E20',
+  food: '#6D4C41',
+  medication: '#9B2226',
+  therapy: '#5C2E7A',
+  consultation: '#1A237E'
 };
 
 const TYPE_LABELS = {
@@ -148,8 +371,7 @@ let allTrips = [];
 let allActivities = [];
 let allSkipped = [];
 
-const PRIORITY_LABELS = [
-  { key: 'all', label: 'All', min: 1, max: 100 },
+const PRIORITY_LEVELS = [
   { key: 'critical', label: 'Critical', min: 1, max: 3 },
   { key: 'high', label: 'High', min: 4, max: 10 },
   { key: 'medium', label: 'Medium', min: 11, max: 20 },
@@ -158,7 +380,7 @@ const PRIORITY_LABELS = [
 
 const filters = {
   types: { fitness: true, food: true, medication: true, therapy: true, consultation: true },
-  priorityKey: 'all',
+  priorityKeys: new Set(['critical', 'high', 'medium', 'low']),
   showScheduled: true,
   showBackups: true,
   showSkipped: true,
@@ -172,7 +394,7 @@ function buildLegend() {
       <span class="legend-dot" style="background:${TYPE_COLORS[k]}"></span>${v}
     </div>`
   ).join('') +
-    '<div class="legend-item"><span class="legend-dot" style="background:#f56565"></span>Travel / Blocked</div>';
+    '<div class="legend-item"><span class="legend-dot" style="background:#D4AF37"></span>Travel / Blocked</div>';
 }
 
 function closeModal() {
@@ -190,7 +412,7 @@ function showTravelModal(props) {
   body.innerHTML = fields.map(([label, value]) =>
     `<div class="field"><div class="field-label">${label}</div><div class="field-value">${value}</div></div>`
   ).join('');
-  document.getElementById('modalTitle').textContent = '✈️ ' + props.destination;
+  document.getElementById('modalTitle').textContent = props.destination;
   document.getElementById('modalOverlay').classList.add('active');
 }
 
@@ -206,7 +428,7 @@ function showSkippedModal(props) {
   body.innerHTML = fields.map(([label, value]) =>
     `<div class="field"><div class="field-label">${label}</div><div class="field-value">${value}</div></div>`
   ).join('');
-  document.getElementById('modalTitle').textContent = '✕ ' + props.activity_name;
+  document.getElementById('modalTitle').textContent = props.activity_name;
   document.getElementById('modalOverlay').classList.add('active');
 }
 
@@ -251,7 +473,7 @@ function renderTypeBreakdown(pbt) {
   const total = Object.values(pbt).reduce((a,b) => a+b, 0);
   el.innerHTML = '<table>' +
     Object.entries(pbt).map(([k,v]) =>
-      `<tr><td style="border-left:3px solid ${TYPE_COLORS[k]};padding-left:8px">${TYPE_LABELS[k]||k}</td><td class="num">${v}</td><td class="num" style="color:#718096;width:60px">${Math.round(v/total*100)}%</td></tr>`
+      `<tr><td style="border-left:3px solid ${TYPE_COLORS[k]};padding-left:8px">${TYPE_LABELS[k]||k}</td><td class="num">${v}</td><td class="num" style="color:#8A8A8A;width:60px">${Math.round(v/total*100)}%</td></tr>`
     ).join('') +
     `</table>`;
 }
@@ -259,16 +481,16 @@ function renderTypeBreakdown(pbt) {
 function renderFilters() {
   const el = document.getElementById('filtersCard');
 
-  const priorityRadios = PRIORITY_LABELS.map(p =>
+  const priorityChecks = PRIORITY_LEVELS.map(p =>
     `<label style="display:flex;align-items:center;gap:4px;font-size:11px;padding:2px 0;cursor:pointer">
-      <input type="radio" name="priority" value="${p.key}" ${filters.priorityKey===p.key?'checked':''} onchange="setPriority('${p.key}')" style="accent-color:#4299e1">
+      <input type="checkbox" ${filters.priorityKeys.has(p.key)?'checked':''} onchange="togglePriority('${p.key}')" style="accent-color:#D4AF37">
       ${p.label}
     </label>`
   ).join('');
 
   const viewChecks =
     `<div style="margin-top:6px">
-      <div style="font-size:11px;color:#718096;margin-bottom:2px">Show</div>
+      <div style="font-size:10px;color:#8A8A8A;margin-bottom:2px;text-transform:uppercase;letter-spacing:0.5px">Show</div>
       <label style="display:flex;align-items:center;gap:4px;font-size:12px;padding:2px 0;cursor:pointer">
         <input type="checkbox" ${filters.showScheduled?'checked':''} onchange="filters.showScheduled=!filters.showScheduled;rebuildCalendar()">
         Scheduled
@@ -284,23 +506,23 @@ function renderFilters() {
     </div>`;
 
   const activityToggles =
-    `<div style="margin-top:8px;border-top:1px solid #e2e8f0;padding-top:6px">
-      <div style="font-size:11px;color:#718096;cursor:pointer;user-select:none" onclick="toggleActivityList()">
+    `<div style="margin-top:8px;border-top:1px solid #E8E6E3;padding-top:6px">
+      <div style="font-size:11px;color:#8A8A8A;cursor:pointer;user-select:none" onclick="toggleActivityList()">
         <span id="activityToggleArrow">▶</span> Per-activity (${allActivities.length})
       </div>
-      <div id="activityFilterList" style="display:none;max-height:200px;overflow-y:auto;margin-top:4px;padding-left:8px;border-left:2px solid #e2e8f0">
+      <div id="activityFilterList" style="display:none;max-height:200px;overflow-y:auto;margin-top:4px;padding-left:8px;border-left:2px solid #E8E6E3">
         ${allActivities.sort((a,b) => a.priority - b.priority).map(a =>
           `<label style="display:flex;align-items:center;gap:4px;font-size:11px;padding:1px 0;cursor:pointer">
             <input type="checkbox" ${filters.hiddenActivityIds.has(a.id)?'':'checked'} onchange="toggleActivity('${a.id}')" style="accent-color:${TYPE_COLORS[a.type]}">
-            <span style="color:#718096;font-size:10px">P${a.priority}</span> ${a.name}
+            <span style="color:#8A8A8A;font-size:10px">P${a.priority}</span> ${a.name}
           </label>`
         ).join('')}
       </div>
     </div>`;
 
   el.innerHTML =
-    `<div style="font-size:12px;font-weight:600;margin-bottom:4px">Priority</div>` +
-    `<div style="display:flex;flex-wrap:wrap;gap:0 12px">` + priorityRadios + `</div>` +
+    `<div style="font-size:11px;font-weight:600;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px;color:#8A8A8A">Priority</div>` +
+    `<div style="display:flex;flex-wrap:wrap;gap:0 12px">` + priorityChecks + `</div>` +
     viewChecks +
     activityToggles;
 }
@@ -319,8 +541,12 @@ function toggleType(type) {
   rebuildCalendar();
 }
 
-function setPriority(key) {
-  filters.priorityKey = key;
+function togglePriority(key) {
+  if (filters.priorityKeys.has(key)) {
+    filters.priorityKeys.delete(key);
+  } else {
+    filters.priorityKeys.add(key);
+  }
   rebuildCalendar();
 }
 
@@ -338,7 +564,7 @@ function renderPriorityList(activities) {
   const sorted = [...activities].sort((a, b) => a.priority - b.priority);
   el.innerHTML = '<table>' +
     sorted.map(a =>
-      `<tr><td style="border-left:3px solid ${TYPE_COLORS[a.type]};padding-left:8px">${a.name}</td><td class="num">${a.frequency_times}x/${a.frequency_period}</td><td class="num" style="color:#718096">P${a.priority}</td></tr>`
+      `<tr><td style="border-left:3px solid ${TYPE_COLORS[a.type]};padding-left:8px">${a.name}</td><td class="num">${a.frequency_times}x/${a.frequency_period}</td><td class="num" style="color:#8A8A8A">P${a.priority}</td></tr>`
     ).join('') +
     '</table>';
 }
@@ -349,7 +575,7 @@ function renderConstraints(clientSchedule) {
   const blocked = clientSchedule.blocked_dates || [];
   el.innerHTML =
     `<div style="font-size:13px;margin-bottom:8px"><strong>${trips.length}</strong> travel plans</div>` +
-    trips.map(t => `<div style="font-size:12px;padding:4px 0;border-bottom:1px solid #f0f0f0;cursor:pointer" onclick="showTravelModal({destination:'${t.destination.replace(/'/g, "\\'")}',start_date:'${t.start_date}',end_date:'${t.end_date}',purpose:'${(t.purpose||'').replace(/'/g, "\\'")}'})">✈️ ${t.destination}<br><span style="color:#718096;font-size:11px">${t.start_date} → ${t.end_date}</span></div>`).join('') +
+    trips.map(t => `<div style="font-size:12px;padding:4px 0;border-bottom:1px solid #E8E6E3;cursor:pointer" onclick="showTravelModal({destination:'${t.destination.replace(/'/g, "\\'")}',start_date:'${t.start_date}',end_date:'${t.end_date}',purpose:'${(t.purpose||'').replace(/'/g, "\\'")}'})">${t.destination}<br><span style="color:#8A8A8A;font-size:11px">${t.start_date} → ${t.end_date}</span></div>`).join('') +
     `<div style="font-size:13px;margin-top:10px"><strong>${blocked.length}</strong> blocked days</div>`;
 }
 
@@ -361,7 +587,6 @@ function formatDate(d) {
 function groupMissedDates(dates, period) {
   if (!dates || dates.length === 0) return [];
   if (period === 'day') {
-    // For daily: return contiguous ranges
     const sorted = [...dates].sort();
     const ranges = [];
     let start = sorted[0], end = sorted[0];
@@ -379,7 +604,6 @@ function groupMissedDates(dates, period) {
     ranges.push(start === end ? formatDate(start) : formatDate(start) + ' – ' + formatDate(end));
     return ranges;
   }
-  // For weekly/monthly/quarterly: group by period
   const groups = {};
   const locale = 'en-US';
   const sorted = [...dates].sort();
@@ -410,7 +634,7 @@ let skippedIdCounter = 0;
 function renderSkipped(skipped) {
   const el = document.getElementById('skippedList');
   if (!skipped || skipped.length === 0) {
-    el.innerHTML = '<div style="color:#718096;font-size:13px">No activities skipped</div>';
+    el.innerHTML = '<div style="color:#8A8A8A;font-size:13px">No activities skipped</div>';
     return;
   }
   el.innerHTML = skipped.map(s => {
@@ -423,21 +647,24 @@ function renderSkipped(skipped) {
     const visible = groups.slice(0, showCount);
     const hidden = groups.slice(showCount);
     const hasMore = hidden.length > 0;
-    return `<div style="font-size:12px;padding:6px 0;border-bottom:1px solid #f0f0f0">
-      <strong style="color:#e53e3e">${allDates.length}x ${s.activity_name}</strong>
-      <br><span style="color:#718096;font-size:11px">${visible.join('; ')}</span>
-      ${hasMore ? `<br><span style="color:#4299e1;font-size:11px;cursor:pointer" onclick="document.getElementById('${uid}').style.display='inline';this.style.display='none'">+${hidden.length} more...</span>
-      <span id="${uid}" style="display:none;color:#718096;font-size:11px">; ${hidden.join('; ')}</span>` : ''}
-      <br><span style="color:#718096;font-size:11px">↪ ${s.skip_adjustment}</span>
+    return `<div style="font-size:12px;padding:6px 0;border-bottom:1px solid #E8E6E3">
+      <strong style="color:#9B2226">${allDates.length}x ${s.activity_name}</strong>
+      <br><span style="color:#8A8A8A;font-size:11px">${visible.join('; ')}</span>
+      ${hasMore ? `<br><span style="color:#D4AF37;font-size:11px;cursor:pointer;font-weight:500" onclick="document.getElementById('${uid}').style.display='inline';this.style.display='none'">+${hidden.length} more...</span>
+      <span id="${uid}" style="display:none;color:#8A8A8A;font-size:11px">; ${hidden.join('; ')}</span>` : ''}
+      <br><span style="color:#8A8A8A;font-size:11px">↪ ${s.skip_adjustment}</span>
     </div>`;
   }).join('');
 }
 
 function getFilteredEvents() {
-  const pri = PRIORITY_LABELS.find(p => p.key === filters.priorityKey) || PRIORITY_LABELS[0];
   return allSchedule.filter(e => {
     if (!filters.types[e.activity_type]) return false;
-    if (e.priority < pri.min || e.priority > pri.max) return false;
+    const matched = Array.from(filters.priorityKeys).some(key => {
+      const level = PRIORITY_LEVELS.find(p => p.key === key);
+      return level && e.priority >= level.min && e.priority <= level.max;
+    });
+    if (!matched) return false;
     const isBackup = e.activity_name.includes('(backup)');
     if (isBackup && !filters.showBackups) return false;
     if (!isBackup && !filters.showScheduled) return false;
@@ -463,7 +690,7 @@ function buildCalendar(events, trips) {
     const end = new Date(t.end_date);
     end.setDate(end.getDate() + 1);
     return [{
-      title: '✈️ ' + t.destination,
+      title: t.destination,
       start: t.start_date,
       end: end.toISOString().split('T')[0],
       allDay: true,
@@ -477,7 +704,7 @@ function buildCalendar(events, trips) {
     if (!act || act.frequency_period !== 'day') return [];
     if (!filters.types[act.type] || filters.hiddenActivityIds.has(s.activity_id)) return [];
     return (s.missed_dates || []).map(d => ({
-      title: '✕ ' + s.activity_name,
+      title: s.activity_name,
       start: d,
       allDay: true,
       className: 'event-skipped',
