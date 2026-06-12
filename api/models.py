@@ -33,7 +33,7 @@ class ActivityDefinition(BaseModel):
     priority: int = Field(ge=1, le=100)
     frequency_times: int = Field(ge=1)
     frequency_period: FrequencyPeriod
-    duration_minutes: int = Field(ge=1, le=240)
+    duration_minutes: int = Field(ge=0, le=240)
     details: str = ""
     facilitator: Optional[str] = None
     facilitator_type: Optional[str] = None
@@ -47,6 +47,7 @@ class ActivityDefinition(BaseModel):
     requires_equipment: list[str] = Field(default_factory=list)
     requires_specialist: Optional[str] = None
     requires_allied_health: Optional[str] = None
+    requires_fixed_location: bool = False
     is_all_day: bool = False
 
 

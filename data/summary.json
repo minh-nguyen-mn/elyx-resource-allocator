@@ -1,23 +1,95 @@
 {
-  "total_activities_placed": 2492,
-  "total_activities_requested": 2495,
-  "constraint_violations": 3,
-  "backup_activities_used": 0,
+  "total_activities_placed": 1384,
+  "total_activities_requested": 1445,
+  "constraint_violations": 61,
+  "backup_activities_used": 85,
   "placed_by_type": {
-    "fitness": 442,
-    "food": 365,
-    "medication": 1291,
-    "consultation": 229,
-    "therapy": 165
+    "fitness": 173,
+    "food": 598,
+    "medication": 175,
+    "consultation": 390,
+    "therapy": 48
   },
   "skipped_activities": [
     {
-      "activity_id": "ACT-100",
-      "activity_name": "Breathwork Practice",
-      "activity_type": "consultation",
+      "activity_id": "ACT-038",
+      "activity_name": "Morning Smoothie",
+      "activity_type": "food",
+      "priority": 4,
+      "instances_missed": 10,
+      "skip_adjustment": "Pre-made smoothie pack in freezer"
+    },
+    {
+      "activity_id": "ACT-044",
+      "activity_name": "Herbal Tea Time",
+      "activity_type": "food",
+      "priority": 4,
+      "instances_missed": 18,
+      "skip_adjustment": "Skip or have cold brew tea"
+    },
+    {
+      "activity_id": "ACT-109",
+      "activity_name": "Lunch Break",
+      "activity_type": "food",
       "priority": 5,
+      "instances_missed": 18,
+      "skip_adjustment": "Buy lunch from caf\u00e9"
+    },
+    {
+      "activity_id": "ACT-095",
+      "activity_name": "Annual Physical Examination",
+      "activity_type": "consultation",
+      "priority": 7,
+      "instances_missed": 1,
+      "skip_adjustment": "Telehealth check-in with PA"
+    },
+    {
+      "activity_id": "ACT-090",
+      "activity_name": "Sleep Consultation",
+      "activity_type": "consultation",
+      "priority": 8,
       "instances_missed": 3,
-      "skip_adjustment": "1 round of 3 deep breaths"
+      "skip_adjustment": "Email update to specialist"
+    },
+    {
+      "activity_id": "ACT-077",
+      "activity_name": "Float Tank Session",
+      "activity_type": "therapy",
+      "priority": 20,
+      "instances_missed": 2,
+      "skip_adjustment": "Guided meditation 20min at home"
+    },
+    {
+      "activity_id": "ACT-084",
+      "activity_name": "Cupping Therapy",
+      "activity_type": "therapy",
+      "priority": 22,
+      "instances_missed": 2,
+      "skip_adjustment": "Self-massage cupping at home"
+    },
+    {
+      "activity_id": "ACT-020",
+      "activity_name": "Sprint Interval Training",
+      "activity_type": "fitness",
+      "priority": 25,
+      "instances_missed": 2,
+      "skip_adjustment": "Replace with stair sprints"
+    },
+    {
+      "activity_id": "ACT-025",
+      "activity_name": "Boxing Training",
+      "activity_type": "fitness",
+      "priority": 28,
+      "instances_missed": 3,
+      "skip_adjustment": "Shadow boxing session at home"
+    },
+    {
+      "activity_id": "ACT-024",
+      "activity_name": "Golf Practice",
+      "activity_type": "fitness",
+      "priority": 30,
+      "instances_missed": 2,
+      "skip_adjustment": "Replace with 30-min putting practice"
     }
   ]
 }

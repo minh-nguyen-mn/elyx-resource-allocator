@@ -25,7 +25,7 @@ def test_activities_have_valid_frequencies():
         assert a.frequency_period.value in valid_periods, f"Activity {a.id} has invalid period {a.frequency_period}"
         assert a.frequency_times >= 0, f"Activity {a.id} has frequency_times < 0"
         assert 1 <= a.priority <= 100, f"Activity {a.id} has priority out of range: {a.priority}"
-        assert 1 <= a.duration_minutes <= 240, f"Activity {a.id} has duration out of range: {a.duration_minutes}"
+        assert 0 <= a.duration_minutes <= 240, f"Activity {a.id} has duration out of range: {a.duration_minutes}"
 
 
 def test_backup_activity_ids_are_valid():
@@ -152,7 +152,7 @@ def test_scheduler_respects_client_availability():
         ds = dt.strftime("%Y-%m-%d")
         act = next((a for a in data.activities if a.id == s.activity_id), None)
         if ds in data.client_schedule.blocked_dates and act:
-            requires_fixed = bool(act.requires_equipment or act.requires_specialist or act.requires_allied_health)
+            requires_fixed = bool(act.requires_fixed_location or not act.remote_possible or act.requires_equipment or act.requires_specialist or act.requires_allied_health)
             if requires_fixed:
                 pytest.fail(f"Activity {s.activity_name} requires fixed location but placed on travel date {ds}")
         if ds in client_avail:

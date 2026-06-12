@@ -97,15 +97,17 @@ def _subtract_intervals(
 
 
 def _calculate_instances(activity: ActivityDefinition, total_days: int) -> int:
+    if activity.frequency_times == 0:
+        return 0
     if activity.frequency_period == FrequencyPeriod.DAY:
         return int(activity.frequency_times * total_days)
     elif activity.frequency_period == FrequencyPeriod.WEEK:
-        return max(1, int(round(activity.frequency_times * total_days / 7.0)))
+        return int(round(activity.frequency_times * total_days / 7.0))
     elif activity.frequency_period == FrequencyPeriod.MONTH:
-        return max(1, int(round(activity.frequency_times * total_days / 30.0)))
+        return int(round(activity.frequency_times * total_days / 30.0))
     elif activity.frequency_period == FrequencyPeriod.QUARTER:
-        return max(1, activity.frequency_times)
-    return max(1, activity.frequency_times)
+        return activity.frequency_times
+    return activity.frequency_times
 
 
 def _find_best_slot(
@@ -250,7 +252,9 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
         duration = activity.duration_minutes
 
         requires_fixed_location = bool(
-            activity.requires_equipment
+            activity.requires_fixed_location
+            or not activity.remote_possible
+            or activity.requires_equipment
             or activity.requires_specialist
             or activity.requires_allied_health
         )
@@ -429,6 +433,9 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
             placed += 1
             placed_by_type[activity.type.value] += 1
             current_date += timedelta(days=interval_days)
+            if pref_day is not None and current_date.weekday() != pref_day:
+                da = (pref_day - current_date.weekday()) % 7
+                current_date += timedelta(days=da if da > 0 else 7)
 
         if placed < n_instances and activity.backup_activity_ids:
             for backup_id in activity.backup_activity_ids:
@@ -468,7 +475,9 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
                             b_slots.sort()
 
                         b_reqs_fixed = bool(
-                            backup_act.requires_equipment
+                            backup_act.requires_fixed_location
+                            or not backup_act.remote_possible
+                            or backup_act.requires_equipment
                             or backup_act.requires_specialist
                             or backup_act.requires_allied_health
                         )

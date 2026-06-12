@@ -30,7 +30,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-002",
@@ -38,7 +40,7 @@
     "type": "fitness",
     "priority": 8,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 50,
     "details": "Push/Pull split: bench press 4x8, rows 4x8, overhead press 3x10, pull-ups 3xAMRAP",
     "facilitator": "Personal Trainer (bi-weekly)",
@@ -66,7 +68,9 @@
       "EQ-BARBELL"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-003",
@@ -74,7 +78,7 @@
     "type": "fitness",
     "priority": 8,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 50,
     "details": "Squat 4x8, Deadlift 4x6, Leg press 3x12, Calf raises 3x15",
     "facilitator": "Personal Trainer (bi-weekly)",
@@ -101,7 +105,9 @@
       "EQ-DUMBBELL"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-004",
@@ -109,7 +115,7 @@
     "type": "fitness",
     "priority": 12,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 45,
     "details": "Vinyasa flow focusing on hip mobility and spinal health",
     "facilitator": "Self (video)",
@@ -135,7 +141,9 @@
       "EQ-YOGA_MAT"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-005",
@@ -143,7 +151,7 @@
     "type": "fitness",
     "priority": 18,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 45,
     "details": "20 laps freestyle, 10 laps backstroke, cool-down. Maintain steady pace.",
     "facilitator": "Self",
@@ -168,7 +176,9 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-006",
@@ -176,7 +186,7 @@
     "type": "fitness",
     "priority": 15,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 60,
     "details": "30km route through countryside. Maintain cadence 80-90 RPM.",
     "facilitator": "Self",
@@ -204,7 +214,9 @@
       "EQ-BIKE"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-007",
@@ -212,7 +224,7 @@
     "type": "fitness",
     "priority": 14,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 30,
     "details": "45s work / 15s rest. 8 rounds: burpees, mountain climbers, jump squats, push-ups",
     "facilitator": "Self",
@@ -238,7 +250,9 @@
       "EQ-JUMP_ROPE"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-008",
@@ -246,7 +260,7 @@
     "type": "fitness",
     "priority": 20,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 50,
     "details": "Full body reformer session focusing on core strength and posture",
     "facilitator": "Maria Garcia",
@@ -268,7 +282,9 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-009",
@@ -276,7 +292,7 @@
     "type": "fitness",
     "priority": 22,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 40,
     "details": "Chen style 24-form. Focus on slow, controlled movements and breath work.",
     "facilitator": "Self (guided video)",
@@ -299,7 +315,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": true,
+    "is_all_day": false
   },
   {
     "id": "ACT-010",
@@ -326,7 +344,9 @@
     "preferred_time_of_day": "any",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-011",
@@ -353,7 +373,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-012",
@@ -361,7 +383,7 @@
     "type": "fitness",
     "priority": 24,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 45,
     "details": "Zumba-inspired dance routine. Moderate to high intensity.",
     "facilitator": "Instructor - Lisa Wong",
@@ -385,7 +407,9 @@
     "preferred_time_of_day": "evening",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-013",
@@ -393,7 +417,7 @@
     "type": "fitness",
     "priority": 16,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 90,
     "details": "8-10km trail with 300m elevation gain. Vary trails weekly.",
     "facilitator": "Self",
@@ -420,7 +444,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-014",
@@ -428,7 +454,7 @@
     "type": "fitness",
     "priority": 19,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 30,
     "details": "500m sprint / 2min easy row. 6 rounds. Maintain 28-32 SPM on sprints.",
     "facilitator": "Self",
@@ -455,7 +481,9 @@
       "EQ-ROWER"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-015",
@@ -483,7 +511,9 @@
     "preferred_time_of_day": "any",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-016",
@@ -491,7 +521,7 @@
     "type": "fitness",
     "priority": 21,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 20,
     "details": "Single leg stands, bosu ball exercises, stability trainer work, heel-to-toe walk",
     "facilitator": "Self",
@@ -515,7 +545,9 @@
       "EQ-YOGA_MAT"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-017",
@@ -523,7 +555,7 @@
     "type": "fitness",
     "priority": 17,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 30,
     "details": "Band squats, band rows, band press, band pulls, band rotations. 3x15 each.",
     "facilitator": "Self",
@@ -546,7 +578,9 @@
       "EQ-BANDS"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-018",
@@ -554,7 +588,7 @@
     "type": "fitness",
     "priority": 20,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 30,
     "details": "KB swings 3x20, goblet squats 3x12, clean-and-press 3x8, Turkish get-ups 3x3",
     "facilitator": "Self",
@@ -579,7 +613,9 @@
       "EQ-KETTLEBELL"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-019",
@@ -587,7 +623,7 @@
     "type": "fitness",
     "priority": 23,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 25,
     "details": "Push-ups, squats, lunges, planks, burpees, glute bridges. 45/15 intervals.",
     "facilitator": "Self",
@@ -612,7 +648,9 @@
       "EQ-YOGA_MAT"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-020",
@@ -620,7 +658,7 @@
     "type": "fitness",
     "priority": 25,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 20,
     "details": "100m sprints x 8 with 90s walking recovery. Full effort on sprints.",
     "facilitator": "Self",
@@ -644,7 +682,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-021",
@@ -672,7 +712,9 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-022",
@@ -702,7 +744,9 @@
       "EQ-FOAM_ROLLER"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-023",
@@ -710,7 +754,7 @@
     "type": "fitness",
     "priority": 26,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 60,
     "details": "Rally practice + serve practice. Focus on consistency and footwork.",
     "facilitator": "Coach - David Kim",
@@ -735,7 +779,9 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-024",
@@ -743,7 +789,7 @@
     "type": "fitness",
     "priority": 30,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 90,
     "details": "30min driving range, 30min short game, 30min putting",
     "facilitator": "Self",
@@ -768,7 +814,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-025",
@@ -776,7 +824,7 @@
     "type": "fitness",
     "priority": 28,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 45,
     "details": "Shadow boxing 3rds, heavy bag 3rds, pad work 3rds, conditioning 3rds",
     "facilitator": "Coach James Johnson",
@@ -801,7 +849,9 @@
     "preferred_time_of_day": "evening",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-026",
@@ -809,7 +859,7 @@
     "type": "fitness",
     "priority": 24,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 40,
     "details": "Interval program: 5min warmup, 30min intervals, 5min cooldown",
     "facilitator": "Self",
@@ -836,7 +886,9 @@
       "EQ-ELLIPTICAL"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-027",
@@ -844,7 +896,7 @@
     "type": "fitness",
     "priority": 27,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 15,
     "details": "3min rounds / 30s rest. 4 rounds. Double unders practice. Various footwork patterns.",
     "facilitator": "Self",
@@ -871,7 +923,9 @@
       "EQ-YOGA_MAT"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-028",
@@ -879,7 +933,7 @@
     "type": "fitness",
     "priority": 31,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 60,
     "details": "Bouldering focus: V3-V5 routes. Work on technique and problem-solving.",
     "facilitator": "Self",
@@ -904,7 +958,9 @@
     "preferred_time_of_day": "evening",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-029",
@@ -912,7 +968,7 @@
     "type": "fitness",
     "priority": 32,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 45,
     "details": "Low impact water workout. Great for recovery and joint mobility.",
     "facilitator": "Instructor - Karen Mills",
@@ -935,7 +991,9 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-030",
@@ -943,7 +1001,7 @@
     "type": "fitness",
     "priority": 28,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 50,
     "details": "Full body walking with poles. 5km route with varied terrain.",
     "facilitator": "Self",
@@ -969,7 +1027,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-031",
@@ -977,7 +1037,7 @@
     "type": "fitness",
     "priority": 19,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 20,
     "details": "Planks 3x60s, side planks 3x45s, dead bugs 3x12, bird dogs 3x12, hollow holds 3x30s",
     "facilitator": "Self",
@@ -1001,7 +1061,9 @@
       "EQ-YOGA_MAT"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-032",
@@ -1033,7 +1095,9 @@
       "EQ-YOGA_MAT"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-033",
@@ -1041,7 +1105,7 @@
     "type": "fitness",
     "priority": 8,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 10,
     "details": "Band pull-aparts, dislocates, wall slides, external rotations, Y-T-W-L raises",
     "facilitator": "Self",
@@ -1065,7 +1129,9 @@
       "EQ-BANDS"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-034",
@@ -1073,7 +1139,7 @@
     "type": "fitness",
     "priority": 9,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 5,
     "details": "Neck tilts, chin tucks, neck rotations, shoulder shrugs, levator scapulae stretch",
     "facilitator": "Self",
@@ -1092,7 +1158,9 @@
     "preferred_time_of_day": "any",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-035",
@@ -1100,16 +1168,18 @@
     "type": "food",
     "priority": 1,
     "frequency_times": 1,
-    "frequency_period": "week",
-    "duration_minutes": 20,
-    "details": "Prepare balanced breakfast with protein, complex carbs, and healthy fats",
+    "frequency_period": "day",
+    "duration_minutes": 35,
+    "details": "Prepare and eat balanced breakfast with protein, complex carbs, and healthy fats. Eat mindfully without screens.",
     "facilitator": "Self",
     "facilitator_type": null,
     "location": "Home Kitchen",
     "remote_possible": false,
     "prep": [
       "Grocery shopping completed",
-      "Meal prep containers ready"
+      "Meal prep containers ready",
+      "Plate prepared breakfast",
+      "Sit at table"
     ],
     "backup_activity_ids": [
       "ACT-038"
@@ -1118,54 +1188,61 @@
     "metrics": [
       "Meal quality (1-10)",
       "Time spent",
-      "Macro balance"
+      "Macro balance",
+      "Satiety (1-10)",
+      "Mindfulness score (1-10)"
     ],
     "preferred_time_of_day": "morning",
     "requires_equipment": [
       "EQ-BLENDER"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-036",
     "name": "Lunch Preparation",
     "type": "food",
     "priority": 2,
-    "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_times": 0,
+    "frequency_period": "day",
     "duration_minutes": 15,
-    "details": "Prepare or assemble healthy lunch. Focus on vegetables and lean protein.",
+    "details": "Pack pre-prepped lunch from Sunday meal prep. Add fresh veggies.",
     "facilitator": "Self",
     "facilitator_type": null,
     "location": "Home Kitchen",
     "remote_possible": false,
     "prep": [
-      "Meal prep vegetables on Sunday"
+      "Meal prep vegetables on Sunday",
+      "Pack lunch container"
     ],
     "backup_activity_ids": [
       "ACT-035",
       "ACT-037"
     ],
-    "skip_adjustments": "Pre-prepped salad from fridge",
+    "skip_adjustments": "Grab pre-prepped salad",
     "metrics": [
       "Vegetable servings",
       "Protein quality"
     ],
-    "preferred_time_of_day": "afternoon",
+    "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-037",
     "name": "Dinner Preparation",
     "type": "food",
-    "priority": 3,
+    "priority": 2,
     "frequency_times": 1,
-    "frequency_period": "week",
-    "duration_minutes": 30,
-    "details": "Cook dinner from scratch. Include 3+ vegetable varieties. Mindful cooking practice.",
+    "frequency_period": "day",
+    "duration_minutes": 45,
+    "details": "Cook dinner. Include 3+ vegetable varieties. Sundays from meal prep leftovers.",
     "facilitator": "Self",
     "facilitator_type": null,
     "location": "Home Kitchen",
@@ -1176,10 +1253,9 @@
       "Clean as you go"
     ],
     "backup_activity_ids": [
-      "ACT-036",
       "ACT-053"
     ],
-    "skip_adjustments": "Prep meal from freezer",
+    "skip_adjustments": "Heat meal prep container",
     "metrics": [
       "Cooking quality (1-10)",
       "Nutritional balance",
@@ -1190,23 +1266,26 @@
       "EQ-BLENDER"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-038",
-    "name": "Morning Smoothie Prep",
+    "name": "Morning Smoothie",
     "type": "food",
     "priority": 4,
     "frequency_times": 1,
-    "frequency_period": "week",
-    "duration_minutes": 10,
-    "details": "Green smoothie: spinach, banana, protein powder, almond milk, flax seeds, berries",
+    "frequency_period": "day",
+    "duration_minutes": 15,
+    "details": "Prepare and drink green smoothie: spinach, banana, protein powder, almond milk, flax seeds, berries. Enjoy slowly.",
     "facilitator": "Self",
     "facilitator_type": null,
     "location": "Home Kitchen",
     "remote_possible": false,
     "prep": [
-      "Pre-portion smoothie packs weekly"
+      "Pre-portion smoothie packs weekly",
+      "Pour into glass"
     ],
     "backup_activity_ids": [
       "ACT-043"
@@ -1221,7 +1300,9 @@
       "EQ-BLENDER"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-039",
@@ -1255,7 +1336,9 @@
       "EQ-BLENDER"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-040",
@@ -1287,7 +1370,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-041",
@@ -1295,7 +1380,7 @@
     "type": "food",
     "priority": 8,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 45,
     "details": "Weekly visit for seasonal produce. Talk to farmers about growing practices.",
     "facilitator": "Self",
@@ -1317,7 +1402,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-042",
@@ -1325,7 +1412,7 @@
     "type": "food",
     "priority": 14,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 30,
     "details": "Make sauerkraut or kimchi. Focus on probiotic-rich fermentation.",
     "facilitator": "Self",
@@ -1348,24 +1435,27 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-043",
-    "name": "Fresh Juice Preparation",
+    "name": "Fresh Juice",
     "type": "food",
     "priority": 5,
     "frequency_times": 1,
     "frequency_period": "week",
-    "duration_minutes": 10,
-    "details": "Fresh vegetable juice: celery, cucumber, ginger, lemon, apple",
+    "duration_minutes": 15,
+    "details": "Prepare and drink fresh vegetable juice: celery, cucumber, ginger, lemon, apple. Drink immediately for maximum nutrients.",
     "facilitator": "Self",
     "facilitator_type": null,
     "location": "Home Kitchen",
     "remote_possible": false,
     "prep": [
       "Wash produce",
-      "Set up juicer"
+      "Set up juicer",
+      "Pour into glass"
     ],
     "backup_activity_ids": [
       "ACT-038"
@@ -1380,15 +1470,17 @@
       "EQ-JUICER"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-044",
     "name": "Herbal Tea Time",
     "type": "food",
-    "priority": 3,
+    "priority": 4,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "day",
     "duration_minutes": 5,
     "details": "Prepare and enjoy herbal tea. Rotate between chamomile, peppermint, ginger, rooibos.",
     "facilitator": "Self",
@@ -1408,15 +1500,17 @@
     "preferred_time_of_day": "evening",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-045",
     "name": "Post-Workout Protein Shake",
     "type": "food",
     "priority": 1,
-    "frequency_times": 3,
-    "frequency_period": "week",
+    "frequency_times": 0,
+    "frequency_period": "day",
     "duration_minutes": 5,
     "details": "Within 30min of workout: protein powder, banana, almond milk, creatine",
     "facilitator": "Self",
@@ -1434,12 +1528,14 @@
       "Timing (how soon after workout)",
       "Protein amount"
     ],
-    "preferred_time_of_day": "any",
+    "preferred_time_of_day": "morning",
     "requires_equipment": [
       "EQ-BLENDER"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-046",
@@ -1447,7 +1543,7 @@
     "type": "food",
     "priority": 9,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 15,
     "details": "Portion nuts, cut vegetables, make energy balls, prepare hummus portions",
     "facilitator": "Self",
@@ -1468,7 +1564,9 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-047",
@@ -1476,7 +1574,7 @@
     "type": "food",
     "priority": 16,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 30,
     "details": "Simmer beef/chicken bones with vegetables and herbs for 24+ hours",
     "facilitator": "Self",
@@ -1496,7 +1594,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-048",
@@ -1504,7 +1604,7 @@
     "type": "food",
     "priority": 17,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 10,
     "details": "Rinse and drain sprouting seeds. Alfalfa, broccoli, mung bean rotation.",
     "facilitator": "Self",
@@ -1524,14 +1624,16 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-049",
     "name": "Hydration Check",
     "type": "food",
     "priority": 1,
-    "frequency_times": 1,
+    "frequency_times": 0,
     "frequency_period": "day",
     "duration_minutes": 2,
     "details": "Track water intake. Goal: 2.5L per day. Refill 500ml bottle 5x daily.",
@@ -1553,7 +1655,9 @@
     "preferred_time_of_day": "any",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-050",
@@ -1561,7 +1665,7 @@
     "type": "food",
     "priority": 2,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "day",
     "duration_minutes": 20,
     "details": "Eat one meal per day without screens. Chew 20x per bite. Pause between bites.",
     "facilitator": "Self",
@@ -1572,19 +1676,19 @@
       "Set phone aside",
       "Set table properly"
     ],
-    "backup_activity_ids": [
-      "ACT-049"
-    ],
+    "backup_activity_ids": [],
     "skip_adjustments": "Practice during snack time",
     "metrics": [
       "Meal duration",
       "Chews per bite",
       "Satiety awareness (1-10)"
     ],
-    "preferred_time_of_day": "any",
+    "preferred_time_of_day": "evening",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-051",
@@ -1614,7 +1718,9 @@
     "preferred_time_of_day": "evening",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-052",
@@ -1641,7 +1747,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-053",
@@ -1649,7 +1757,7 @@
     "type": "food",
     "priority": 18,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 45,
     "details": "Try one new healthy recipe each week. Focus on global cuisines and new ingredients.",
     "facilitator": "Self",
@@ -1674,7 +1782,9 @@
       "EQ-BLENDER"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-054",
@@ -1682,7 +1792,7 @@
     "type": "food",
     "priority": 10,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 15,
     "details": "Pick up organic produce box from delivery point. Inspect quality and store properly.",
     "facilitator": "Self",
@@ -1702,7 +1812,9 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-055",
@@ -1710,7 +1822,7 @@
     "type": "medication",
     "priority": 1,
     "frequency_times": 1,
-    "frequency_period": "day",
+    "frequency_period": "week",
     "duration_minutes": 2,
     "details": "Supports immune function, bone health, mood regulation.",
     "facilitator": "Self",
@@ -1730,7 +1842,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-056",
@@ -1738,7 +1852,7 @@
     "type": "medication",
     "priority": 1,
     "frequency_times": 1,
-    "frequency_period": "day",
+    "frequency_period": "week",
     "duration_minutes": 2,
     "details": "Essential fatty acids. Supports brain, heart, joint health.",
     "facilitator": "Self",
@@ -1758,7 +1872,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-057",
@@ -1766,7 +1882,7 @@
     "type": "medication",
     "priority": 1,
     "frequency_times": 1,
-    "frequency_period": "day",
+    "frequency_period": "week",
     "duration_minutes": 2,
     "details": "Multi-strain probiotic for gut health and digestion.",
     "facilitator": "Self",
@@ -1786,7 +1902,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-058",
@@ -1794,7 +1912,7 @@
     "type": "medication",
     "priority": 1,
     "frequency_times": 1,
-    "frequency_period": "day",
+    "frequency_period": "week",
     "duration_minutes": 2,
     "details": "Promotes relaxation, muscle recovery, sleep quality.",
     "facilitator": "Self",
@@ -1814,7 +1932,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-059",
@@ -1822,7 +1942,7 @@
     "type": "medication",
     "priority": 1,
     "frequency_times": 1,
-    "frequency_period": "day",
+    "frequency_period": "week",
     "duration_minutes": 2,
     "details": "Energy metabolism, stress support, neurotransmitter production.",
     "facilitator": "Self",
@@ -1842,7 +1962,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-060",
@@ -1850,7 +1972,7 @@
     "type": "medication",
     "priority": 1,
     "frequency_times": 1,
-    "frequency_period": "day",
+    "frequency_period": "week",
     "duration_minutes": 2,
     "details": "Mitochondrial support, heart health, cellular energy production.",
     "facilitator": "Self",
@@ -1870,7 +1992,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-061",
@@ -1878,7 +2002,7 @@
     "type": "medication",
     "priority": 1,
     "frequency_times": 1,
-    "frequency_period": "day",
+    "frequency_period": "week",
     "duration_minutes": 2,
     "details": "Skin elasticity, joint health, hair and nail strength.",
     "facilitator": "Self",
@@ -1898,7 +2022,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-062",
@@ -1906,7 +2032,7 @@
     "type": "medication",
     "priority": 1,
     "frequency_times": 1,
-    "frequency_period": "day",
+    "frequency_period": "week",
     "duration_minutes": 2,
     "details": "Prescribed by Dr. Reynolds. Take with breakfast.",
     "facilitator": "Self",
@@ -1926,7 +2052,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-063",
@@ -1934,7 +2062,7 @@
     "type": "medication",
     "priority": 1,
     "frequency_times": 1,
-    "frequency_period": "day",
+    "frequency_period": "week",
     "duration_minutes": 5,
     "details": "Evening skincare. Anti-aging, cell turnover. Use pea-sized amount.",
     "facilitator": "Self",
@@ -1954,7 +2082,9 @@
     "preferred_time_of_day": "evening",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-064",
@@ -1962,7 +2092,7 @@
     "type": "medication",
     "priority": 1,
     "frequency_times": 1,
-    "frequency_period": "day",
+    "frequency_period": "week",
     "duration_minutes": 5,
     "details": "Daily sun protection. Apply to face, neck, hands. Reapply if outdoors.",
     "facilitator": "Self",
@@ -1982,7 +2112,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-065",
@@ -1990,7 +2122,7 @@
     "type": "medication",
     "priority": 1,
     "frequency_times": 1,
-    "frequency_period": "day",
+    "frequency_period": "week",
     "duration_minutes": 5,
     "details": "Post-workout recovery. Apply to sore muscles and joints.",
     "facilitator": "Self",
@@ -2010,7 +2142,9 @@
     "preferred_time_of_day": "evening",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-066",
@@ -2018,7 +2152,7 @@
     "type": "medication",
     "priority": 1,
     "frequency_times": 1,
-    "frequency_period": "day",
+    "frequency_period": "week",
     "duration_minutes": 2,
     "details": "Seasonal allergy management. Non-drowsy formula.",
     "facilitator": "Self",
@@ -2038,7 +2172,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-067",
@@ -2046,7 +2182,7 @@
     "type": "medication",
     "priority": 1,
     "frequency_times": 1,
-    "frequency_period": "day",
+    "frequency_period": "week",
     "duration_minutes": 2,
     "details": "Adaptogenic herb for stress management and cortisol balance.",
     "facilitator": "Self",
@@ -2066,7 +2202,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-068",
@@ -2074,7 +2212,7 @@
     "type": "medication",
     "priority": 15,
     "frequency_times": 1,
-    "frequency_period": "day",
+    "frequency_period": "month",
     "duration_minutes": 2,
     "details": "Sleep support. Use only when having difficulty falling asleep.",
     "facilitator": "Self",
@@ -2094,7 +2232,9 @@
     "preferred_time_of_day": "evening",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-069",
@@ -2120,7 +2260,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-070",
@@ -2128,7 +2270,7 @@
     "type": "therapy",
     "priority": 10,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 30,
     "details": "15-20min at 80\u00b0C. Hydrate before and after. Follow with cool shower.",
     "facilitator": "Self",
@@ -2155,7 +2297,9 @@
       "EQ-SAUSA"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-071",
@@ -2163,7 +2307,7 @@
     "type": "therapy",
     "priority": 11,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 15,
     "details": "10-12\u00b0C for 10-12min. Deep breathing throughout. Cold exposure benefits.",
     "facilitator": "Self",
@@ -2189,7 +2333,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-072",
@@ -2197,7 +2343,7 @@
     "type": "therapy",
     "priority": 12,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 20,
     "details": "660nm + 850nm. 6-12 inches from panel. 10min front, 10min back.",
     "facilitator": "Self",
@@ -2222,7 +2368,9 @@
       "EQ-RED_LIGHT"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-073",
@@ -2230,7 +2378,7 @@
     "type": "therapy",
     "priority": 14,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 30,
     "details": "NormaTec leg recovery system. Recovery mode, medium pressure.",
     "facilitator": "Self",
@@ -2254,7 +2402,9 @@
       "EQ-COMPRESSION"
     ],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-074",
@@ -2262,7 +2412,7 @@
     "type": "therapy",
     "priority": 13,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 45,
     "details": "Full body session. Focus on stress reduction and energy flow (Qi).",
     "facilitator": "Dr. Michael Brown",
@@ -2285,7 +2435,9 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": "AH-ACUPUNCTURE"
+    "requires_allied_health": "AH-ACUPUNCTURE",
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-075",
@@ -2293,7 +2445,7 @@
     "type": "therapy",
     "priority": 11,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 60,
     "details": "Deep tissue sports massage. Focus on legs, back, and shoulders.",
     "facilitator": "Lisa Anderson",
@@ -2316,7 +2468,9 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": "AH-MASSAGE"
+    "requires_allied_health": "AH-MASSAGE",
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-076",
@@ -2344,7 +2498,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": "AH-CHIROPRACTOR"
+    "requires_allied_health": "AH-CHIROPRACTOR",
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-077",
@@ -2373,7 +2529,9 @@
     "preferred_time_of_day": "evening",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-078",
@@ -2381,7 +2539,7 @@
     "type": "therapy",
     "priority": 12,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 10,
     "details": "Quick cold exposure: 3-5min at 8-10\u00b0C. Wim Hof breathing before.",
     "facilitator": "Self",
@@ -2404,7 +2562,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-079",
@@ -2412,7 +2572,7 @@
     "type": "therapy",
     "priority": 16,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 20,
     "details": "3min hot / 1min cold. Repeat 4x. End on cold. Hot: 38-40\u00b0C, Cold: 10-12\u00b0C.",
     "facilitator": "Self",
@@ -2435,7 +2595,9 @@
     "preferred_time_of_day": "evening",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-080",
@@ -2443,7 +2605,7 @@
     "type": "therapy",
     "priority": 13,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 30,
     "details": "Full spectrum infrared. 45-60\u00b0C. Deep detoxification and relaxation.",
     "facilitator": "Self",
@@ -2467,7 +2629,9 @@
     "preferred_time_of_day": "evening",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-081",
@@ -2475,7 +2639,7 @@
     "type": "therapy",
     "priority": 17,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 30,
     "details": "Warm water therapy: gentle movements, stretches, water walking in heated pool",
     "facilitator": "Self",
@@ -2498,7 +2662,9 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-082",
@@ -2506,7 +2672,7 @@
     "type": "therapy",
     "priority": 18,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 45,
     "details": "Singing bowls, gongs, chimes. Lie down and receive sound frequencies.",
     "facilitator": "Instructor - Zen Sound Studio",
@@ -2530,7 +2696,9 @@
     "preferred_time_of_day": "evening",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-083",
@@ -2562,7 +2730,9 @@
     "preferred_time_of_day": "evening",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-084",
@@ -2592,7 +2762,9 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": "AH-ACUPUNCTURE"
+    "requires_allied_health": "AH-ACUPUNCTURE",
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-085",
@@ -2624,7 +2796,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": "SP-TRAINER",
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-086",
@@ -2656,7 +2830,9 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": "AH-DIETITIAN"
+    "requires_allied_health": "AH-DIETITIAN",
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-087",
@@ -2689,7 +2865,9 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": "AH-PHYSIO"
+    "requires_allied_health": "AH-PHYSIO",
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-088",
@@ -2718,7 +2896,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-089",
@@ -2749,7 +2929,9 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": "SP-DERMATOLOGIST",
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-090",
@@ -2781,7 +2963,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": "SP-SLEEP",
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-091",
@@ -2813,7 +2997,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-092",
@@ -2845,7 +3031,9 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-093",
@@ -2875,7 +3063,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-094",
@@ -2903,7 +3093,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-095",
@@ -2934,7 +3126,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": "SP-PCP",
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-096",
@@ -2964,7 +3158,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-097",
@@ -2996,7 +3192,9 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-098",
@@ -3028,7 +3226,9 @@
     "preferred_time_of_day": "afternoon",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-099",
@@ -3036,7 +3236,7 @@
     "type": "consultation",
     "priority": 11,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 45,
     "details": "Rotating schedule: Monday - Bootcamp, Wednesday - Spin, Friday - Yoga Flow",
     "facilitator": "Rotating Instructors",
@@ -3060,7 +3260,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-100",
@@ -3068,7 +3270,7 @@
     "type": "consultation",
     "priority": 5,
     "frequency_times": 1,
-    "frequency_period": "day",
+    "frequency_period": "week",
     "duration_minutes": 10,
     "details": "Box breathing (4-4-4-4) morning + 4-7-8 breathing evening. Wim Hof 3 rounds.",
     "facilitator": "Self (guided app)",
@@ -3090,7 +3292,9 @@
     "preferred_time_of_day": "any",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-101",
@@ -3117,7 +3321,9 @@
     "preferred_time_of_day": "evening",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-102",
@@ -3148,7 +3354,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-103",
@@ -3156,7 +3364,7 @@
     "type": "consultation",
     "priority": 1,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "day",
     "duration_minutes": 15,
     "details": "Tidy bedroom, set temperature 18-20\u00b0C, blue light blocking, read fiction 20min.",
     "facilitator": "Self",
@@ -3178,7 +3386,9 @@
     "preferred_time_of_day": "evening",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-104",
@@ -3186,7 +3396,7 @@
     "type": "consultation",
     "priority": 16,
     "frequency_times": 1,
-    "frequency_period": "week",
+    "frequency_period": "month",
     "duration_minutes": 30,
     "details": "Heart rate variability training with biofeedback device. Coherent breathing practice.",
     "facilitator": "Self (with HeartMath device)",
@@ -3210,7 +3420,9 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   },
   {
     "id": "ACT-105",
@@ -3238,6 +3450,112 @@
     "preferred_time_of_day": "morning",
     "requires_equipment": [],
     "requires_specialist": null,
-    "requires_allied_health": null
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
+  },
+  {
+    "id": "ACT-106",
+    "name": "Hydration Reminder",
+    "type": "consultation",
+    "priority": 2,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 1,
+    "details": "Drink 8+ glasses of water today. Set hourly alerts. Track intake in app.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "",
+    "remote_possible": true,
+    "prep": [],
+    "backup_activity_ids": [],
+    "skip_adjustments": "",
+    "metrics": [],
+    "preferred_time_of_day": "any",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": true
+  },
+  {
+    "id": "ACT-107",
+    "name": "No Caffeine After 2pm",
+    "type": "consultation",
+    "priority": 3,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 1,
+    "details": "Avoid caffeine after 2pm to protect sleep quality. Switch to herbal tea or water.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "",
+    "remote_possible": true,
+    "prep": [],
+    "backup_activity_ids": [],
+    "skip_adjustments": "",
+    "metrics": [],
+    "preferred_time_of_day": "any",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": true
+  },
+  {
+    "id": "ACT-108",
+    "name": "Screen Wind-Down Before Bed",
+    "type": "consultation",
+    "priority": 4,
+    "frequency_times": 0,
+    "frequency_period": "day",
+    "duration_minutes": 1,
+    "details": "No screens 60 min before sleep. Blue light disrupts melatonin production.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "",
+    "remote_possible": true,
+    "prep": [],
+    "backup_activity_ids": [],
+    "skip_adjustments": "",
+    "metrics": [],
+    "preferred_time_of_day": "any",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": true
+  },
+  {
+    "id": "ACT-109",
+    "name": "Lunch Break",
+    "type": "food",
+    "priority": 5,
+    "frequency_times": 1,
+    "frequency_period": "day",
+    "duration_minutes": 30,
+    "details": "Eat lunch during work break. Use pre-prepped meal from Sunday. Step away from desk.",
+    "facilitator": "Self",
+    "facilitator_type": null,
+    "location": "Work",
+    "remote_possible": false,
+    "prep": [
+      "Grab pre-prepped lunch container",
+      "Heat if needed",
+      "Fill water"
+    ],
+    "backup_activity_ids": [],
+    "skip_adjustments": "Buy lunch from caf\u00e9",
+    "metrics": [
+      "Meal quality (1-10)",
+      "Break relaxation (1-10)",
+      "Hydration"
+    ],
+    "preferred_time_of_day": "afternoon",
+    "requires_equipment": [],
+    "requires_specialist": null,
+    "requires_allied_health": null,
+    "requires_fixed_location": false,
+    "is_all_day": false
   }
 ]

@@ -126,7 +126,7 @@ def generate_activities() -> list[ActivityDefinition]:
     activities.append(make("Tai Chi Practice", ActivityType.FITNESS, 2, FrequencyPeriod.WEEK, 40, 22,
         details="Chen style 24-form. Focus on slow, controlled movements and breath work.",
         facilitator="Self (guided video)", location="Botanical Gardens",
-        remote_possible=True,
+        remote_possible=True, requires_fixed_location=True,
         prep=["Wear comfortable clothing", "Choose quiet spot in garden"],
         backup_activity_ids=[], skip_adjustments="10-min mindful movement routine",
         metrics=["Form completion", "Session calmness (1-10)"],
@@ -822,7 +822,7 @@ def generate_activities() -> list[ActivityDefinition]:
         return ActivityDefinition(
             id=aid(), name=name, type=ActivityType.CONSULTATION,
             frequency_times=freq_t, frequency_period=freq_p,
-            duration_minutes=1, priority=priority,
+            duration_minutes=0, priority=priority,
             details=details, facilitator="Self", location="",
             remote_possible=True, is_all_day=True, **kw
         )
@@ -1022,20 +1022,9 @@ def generate_activities() -> list[ActivityDefinition]:
         if a.name == "Lunch Break":
             a.frequency_period = FrequencyPeriod.DAY
 
-    # Suppress redundant activities
-    for a in activities:
-        if a.id == "ACT-036":
-            a.frequency_period = FrequencyPeriod.DAY
-            a.frequency_times = 0
-        if a.id == "ACT-045":
-            a.frequency_period = FrequencyPeriod.DAY
-            a.frequency_times = 0
-        if a.id == "ACT-049":
-            a.frequency_period = FrequencyPeriod.DAY
-            a.frequency_times = 0
-        if a.id == "ACT-108":
-            a.frequency_period = FrequencyPeriod.DAY
-            a.frequency_times = 0
+    # Remove redundant activities instead of suppressing with zero frequency
+    redundant_ids = {"ACT-036", "ACT-045", "ACT-049", "ACT-108"}
+    activities = [a for a in activities if a.id not in redundant_ids]
 
     weekly_ids = sorted(
         [a for a in activities if a.frequency_period == FrequencyPeriod.WEEK],

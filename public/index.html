@@ -147,6 +147,21 @@ function closeModal() {
   document.getElementById('modalOverlay').classList.remove('active');
 }
 
+function showTravelModal(props) {
+  const body = document.getElementById('modalBody');
+  const fields = [
+    ['Trip', props.destination],
+    ['Start', props.start_date],
+    ['End', props.end_date],
+    ['Purpose', props.purpose || 'N/A']
+  ];
+  body.innerHTML = fields.map(([label, value]) =>
+    `<div class="field"><div class="field-label">${label}</div><div class="field-value">${value}</div></div>`
+  ).join('');
+  document.getElementById('modalTitle').textContent = '✈️ ' + props.destination;
+  document.getElementById('modalOverlay').classList.add('active');
+}
+
 function showEventModal(eventProps) {
   const p = eventProps;
   const body = document.getElementById('modalBody');
@@ -209,7 +224,7 @@ function renderConstraints(clientSchedule) {
   const blocked = clientSchedule.blocked_dates || [];
   el.innerHTML =
     `<div style="font-size:13px;margin-bottom:8px"><strong>${trips.length}</strong> travel plans</div>` +
-    trips.map(t => `<div style="font-size:12px;padding:4px 0;border-bottom:1px solid #f0f0f0">✈️ ${t.destination}<br><span style="color:#718096;font-size:11px">${t.start_date} → ${t.end_date}</span></div>`).join('') +
+    trips.map(t => `<div style="font-size:12px;padding:4px 0;border-bottom:1px solid #f0f0f0;cursor:pointer" onclick="showTravelModal({destination:'${t.destination.replace(/'/g, "\\'")}',start_date:'${t.start_date}',end_date:'${t.end_date}',purpose:'${(t.purpose||'').replace(/'/g, "\\'")}'})">✈️ ${t.destination}<br><span style="color:#718096;font-size:11px">${t.start_date} → ${t.end_date}</span></div>`).join('') +
     `<div style="font-size:13px;margin-top:10px"><strong>${blocked.length}</strong> blocked days</div>`;
 }
 
@@ -239,7 +254,7 @@ function buildCalendar(events, trips) {
       end: end.toISOString().split('T')[0],
       allDay: true,
       className: 'travel-block',
-      extendedProps: { isTravel: true, destination: t.destination }
+      extendedProps: { isTravel: true, destination: t.destination, purpose: t.purpose, start_date: t.start_date, end_date: t.end_date }
     }];
   });
 
@@ -265,7 +280,7 @@ function buildCalendar(events, trips) {
     events: calEvents,
     eventClick: function(info) {
       const props = info.event.extendedProps;
-      if (props.isTravel) return;
+      if (props.isTravel) { showTravelModal(props); return; }
       showEventModal(props);
     },
     height: 'auto',
