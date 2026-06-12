@@ -90,7 +90,58 @@ body {
   .layout { flex-direction: column; }
   .sidebar { width: 100%; }
   .header { height: auto; padding: 12px 20px; flex-direction: column; gap: 10px; }
-  .stats-bar { width: 100%; justify-content: center; }
+  .header-brand { width: 100%; justify-content: center; }
+  .stats-bar { width: 100%; justify-content: center; flex-wrap: wrap; }
+  .main { padding: 12px; }
+  #calendar { min-height: 400px; }
+  .fc .fc-toolbar-title { font-size: 14px !important; }
+  .fc .fc-button { font-size: 9px !important; padding: 3px 7px !important; }
+  .fc-datejump-input { width: 90px; font-size: 9px; }
+  .modal { width: 95vw; max-height: 90vh; }
+  .modal-header { padding: 12px 16px; }
+  .modal-header h2 { font-size: 14px; }
+  .modal-body { padding: 12px 16px; }
+}
+
+@media (max-width: 600px) {
+  .header { padding: 10px 12px; gap: 8px; }
+  .header-logo img { height: 22px; }
+  .header-title { font-size: 11px; }
+  .header-subtitle { font-size: 9px; }
+  .stat { padding: 4px 8px; min-width: 50px; }
+  .stat .value { font-size: 13px; }
+  .stat .label { font-size: 7px; }
+  .main { padding: 8px; gap: 10px; }
+  .layout { gap: 10px; }
+  #calendar { min-height: 300px; padding: 6px; }
+  .card-header { padding: 8px 10px; font-size: 9px; }
+  .card-body { padding: 8px 10px; }
+  .card-body.compact { padding: 4px 10px; }
+  .fc .fc-toolbar-title { font-size: 12px !important; }
+  .fc .fc-button { font-size: 8px !important; padding: 2px 5px !important; letter-spacing: 0.2px !important; }
+  .fc-datejump-container { margin-left: 3px; }
+  .fc-datejump-input { width: 80px; font-size: 8px; padding: 1px 4px; }
+  .fc .fc-col-header-cell-cushion { font-size: 8px; }
+  .fc .fc-daygrid-day-number { font-size: 10px; }
+  .fc .fc-event { font-size: 8px; padding: 1px 2px; }
+  .fc .fc-daygrid-more-link { font-size: 8px; }
+  .legend-item { font-size: 9px; padding: 3px 8px; }
+  .activity-item { font-size: 10px; padding: 3px 0; }
+  .activity-item .act-name { font-size: 10px; }
+  .act-details { padding: 4px 6px 4px 18px; font-size: 10px; }
+  .act-detail-lbl { width: 60px; font-size: 9px; }
+  .sort-controls select { font-size: 9px; padding: 2px 4px; }
+  .select-all-bar button { font-size: 9px; padding: 1px 6px; }
+  .skipped-item { font-size: 10px; padding: 4px 0; }
+  .skipped-detail { padding: 4px 6px 4px 38px; font-size: 10px; }
+  .modal { width: 98vw; }
+  .modal-header { padding: 10px 12px; }
+  .modal-header h2 { font-size: 13px; }
+  .modal-body { padding: 10px 12px; }
+  .modal-body .field-value { font-size: 12px; }
+  .footer { font-size: 9px; padding: 10px 12px; }
+  .act-expand { width: 14px; font-size: 7px; }
+  .act-sort-val { font-size: 8px; }
 }
 
 .card {
@@ -203,6 +254,34 @@ body {
 .event-consultation { background: #1A237E !important; border-color: #1A237E !important; color: #fff !important; }
 .travel-block { background: var(--gold) !important; border-color: var(--gold) !important; color: #000 !important; font-weight: 600; }
 .event-skipped { background: #D5D2CE !important; border-color: #C5C2BE !important; color: #8A8A8A !important; font-weight: 400; font-style: italic; text-decoration: line-through; }
+
+.filter-scroll {
+  max-height: 130px;
+  overflow-y: auto;
+}
+.filter-scroll::-webkit-scrollbar { width: 4px; }
+.filter-scroll::-webkit-scrollbar-track { background: transparent; }
+.filter-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.filter-section-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 3px 0 1px;
+  user-select: none;
+  border-top: 1px solid var(--border-light);
+  margin-top: 6px;
+  padding-top: 5px;
+}
+.filter-section-header:hover { color: var(--text); }
+.fsec-arrow { font-size: 7px; color: var(--text-dim); }
+.fsec-count { font-size: 9px; font-weight: 400; color: var(--text-dim); margin-left: auto; }
 
 .sort-controls {
   display: flex;
@@ -503,9 +582,29 @@ const PRIORITY_LEVELS = [
   { key: 'low', label: 'Low', range: 'P21+', min: 21, max: 100 },
 ];
 
+const DURATION_LABELS = {
+  '≤15min': '≤15 min',
+  '16-30min': '16–30 min',
+  '31-60min': '31–60 min',
+  '>60min': '>60 min'
+};
+
+function getDurationRange(mins) {
+  if (!mins || mins <= 15) return '≤15min';
+  if (mins <= 30) return '16-30min';
+  if (mins <= 60) return '31-60min';
+  return '>60min';
+}
+
+const filterSections = { location: false, facilitator: false, frequency: false, duration: false };
+
 const filters = {
   types: { fitness: true, food: true, medication: true, therapy: true, consultation: true },
   priorityKeys: new Set(['critical', 'high', 'medium', 'low']),
+  locations: new Set(),
+  facilitators: new Set(),
+  frequencyPeriods: new Set(),
+  durationRanges: new Set(),
   showScheduled: true,
   showBackups: true,
   showSkipped: true,
@@ -672,6 +771,8 @@ function sortActivities(activities) {
       case 'frequency': r = (b.frequency_times || 0) - (a.frequency_times || 0); break;
       case 'duration': r = (a.duration_minutes || 0) - (b.duration_minutes || 0); break;
       case 'type': r = Object.keys(TYPE_LABELS).indexOf(a.type) - Object.keys(TYPE_LABELS).indexOf(b.type); break;
+      case 'location': r = (a.location || '').localeCompare(b.location || ''); break;
+      case 'facilitator': r = (a.facilitator || '').localeCompare(b.facilitator || ''); break;
     }
     return r * cmp;
   });
@@ -701,6 +802,8 @@ function getSortIndicator(a) {
     case 'duration': return a.duration_minutes ? a.duration_minutes + ' min' : '';
     case 'frequency': return a.frequency_times ? a.frequency_times + '/' + (a.frequency_period||'') : '';
     case 'type': return TYPE_LABELS[a.type] || a.type;
+    case 'location': return a.location || '';
+    case 'facilitator': return a.facilitator || '';
     default: return '';
   }
 }
@@ -718,6 +821,8 @@ function renderActivities() {
     { value: 'frequency', label: 'Frequency' },
     { value: 'duration', label: 'Duration' },
     { value: 'type', label: 'Type' },
+    { value: 'location', label: 'Location' },
+    { value: 'facilitator', label: 'Facilitator' },
   ];
 
   const sorted = sortActivities(allActivities);
@@ -767,35 +872,136 @@ function renderActivities() {
   });
 }
 
+function selectAllLocations(show) {
+  const vals = [...new Set(allActivities.map(a => a.location).filter(l => l && l.trim()))];
+  vals.forEach(l => { if (show) filters.locations.add(l); else filters.locations.delete(l); });
+  renderFilters();
+  rebuildCalendar();
+}
+
+function selectAllFacilitators(show) {
+  const vals = [...new Set(allActivities.map(a => a.facilitator).filter(f => f && f.trim()))];
+  vals.forEach(f => { if (show) filters.facilitators.add(f); else filters.facilitators.delete(f); });
+  renderFilters();
+  rebuildCalendar();
+}
+
+function collapsibleSection(key, label, count, selectAllFn, checksHtml) {
+  const open = filterSections[key];
+  return `<div class="filter-section-header" onclick="toggleFilterSection('${key}')">
+    <span class="fsec-arrow">${open ? '\u25BC' : '\u25B6'}</span>
+    <span>${label}</span>
+    <span class="fsec-count">${count}</span>
+  </div>
+  <div class="filter-section-body" style="${open ? '' : 'display:none'}">
+    <div class="select-all-bar" style="margin-bottom:2px;padding-bottom:2px">
+      <button onclick="${selectAllFn}(true)">\u2713 All</button>
+      <button onclick="${selectAllFn}(false)">Clear</button>
+    </div>
+    <div class="filter-scroll">${checksHtml}</div>
+  </div>`;
+}
+
 function renderFilters() {
   const el = document.getElementById('filtersCard');
+  const scrollStates = {};
+  el.querySelectorAll('.filter-scroll').forEach(s => { scrollStates[s.offsetTop] = s.scrollTop; });
 
+  const priorityCounts = {};
+  allActivities.forEach(a => {
+    const key = getPriorityClass(a.priority);
+    priorityCounts[key] = (priorityCounts[key] || 0) + 1;
+  });
   const priorityChecks = PRIORITY_LEVELS.map(p =>
     `<label style="display:flex;align-items:center;gap:4px;font-size:11px;padding:2px 0;cursor:pointer">
       <input type="checkbox" ${filters.priorityKeys.has(p.key)?'checked':''} onchange="togglePriority('${p.key}')" style="accent-color:#D4AF37">
       ${p.label}
       <span style="color:var(--text-dim);font-size:9px">${p.range}</span>
+      <span style="color:var(--text-dim);font-size:9px;margin-left:auto">${priorityCounts[p.key]||0}</span>
     </label>`
   ).join('');
 
+  const allLocs = [...new Set(allActivities.map(a => a.location).filter(l => l && l.trim()))].sort();
+  const locCounts = {};
+  allActivities.forEach(a => { const l = a.location; if (l && l.trim()) locCounts[l] = (locCounts[l]||0)+1; });
+  const locChecks = allLocs.map(l =>
+    `<label style="display:flex;align-items:center;gap:4px;font-size:11px;padding:1px 0;cursor:pointer">
+      <input type="checkbox" ${filters.locations.has(l)?'checked':''} onchange="toggleLocation('${l.replace(/'/g, "\\'")}')" style="accent-color:#D4AF37">
+      <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${l}</span>
+      <span style="color:var(--text-dim);font-size:9px">${locCounts[l]||0}</span>
+    </label>`
+  ).join('');
+  const locSection = allLocs.length ? collapsibleSection('location', 'Location', allLocs.length, 'selectAllLocations', locChecks) : '';
+
+  const allFacs = [...new Set(allActivities.map(a => a.facilitator).filter(f => f && f.trim()))].sort();
+  const facCounts = {};
+  allActivities.forEach(a => { const f = a.facilitator; if (f && f.trim()) facCounts[f] = (facCounts[f]||0)+1; });
+  const facChecks = allFacs.map(f =>
+    `<label style="display:flex;align-items:center;gap:4px;font-size:11px;padding:1px 0;cursor:pointer">
+      <input type="checkbox" ${filters.facilitators.has(f)?'checked':''} onchange="toggleFacilitator('${f.replace(/'/g, "\\'")}')" style="accent-color:#D4AF37">
+      <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${f}</span>
+      <span style="color:var(--text-dim);font-size:9px">${facCounts[f]||0}</span>
+    </label>`
+  ).join('');
+  const facSection = allFacs.length ? collapsibleSection('facilitator', 'Facilitator', allFacs.length, 'selectAllFacilitators', facChecks) : '';
+
+  const allPeriods = [...new Set(allActivities.map(a => a.frequency_period).filter(Boolean))].sort();
+  const periodCounts = {};
+  allActivities.forEach(a => { const p = a.frequency_period; if (p) periodCounts[p] = (periodCounts[p]||0)+1; });
+  const periodChecks = allPeriods.map(p =>
+    `<label style="display:flex;align-items:center;gap:4px;font-size:11px;padding:1px 0;cursor:pointer">
+      <input type="checkbox" ${filters.frequencyPeriods.has(p)?'checked':''} onchange="toggleFrequencyPeriod('${p}')" style="accent-color:#D4AF37">
+      <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-transform:capitalize">${p}</span>
+      <span style="color:var(--text-dim);font-size:9px">${periodCounts[p]||0}</span>
+    </label>`
+  ).join('');
+  const freqSection = allPeriods.length ? collapsibleSection('frequency', 'Frequency', allPeriods.length, 'selectAllFrequencyPeriods', periodChecks) : '';
+
+  const durKeys = Object.keys(DURATION_LABELS);
+  const durCounts = {};
+  allActivities.forEach(a => { const r = getDurationRange(a.duration_minutes); durCounts[r] = (durCounts[r]||0)+1; });
+  const durChecks = durKeys.map(k =>
+    `<label style="display:flex;align-items:center;gap:4px;font-size:11px;padding:1px 0;cursor:pointer">
+      <input type="checkbox" ${filters.durationRanges.has(k)?'checked':''} onchange="toggleDurationRange('${k}')" style="accent-color:#D4AF37">
+      <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${DURATION_LABELS[k]}</span>
+      <span style="color:var(--text-dim);font-size:9px">${durCounts[k]||0}</span>
+    </label>`
+  ).join('');
+  const durSection = durKeys.length ? collapsibleSection('duration', 'Duration', durKeys.length, 'selectAllDurationRanges', durChecks) : '';
+
+  const schedCount = allSchedule.filter(e => !e.activity_name.includes('(backup)')).length;
+  const backupCount = allSchedule.filter(e => e.activity_name.includes('(backup)')).length;
+  const skippedCount = allSkipped.length;
+
   const viewChecks =
-    `<div style="margin-top:6px">
+    `<div style="margin-top:6px;border-top:1px solid var(--border-light);padding-top:5px">
       <div style="font-size:10px;color:#8A8A8A;margin-bottom:2px;text-transform:uppercase;letter-spacing:0.5px">Show</div>
       <label style="display:flex;align-items:center;gap:4px;font-size:12px;padding:2px 0;cursor:pointer">
-        <input type="checkbox" ${filters.showScheduled?'checked':''} onchange="filters.showScheduled=!filters.showScheduled;rebuildCalendar()"> Scheduled
+        <input type="checkbox" ${filters.showScheduled?'checked':''} onchange="filters.showScheduled=!filters.showScheduled;rebuildCalendar()"> Scheduled <span style="color:var(--text-dim);font-size:10px;margin-left:auto">${schedCount}</span>
       </label>
       <label style="display:flex;align-items:center;gap:4px;font-size:12px;padding:2px 0;cursor:pointer">
-        <input type="checkbox" ${filters.showBackups?'checked':''} onchange="filters.showBackups=!filters.showBackups;rebuildCalendar()"> Backup
+        <input type="checkbox" ${filters.showBackups?'checked':''} onchange="filters.showBackups=!filters.showBackups;rebuildCalendar()"> Backup <span style="color:var(--text-dim);font-size:10px;margin-left:auto">${backupCount}</span>
       </label>
       <label style="display:flex;align-items:center;gap:4px;font-size:12px;padding:2px 0;cursor:pointer">
-        <input type="checkbox" ${filters.showSkipped?'checked':''} onchange="filters.showSkipped=!filters.showSkipped;rebuildCalendar()"> Skipped
+        <input type="checkbox" ${filters.showSkipped?'checked':''} onchange="filters.showSkipped=!filters.showSkipped;rebuildCalendar()"> Skipped <span style="color:var(--text-dim);font-size:10px;margin-left:auto">${skippedCount}</span>
       </label>
     </div>`;
 
   el.innerHTML =
     `<div style="font-size:10px;font-weight:600;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px;color:#8A8A8A">Priority</div>` +
     `<div style="display:flex;flex-wrap:wrap;gap:0 12px">` + priorityChecks + `</div>` +
+    locSection +
+    facSection +
+    freqSection +
+    durSection +
     viewChecks;
+
+  requestAnimationFrame(() => {
+    el.querySelectorAll('.filter-scroll').forEach(s => {
+      const saved = scrollStates[s.offsetTop];
+      if (saved) s.scrollTop = saved;
+    });
+  });
 }
 
 function toggleType(type) {
@@ -808,6 +1014,49 @@ function toggleType(type) {
 function togglePriority(key) {
   if (filters.priorityKeys.has(key)) filters.priorityKeys.delete(key);
   else filters.priorityKeys.add(key);
+  rebuildCalendar();
+}
+
+function toggleFilterSection(key) {
+  filterSections[key] = !filterSections[key];
+  renderFilters();
+}
+
+function toggleLocation(val) {
+  if (filters.locations.has(val)) filters.locations.delete(val);
+  else filters.locations.add(val);
+  rebuildCalendar();
+}
+
+function toggleFacilitator(val) {
+  if (filters.facilitators.has(val)) filters.facilitators.delete(val);
+  else filters.facilitators.add(val);
+  rebuildCalendar();
+}
+
+function toggleFrequencyPeriod(val) {
+  if (filters.frequencyPeriods.has(val)) filters.frequencyPeriods.delete(val);
+  else filters.frequencyPeriods.add(val);
+  rebuildCalendar();
+}
+
+function toggleDurationRange(val) {
+  if (filters.durationRanges.has(val)) filters.durationRanges.delete(val);
+  else filters.durationRanges.add(val);
+  rebuildCalendar();
+}
+
+function selectAllFrequencyPeriods(show) {
+  const vals = [...new Set(allActivities.map(a => a.frequency_period).filter(Boolean))];
+  vals.forEach(v => { if (show) filters.frequencyPeriods.add(v); else filters.frequencyPeriods.delete(v); });
+  renderFilters();
+  rebuildCalendar();
+}
+
+function selectAllDurationRanges(show) {
+  const vals = Object.keys(DURATION_LABELS);
+  vals.forEach(v => { if (show) filters.durationRanges.add(v); else filters.durationRanges.delete(v); });
+  renderFilters();
   rebuildCalendar();
 }
 
@@ -969,6 +1218,15 @@ function getFilteredEvents() {
     if (isBackup && !filters.showBackups) return false;
     if (!isBackup && !filters.showScheduled) return false;
     if (filters.hiddenActivityIds.has(e.activity_id)) return false;
+    if (filters.locations.size > 0 && !filters.locations.has(e.location || '')) return false;
+    if (filters.facilitators.size > 0 && !filters.facilitators.has(e.facilitator || '')) return false;
+    if (filters.frequencyPeriods.size > 0 || filters.durationRanges.size > 0) {
+      const act = allActivities.find(a => a.id === e.activity_id);
+      if (act) {
+        if (filters.frequencyPeriods.size > 0 && !filters.frequencyPeriods.has(act.frequency_period || '')) return false;
+        if (filters.durationRanges.size > 0 && !filters.durationRanges.has(getDurationRange(act.duration_minutes))) return false;
+      }
+    }
     return true;
   });
 }
@@ -1064,6 +1322,15 @@ function showSkippedModalFromProps(props) {
   allTrips = fullData.client_schedule.travel_plans;
   allActivities = fullData.activities;
   allSkipped = summary.skipped_activities || [];
+
+  const uniqLocs = [...new Set(allActivities.map(a => a.location).filter(l => l && l.trim()))].sort();
+  filters.locations = new Set(uniqLocs);
+  const uniqFacs = [...new Set(allActivities.map(a => a.facilitator).filter(f => f && f.trim()))].sort();
+  filters.facilitators = new Set(uniqFacs);
+  const uniqPeriods = [...new Set(allActivities.map(a => a.frequency_period).filter(Boolean))].sort();
+  filters.frequencyPeriods = new Set(uniqPeriods);
+  const allDurKeys = Object.keys(DURATION_LABELS);
+  filters.durationRanges = new Set(allDurKeys);
 
   renderStats(summary);
   renderTypeBreakdown(summary.placed_by_type);
