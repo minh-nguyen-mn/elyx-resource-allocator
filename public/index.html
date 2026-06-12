@@ -390,6 +390,7 @@ body {
 .skipped-item .skipped-head { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
 .skipped-item .skipped-name { color: #9B2226; font-weight: 600; }
 .skipped-item .skipped-pri { font-size: 9px; color: var(--text-dim); }
+.skipped-item .skipped-session-count { font-size: 9px; color: var(--text-dim); flex-shrink: 0; }
 .skipped-item .skipped-dates { color: var(--text-muted); font-size: 10px; margin-top: 1px; }
 .skipped-item .skipped-adj { color: var(--text-muted); font-size: 10px; }
 
@@ -515,7 +516,7 @@ body {
       </div>
 
       <div class="card">
-        <div class="card-header">Skipped Activities</div>
+        <div class="card-header">Skipped Activities <span id="skippedCount" style="font-weight:400;color:var(--text-dim)"></span></div>
         <div class="card-body compact" id="skippedCard"></div>
       </div>
 
@@ -680,10 +681,12 @@ function showStatModal(type) {
     ];
   } else if (type === 'violations') {
     title = 'Constraint Violations';
+    const skippedSessions = (s.skipped_activities||[]).reduce((sum, sa) => sum + (sa.missed_dates||[]).length, 0);
     rows = [
       `<div class="field"><div class="field-label">Total Violations</div><div class="field-value">${s.constraint_violations}</div></div>`,
-      `<div class="field"><div class="field-label">Skipped Activities</div><div class="field-value">${(s.skipped_activities||[]).length} activities affected</div></div>`,
-      `<div class="field"><div class="field-label">Details</div><div class="field-value">Violations occur when activities cannot be placed within their preferred time windows due to resource constraints, schedule conflicts, or availability limits.</div></div>`
+      `<div class="field"><div class="field-label">Skipped Sessions</div><div class="field-value">${skippedSessions} missed date${skippedSessions!==1?'s':''}</div></div>`,
+      `<div class="field"><div class="field-label">Activities Affected</div><div class="field-value">${(s.skipped_activities||[]).length} distinct activit${(s.skipped_activities||[]).length===1?'y':'ies'}</div></div>`,
+      `<div class="field"><div class="field-label">Details</div><div class="field-value">Constraint violations are scheduling conflicts detected by the allocator. A single violation can prevent multiple activity sessions from being placed, which is why the skipped sessions count often exceeds the violation count.</div></div>`
     ];
   } else if (type === 'backups') {
     title = 'Backup Activities Used';
@@ -971,7 +974,7 @@ function renderFilters() {
 
   const schedCount = allSchedule.filter(e => !e.activity_name.includes('(backup)')).length;
   const backupCount = allSchedule.filter(e => e.activity_name.includes('(backup)')).length;
-  const skippedCount = allSkipped.length;
+  const skippedCount = allSkipped.reduce((sum, s) => sum + (s.missed_dates || []).length, 0);
 
   const viewChecks =
     `<div style="margin-top:6px;border-top:1px solid var(--border-light);padding-top:5px">
@@ -1139,6 +1142,8 @@ function selectAllSkipped(show) {
 function renderSkipped() {
   const el = document.getElementById('skippedCard');
   const skipped = allSkipped;
+  const totalSessions = skipped.reduce((sum, s) => sum + (s.missed_dates || []).length, 0);
+  document.getElementById('skippedCount').textContent = `(${totalSessions})`;
   const oldScroll = el.querySelector('.skipped-list');
   const savedScrollTop = oldScroll ? oldScroll.scrollTop : 0;
   if (!skipped || skipped.length === 0) {
@@ -1172,7 +1177,8 @@ function renderSkipped() {
           <input type="checkbox" ${checked?'checked':''} style="accent-color:#D4AF37;margin-top:2px" onchange="toggleSkipped('${s.activity_id}')">
           <div class="skipped-body">
             <div class="skipped-head">
-              <span class="skipped-name">${allDates.length}x ${s.activity_name}</span>
+              <span class="skipped-name">${s.activity_name}</span>
+              <span class="skipped-session-count">${allDates.length}</span>
               <span class="skipped-pri">${getPriorityLabel(s.priority)}</span>
             </div>
             <div class="skipped-dates">${visible.join('; ')}${hasMore ? '; <span style="color:#D4AF37;cursor:pointer;font-weight:500" onclick="document.getElementById(\'more_'+uid+'\').style.display=\'inline\';this.style.display=\'none\'">+' + hidden.length + ' more...</span><span id="more_'+uid+'" style="display:none">' + hidden.join('; ') + '</span>' : ''}</div>
