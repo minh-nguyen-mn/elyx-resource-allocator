@@ -57,6 +57,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 .fc-event.event-therapy { background: #9f7aea; border-color: #9f7aea; }
 .fc-event.event-consultation { background: #4299e1; border-color: #4299e1; }
 .travel-block { background: #f56565 !important; border-color: #f56565 !important; color: #fff !important; font-weight: 600; }
+.fc-event.event-skipped { background: #e2e8f0 !important; border-color: #cbd5e0 !important; color: #a0aec0 !important; font-weight: 400; font-style: italic; text-decoration: line-through; opacity: .65; }
 
 .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; z-index: 1000; }
 .modal-overlay.active { display: flex; }
@@ -189,6 +190,22 @@ function showTravelModal(props) {
     `<div class="field"><div class="field-label">${label}</div><div class="field-value">${value}</div></div>`
   ).join('');
   document.getElementById('modalTitle').textContent = '✈️ ' + props.destination;
+  document.getElementById('modalOverlay').classList.add('active');
+}
+
+function showSkippedModal(props) {
+  const body = document.getElementById('modalBody');
+  const fields = [
+    ['Activity', props.activity_name],
+    ['Type', TYPE_LABELS[props.activity_type] || props.activity_type],
+    ['Priority', props.priority <= 3 ? 'Critical' : props.priority <= 10 ? 'High' : props.priority <= 20 ? 'Medium' : 'Low'],
+    ['Missed Date', props.missed_date],
+    ['Adjustment', props.skip_adjustment]
+  ];
+  body.innerHTML = fields.map(([label, value]) =>
+    `<div class="field"><div class="field-label">${label}</div><div class="field-value">${value}</div></div>`
+  ).join('');
+  document.getElementById('modalTitle').textContent = '✕ ' + props.activity_name;
   document.getElementById('modalOverlay').classList.add('active');
 }
 
@@ -331,18 +348,84 @@ function renderConstraints(clientSchedule) {
     `<div style="font-size:13px;margin-top:10px"><strong>${blocked.length}</strong> blocked days</div>`;
 }
 
+function formatDate(d) {
+  const dt = new Date(d + 'T00:00:00');
+  return dt.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+}
+
+function groupMissedDates(dates, period) {
+  if (!dates || dates.length === 0) return [];
+  if (period === 'day') {
+    // For daily: return contiguous ranges
+    const sorted = [...dates].sort();
+    const ranges = [];
+    let start = sorted[0], end = sorted[0];
+    for (let i = 1; i < sorted.length; i++) {
+      const prev = new Date(end + 'T00:00:00');
+      const cur = new Date(sorted[i] + 'T00:00:00');
+      const diff = (cur - prev) / 86400000;
+      if (diff === 1) {
+        end = sorted[i];
+      } else {
+        ranges.push(start === end ? formatDate(start) : formatDate(start) + ' – ' + formatDate(end));
+        start = end = sorted[i];
+      }
+    }
+    ranges.push(start === end ? formatDate(start) : formatDate(start) + ' – ' + formatDate(end));
+    return ranges;
+  }
+  // For weekly/monthly/quarterly: group by period
+  const groups = {};
+  const locale = 'en-US';
+  const sorted = [...dates].sort();
+  for (const d of sorted) {
+    const dt = new Date(d + 'T00:00:00');
+    let key, label;
+    if (period === 'week') {
+      const wkStart = new Date(dt);
+      wkStart.setDate(dt.getDate() - dt.getDay());
+      key = wkStart.toISOString().slice(0, 10);
+      label = 'Week of ' + wkStart.toLocaleDateString(locale, { month: 'short', day: 'numeric' });
+    } else if (period === 'month') {
+      key = d.slice(0, 7);
+      label = dt.toLocaleDateString(locale, { month: 'long', year: 'numeric' });
+    } else {
+      const q = Math.floor(dt.getMonth() / 3) + 1;
+      key = dt.getFullYear() + '-Q' + q;
+      label = 'Q' + q + ' ' + dt.getFullYear();
+    }
+    if (!groups[key]) { groups[key] = { label, count: 0 }; }
+    groups[key].count++;
+  }
+  return Object.values(groups).map(g => g.count + 'x ' + g.label);
+}
+
+let skippedIdCounter = 0;
+
 function renderSkipped(skipped) {
   const el = document.getElementById('skippedList');
   if (!skipped || skipped.length === 0) {
     el.innerHTML = '<div style="color:#718096;font-size:13px">No activities skipped</div>';
     return;
   }
-  el.innerHTML = skipped.map(s =>
-    `<div style="font-size:12px;padding:6px 0;border-bottom:1px solid #f0f0f0">
-      <strong style="color:#e53e3e">${s.instances_missed}x ${s.activity_name}</strong>
-      <br><span style="color:#718096;font-size:11px">Adjustment: ${s.skip_adjustment}</span>
-    </div>`
-  ).join('');
+  el.innerHTML = skipped.map(s => {
+    const act = allActivities.find(a => a.id === s.activity_id);
+    const period = act ? act.frequency_period : 'day';
+    const allDates = s.missed_dates || [];
+    const groups = groupMissedDates(allDates, period);
+    const uid = 'skp_' + (++skippedIdCounter);
+    const showCount = 5;
+    const visible = groups.slice(0, showCount);
+    const hidden = groups.slice(showCount);
+    const hasMore = hidden.length > 0;
+    return `<div style="font-size:12px;padding:6px 0;border-bottom:1px solid #f0f0f0">
+      <strong style="color:#e53e3e">${allDates.length}x ${s.activity_name}</strong>
+      <br><span style="color:#718096;font-size:11px">${visible.join('; ')}</span>
+      ${hasMore ? `<br><span style="color:#4299e1;font-size:11px;cursor:pointer" onclick="document.getElementById('${uid}').style.display='inline';this.style.display='none'">+${hidden.length} more...</span>
+      <span id="${uid}" style="display:none;color:#718096;font-size:11px">; ${hidden.join('; ')}</span>` : ''}
+      <br><span style="color:#718096;font-size:11px">↪ ${s.skip_adjustment}</span>
+    </div>`;
+  }).join('');
 }
 
 function getFilteredEvents() {
@@ -384,6 +467,26 @@ function buildCalendar(events, trips) {
     }];
   });
 
+  const skippedEvents = allSkipped.flatMap(s => {
+    const act = allActivities.find(a => a.id === s.activity_id);
+    if (!act || !filters.types[act.type] || filters.hiddenActivityIds.has(s.activity_id)) return [];
+    return (s.missed_dates || []).map(d => ({
+      title: '✕ ' + s.activity_name,
+      start: d,
+      allDay: true,
+      className: 'event-skipped',
+      extendedProps: {
+        isSkipped: true,
+        activity_name: s.activity_name,
+        activity_type: act.type,
+        priority: s.priority,
+        skip_adjustment: s.skip_adjustment,
+        missed_date: d,
+        duration_minutes: 0
+      }
+    }));
+  });
+
   const calEvents = [
     ...events.map(e => ({
       title: e.activity_name,
@@ -393,7 +496,8 @@ function buildCalendar(events, trips) {
       className: 'event-' + e.activity_type,
       extendedProps: { ...e }
     })),
-    ...travelEvents
+    ...travelEvents,
+    ...skippedEvents
   ];
 
   calendarInstance = new FullCalendar.Calendar(calendarEl, {
@@ -407,6 +511,7 @@ function buildCalendar(events, trips) {
     eventClick: function(info) {
       const props = info.event.extendedProps;
       if (props.isTravel) { showTravelModal(props); return; }
+      if (props.isSkipped) { showSkippedModal(props); return; }
       showEventModal(props);
     },
     height: 'auto',

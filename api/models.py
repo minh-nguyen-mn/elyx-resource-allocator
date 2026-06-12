@@ -126,6 +126,7 @@ class SkippedActivity(BaseModel):
     priority: int
     instances_missed: int
     skip_adjustment: str
+    missed_dates: list[str] = Field(default_factory=list)
 
 
 class SchedulingSummary(BaseModel):

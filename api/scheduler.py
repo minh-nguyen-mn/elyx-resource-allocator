@@ -193,6 +193,33 @@ def _infer_preferred_day_offset(name: str) -> int | None:
     return None
 
 
+def _compute_intended_dates(activity, total_days, start_date, interval_days, pref_day, days_offset):
+    n = _calculate_instances(activity, total_days)
+    if n == 0:
+        return []
+    if activity.frequency_period == FrequencyPeriod.DAY:
+        current = start_date
+    elif activity.frequency_period == FrequencyPeriod.WEEK:
+        current = start_date
+        if pref_day is not None:
+            da = (pref_day - current.weekday()) % 7
+            current += timedelta(days=da)
+        else:
+            current += timedelta(days=days_offset)
+    else:
+        current = start_date + timedelta(days=days_offset)
+        if pref_day is not None:
+            da = (pref_day - current.weekday()) % 7
+            if da > 0:
+                current += timedelta(days=da)
+    dates = []
+    for _ in range(n):
+        if current <= END_DATE:
+            dates.append(current.strftime("%Y-%m-%d"))
+        current += timedelta(days=interval_days)
+    return dates
+
+
 def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], SchedulingSummary]:
     activities = sorted(data.activities, key=lambda a: (a.priority, a.id))
 
@@ -557,6 +584,9 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
         missed = n_instances - placed
         constraint_violations += missed
         if missed > 0 and activity.skip_adjustments:
+            main_placed = {d for (aid, d) in activity_date_used if aid == activity.id}
+            intended = _compute_intended_dates(activity, total_days, START_DATE, interval_days, pref_day, days_offset)
+            missed_dates = sorted(set(intended) - main_placed)
             if activity.id not in skipped_activities:
                 skipped_activities[activity.id] = SkippedActivity(
                     activity_id=activity.id,
@@ -565,7 +595,11 @@ def compute_schedule(data: FullData) -> tuple[list[ScheduledActivity], Schedulin
                     priority=activity.priority,
                     instances_missed=0,
                     skip_adjustment=activity.skip_adjustments,
+                    missed_dates=missed_dates,
                 )
+            else:
+                existing = set(skipped_activities[activity.id].missed_dates)
+                skipped_activities[activity.id].missed_dates = sorted(existing | set(missed_dates))
             skipped_activities[activity.id].instances_missed += missed
 
         total_placed += placed
