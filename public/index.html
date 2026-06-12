@@ -161,6 +161,7 @@ const filters = {
   priorityKey: 'all',
   showScheduled: true,
   showBackups: true,
+  showSkipped: true,
   hiddenActivityIds: new Set()
 };
 
@@ -275,6 +276,10 @@ function renderFilters() {
       <label style="display:flex;align-items:center;gap:4px;font-size:12px;padding:2px 0;cursor:pointer">
         <input type="checkbox" ${filters.showBackups?'checked':''} onchange="filters.showBackups=!filters.showBackups;rebuildCalendar()">
         Backup
+      </label>
+      <label style="display:flex;align-items:center;gap:4px;font-size:12px;padding:2px 0;cursor:pointer">
+        <input type="checkbox" ${filters.showSkipped?'checked':''} onchange="filters.showSkipped=!filters.showSkipped;rebuildCalendar()">
+        Skipped
       </label>
     </div>`;
 
@@ -467,9 +472,10 @@ function buildCalendar(events, trips) {
     }];
   });
 
-  const skippedEvents = allSkipped.flatMap(s => {
+  const skippedEvents = (filters.showSkipped ? allSkipped : []).flatMap(s => {
     const act = allActivities.find(a => a.id === s.activity_id);
-    if (!act || !filters.types[act.type] || filters.hiddenActivityIds.has(s.activity_id)) return [];
+    if (!act || act.frequency_period !== 'day') return [];
+    if (!filters.types[act.type] || filters.hiddenActivityIds.has(s.activity_id)) return [];
     return (s.missed_dates || []).map(d => ({
       title: '✕ ' + s.activity_name,
       start: d,
